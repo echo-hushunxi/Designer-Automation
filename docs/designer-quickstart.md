@@ -1,6 +1,6 @@
 # 设计师快速连接
 
-需要Node22.19+、Git及私有仓库访问权限。首次克隆后安装依赖、连接一次：
+需要Node22.19+、Git及仓库访问权限。首次克隆后安装依赖、连接一次：
 
 ```sh
 git clone git@github.com:echo-hushunxi/Designer-Automation.git
@@ -8,6 +8,8 @@ cd Designer-Automation
 npm ci
 npm run connect
 ```
+
+项目维护组织为 p2100；GitHub 归属转移当前受平台后台操作阻挡，完成前使用以上地址，状态见 [README](../README.md)。
 
 已拉取项目的设计师执行git pull、npm ci、npm run connect，再重启Agent的designer_experience连接。此次会把旧远程URL配置自动换成本地stdio MCP入口；普通内网使用不需要Token。Codex须在受信任项目中加载项目配置，参见[OpenAI Docs的MCP配置说明](https://learn.chatgpt.com/docs/extend/mcp?surface=cli)；首次打开项目时按Agent正常流程启用项目信任。
 

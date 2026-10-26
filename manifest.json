@@ -147,7 +147,7 @@
     },
     {
       "path": "docs/designer-quickstart.md",
-      "sha256": "e7dae7b59cb9822a81be72f5505e1ba11df157b17500b959d20c4e2f0db31d8c"
+      "sha256": "8085d7b717c151047ec149963ccda236a19ed9bae57f98b986fe1bdfcbeed558"
     },
     {
       "path": "docs/experience-operations.md",
@@ -571,11 +571,11 @@
     },
     {
       "path": "package.json",
-      "sha256": "11edb6456ee54d10ca45424a84a0d404c578ca6213e5a8abace47fecfa3f9511"
+      "sha256": "d74aa6493b21651d1b84d5091265175ef7c1f872fde9aa496f10c12d02baa510"
     },
     {
       "path": "README.md",
-      "sha256": "096c11b91ffeb0360cdb367cfbb9fa5eb3349b7d23416a2551ef68f0e6a38f06"
+      "sha256": "9c0834c27b6a4e570bbf46898f97dc1b6454f1b74e28d910e9f5b5999378a7d6"
     },
     {
       "path": "scripts/connect-experience.mjs",

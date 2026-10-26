@@ -1,73 +1,129 @@
 # Designer-Automation
 
-独立Git工程，运行程序0.4.0，既有生成规则固定为2026-10-26.1。
+面向设计师与 Agent 的站点审核、修复和共享经验工程，维护组织为 [p2100](https://github.com/p2100)。
 
-其他设计师从 [echo-hushunxi/Designer-Automation](https://github.com/echo-hushunxi/Designer-Automation) 拉取后，按[设计师快速连接](docs/designer-quickstart.md)运行npm ci及npm run connect即可，内网免Token。共享MCP固定在http://172.18.188.6:4381/mcp，复用MongoDB副本集的独立经验库；备份与恢复见[运维说明](docs/experience-operations.md)。连接文件与令牌均被Git和分发manifest排除。
+**审核 → 调整 → 设计师查看 → 有问题继续调整，确认后沉淀可复用经验。**
 
-设计师提供站点Git地址后，由其Agent读取AGENTS.md与core/maintenance.md，使用bin/workbench.mjs执行：拉取一次 → 审核 → 精确修复 → 增量复验 → 稳定预览 → 设计师反馈/认可。JSON配置、覆盖和证据由Agent准备。详细调用、能力边界与经验服务配置见[独立维护工作流](docs/standalone-workbench.md)。
+当前运行版本 **0.4.0**；原生成规则快照固定为 **2026-10-26.1**。当前可用仓库：[echo-hushunxi/Designer-Automation](https://github.com/echo-hushunxi/Designer-Automation)。
 
-共享经验统一走MCP：connect为Agent配置本地stdio入口，该入口和workbench共用中央MCP及MongoDB。设计师确认后，Agent按[经验规则](core/experience.md)筛选可复用结论，在准确作用域内共享：同类案例合并证据、冲突隔离、错误结论可纠正/撤回；一次性内容不强行提炼。首次仅来源站点生效，两个独立站点证据支持后才推广。无需维护者发布。断网记录持久保留，后台自动补传，无需手动sync；有积压才运行补传进程，完成即退出。详见[设计师快速连接](docs/designer-quickstart.md)。
+GitHub 归属计划转至 `p2100/Designer-Automation`。截至 2026-10-26，GitHub 转移接口提示“上一个仓库操作仍在进行”，实际归属尚未变化；以下克隆地址保持可用，转移完成后再统一更新。
 
-首次使用需Node >=22.19并npm ci；实际浏览器由SITE_BROWSER_EXECUTABLE指定。现有生成仍使用bin/da.mjs，其流程和原Harness源码不因维护入口改变。项目使用独立私有Git仓库；共享经验服务的连接检查与真实站点验收分别记录。
+## 设计师开始使用
 
-以下是原生成规则包的固定版本说明。其上游导出说明用于解释历史来源；不要用原Harness导出程序覆盖本独立工程的新运行模块。
+需要 Node.js **22.19+**、Git，以及能访问共享服务所在的内网。实际审核还需要宿主 Agent 可用的浏览器；项目不附带浏览器二进制。
 
-给 Harness、Codex 与其他能够读取文件的 Agent 使用的 Coupon 制作与审核包。详情页只是一个页面模块；通用规则、页面知识、个人方法和工具适配独立维护。
+```sh
+git clone git@github.com:echo-hushunxi/Designer-Automation.git
+cd Designer-Automation
+npm ci
+npm run connect
+```
 
-用户确认的卡片构图、层级、间距、数字／导航表达与PC／手机编排是后续任务默认要求，由 core/quality.md「后续任务默认执行的设计标准」维护。context 对所有页面、模式与生成／审核角色自动提供该规则；新任务冻结当前版本，历史产物保留原规范。后续制作沿用处理方法与质量底线，每站仍需形成自己的设计。
+重启 Agent 的 `designer_experience` MCP 连接。Codex 的项目配置需在受信任项目中加载；其他 Agent 执行 `npm run connect -- --client generic`，使用生成的 `.designer-data/mcp.json` 配置本地命令／stdio MCP。
 
-## 使用
+随后直接告诉 Agent：
 
-需要 Node 22+ 执行辅助工具；没有 Node 的 Agent 仍可从 AGENTS.md、knowledge/index.json 手动选择规则并记录同等证据，不能假称运行过检查。
+> 先读取 AGENTS.md、core/maintenance.md 和 core/experience.md。拉取我提供的站点 Git 仓库，按规范审核、集中调整并给我查看；我提出问题就继续调整。我确认当前版本没问题后，筛选已验证、可复用的经验，在准确范围内共享。一次性内容或原因未明的反馈不要强行变成规则。
+
+站点配置、修复记录、检查证据和经验字段由 Agent 准备，不要求设计师手填 JSON。只提供预览 URL 时可以审核；自动修复前仍须取得对应源码。新连接可先列工具和查询经验，连接成功不等于任何站点通过验收。
+
+### 已有克隆更新
+
+已有克隆执行：
+
+```sh
+git pull --ff-only
+npm ci
+npm run connect
+```
+
+再重启 MCP 连接。仓库实际转移完成后，再将 `origin` 更新为 `git@github.com:p2100/Designer-Automation.git`。日常反馈与经验同步不需要 Git 提交、手动 sync 或维护者发布。
+
+## 三个模块的边界
+
+| 模块 | 入口 | 职责 |
+| --- | --- | --- |
+| 原生成流程 | `bin/da.mjs` | 选择、冻结与执行原生成规则，保留既有生成、独立审核和交付门禁 |
+| 站点维护 | `bin/workbench.mjs` | Git 拉取、审核、修复、增量复验、稳定预览和设计师反馈 |
+| 共享经验 | `bin/experience-mcp.mjs` → 中央 MCP | 经验查询、可靠保存、证据归并、冲突处理、纠错和撤回 |
+
+维护流程读取同一套适用规则，不替换原生成入口，也不回写原 Harness 工程。设计师认可由 Agent 如实记录；程序不能代替人审美判断或证明人确实看过页面。
+
+## 审核与调整怎样提高效率
+
+- Git 仓库拉取一次，后续沿用同一工作区与任务。
+- 同一页面、宽度和状态的检查合并访问，避免为每个检查重复打开浏览器。
+- 按源码、产物、共享依赖、规则、经验快照和浏览环境判断影响范围，只复验需要更新的项；共享样式等变化会扩大复验。
+- 未变且仍有效的证据可以复用；访问过外部网络的检查不能只靠本地文件指纹复用。
+- 预览复用稳定地址，切换到最新候选；设计师继续反馈时不另起整轮任务。
+
+候选版本、证据和认可必须对应。未检查、证据过期或版本不一致，不能填写通过。命令与配置说明见[独立维护工作流](docs/standalone-workbench.md)。
+
+## 共享经验怎样保持清晰
+
+案例保留事实，可复用结论单独维护。经验是辅助方法，不能覆盖版本化业务与设计硬要求。
+
+1. **先筛选。** 只提炼问题、原因和预防方法都明确的已验证结论；一次性文案、偶发数据或未知根因可记录具体 skip 理由。
+2. **先检索。** 同类原则复用稳定 key 和规范表述；重复案例补充证据，不堆叠多条同义规则。语义比较由执行任务的 Agent 完成，服务端不声称理解任意相似表达。
+3. **限定范围。** 明确实际受影响的检查、页面、组件、触发条件和例外，不把一页经验挂到整个任务。
+4. **谨慎推广。** 第一次确认先在来源站点内生效；相同原则经至少两个独立站点验证后才自动推广。单站风格偏好不自动成为通用规则。
+5. **能够纠错。** 矛盾结论保留待处理；撤回或替换带版本校验和历史。旧错不能靠换名重新生效，失效的来源证据不能继续支撑通用结论。
+
+完整约定和字段示例见[经验维护规则](core/experience.md)。
+
+## MCP、持久化与断网补传
+
+```text
+设计师 Agent / workbench
+          ↓ 本地 stdio MCP
+    缓存、待传记录、后台监督
+          ↓ 中央 MCP
+       MongoDB 共享存储
+```
+
+中央服务为 **http://172.18.188.6:4381/mcp**。普通内网调用免 Token；数据库凭据和备份管理凭据留在服务器，不分发给设计师。设计师统一使用 connect 生成的本地入口，它提供四个工具：
+
+| 工具 | 用途 |
+| --- | --- |
+| `experience_search` | 查询适用结论，按站点、页面、组件和主题筛选 |
+| `experience_capture` | 保存反馈或已确认的经验，归并有效证据 |
+| `experience_manage` | 查看证据与历史、纠正或撤回结论 |
+| `experience_status` | 查看本机待传、拒绝和异常记录 |
+
+确认与完整待传内容一起原子保存，之后才发送。断网时保留，恢复后自动补传；补传子进程异常退出由监督进程重启，坏记录隔离后其他记录继续。整机关闭后，下次 MCP 启动恢复。`queued` 表示尚未共享，只有当前适用结论有效时才报告 `shared=true`。
+
+在线经验持久化于独立 MongoDB 库；本机 JSON 用于任务记录、缓存和可靠交付。已开始的审核任务固定经验快照，不因新经验或补传自动重跑审核。服务每 **6 小时**备份，保留 **30 天**；v2 备份包含案例、结论、撤回状态和历史，恢复先写入新集合再校验。
+
+连接说明见[设计师快速连接](docs/designer-quickstart.md)，部署、备份和恢复见[运维说明](docs/experience-operations.md)。截图与修改前后证据的附件存储不在本项目实现范围。
+
+## 规则覆盖与维护
+
+`knowledge/index.json` 是实际适用范围与完成度的机器入口。当前所有 17 个页面族都有业务框架，共同质量底线持续适用；页面专项状态如下：
+
+| 页面 | 专项细则状态 |
+| --- | --- |
+| `offer-detail` | active |
+| `home`、`store-detail` | partial |
+| 其他 14 个页面族 | pending |
+
+这是规则覆盖状态，不是站点验收成绩；pending 不表示没有业务约束。
+
+- `knowledge/imported`：上游规则的只读快照，不直接手工改写。
+- `core`、`knowledge/pages`、`workflows`、`systems`：执行方法、页面入口、流程和工具适配。
+- `compatibility/generation-baseline.json`：原生成规则与程序的兼容基线。
+- `.designer-data`、`.codex/config.toml`：本机私有任务、连接和队列，排除于 Git 和分发 manifest。
+
+正式规则升级须明确版本、修改所属源与索引，并审核更新快照、manifest 和兼容基线。不要运行原 Harness 的导出脚本覆盖本独立工程的新运行模块，也不要把共享经验静默升级成正式硬规则。
+
+## 验证与当前边界
 
 ```sh
 node bin/da.mjs check
-node bin/da.mjs context --page offer-detail --mode preserve --adapter codex
-node bin/da.mjs context --page home --mode new-design --profile homepage-first --adapter harness
-node bin/da.mjs pages
-# 先按 templates/task.json 和 core/start.md 填写真实任务与能力证据
-node bin/da.mjs doctor --task task.json --capabilities capabilities.json
-node bin/da.mjs init --id detail-trial-001 --task task.json
-# 完成该 run 的 inputs/brief.md，制作 outputs 中的候选，再冻结：
-node bin/da.mjs freeze --run runs/detail-trial-001
-node bin/da.mjs verify --run runs/detail-trial-001
-# 独立角色完成 review-1 证据后，用外部报告文件封存（格式见模板）：
-node bin/da.mjs seal-review --run runs/detail-trial-001 --review /absolute/review.json
-# 仅有遮蔽对照实验时，在封存独立结论后揭示历史交付：
-node bin/da.mjs reveal --run runs/detail-trial-001 --history /absolute/held-out-history
+npm run test:experience
 ```
 
-init 把当前包复制到任务 inputs/package 并记录版本/hash，之后从任务冻结副本读取规范。现有执行顺序见 core/workflow.md，每个目标工程的必查维度见 core/quality.md。制作前填写 inputs/coverage.json 的工程/页面/组件/卡型/视口/状态/规则矩阵；空覆盖不能冻结，漏掉已声明检查不能封存审核。独立角色再对照实际项目和规则核验清单是否漏列，不只回填作者挑选的几项。freeze 后不得改候选或输入；返工创建新 run 并记录 supersedes。辅助程序验证文件一致性，不裁定视觉合格，也不能认证审核人的真实独立性或判断人为声明的矩阵是否完整。
+包内容变更后由维护者运行 `npm run manifest` 更新完整性清单。完整性检查不能代替浏览器审核或设计师认可。
 
-新任务使用 version 2 task，由 `plan` 生成覆盖，绑定实际候选后再生成；不手填或删减自动清单。`seal-review`还核对能力证据、实际路由/模块inventory与任务预期。legacy模式仅兼容历史手工清单，不宣称具有新覆盖保证。程序无法识别伪造的观察或认证审核者身份，实际独立实看仍必须执行。
+0.4.0 已通过 24 项经验服务验证，覆盖真实 MongoDB 并发归并、纠错撤回、确认后中断恢复、补传进程重启、坏记录隔离和备份恢复。MongoDB 集成用例需管理员的私有测试配置，未配置时会明确 skip；测试使用隔离数据，不向正式库写测试经验。
 
-首次接入读 core/start.md。`context`默认只列resolve必读，后续阶段必须分别加载；`resources`和`deferredRequired`保留全部适用规则，`assets`保留可执行测量及完整数值契约，`policy`给出否决方向的可读查询。`pack --output /new/folder`生成不含私有运行/凭据的同哈希副本。复制后运行 `node --test tests/portable.test.mjs`；实际浏览器测试见 systems/browser.md。
-
-## 当前完成度
-
-- 2026-10-22.2：补入图文结构轴、文字基线、光学平衡、图文比例与跨端重组专项。审核必须记录alignmentAndBalance；测量器支持center-x/center-y，并保留边缘对齐和有理由的非零预算。可见图形重心与真实文字基线仍需实看，不能用元素盒自动推定。
-
-- 2026-10-22.1：全页面视觉完成度方法已直接接入作者plan/make/check及审核review；整页构图/节奏、色彩/状态、图像/品牌协调各有PC与手机覆盖项。已执行项需具体observations和pixelEvidence，几何测量不能代替像素；合理留白和精细的成熟版式保留。文件完整性检查不能认证截图来源、观察真伪或审美结论，仍须真实独立审核。旧冻结候选保持原合同，维护沿用授权边界。
-
-- 全页面公共布局：已接入生成预算、真实浏览器测量和PC/手机覆盖门槛，检查页边距、可见阅读轴、卡间距、文字容量及图文轨道。各站自定布局和合理预算，不固定皮肤。空态/不可用态/筛选重绘的自动预算分支尚待接入；保留现有独立状态审核，缺测不能通过。因此当前版本不能宣称所有页面所有状态已自动验收。
-- 所有含卡片页面：已启用卡片密度与构图差异方法，生成和审核共同检查真实短长内容、断点两侧的正文宽度、自然信息/操作组、最终 CSS 级联、状态分支及动态重绘。跨站和不同用途不能套同一卡片只换颜色；相同用途可复用本站组件。Logo 只按显示大小及卡内占位审核；源图清晰度与来源不属于这一排版专项。此通用防错方法不代表下面仍待整理的页面专项已经完成。
-- offer-detail：已接入详情生成、审核、数值契约、实测、原始截图和测量函数，细节标准沿用导出时的当前版本。
-- store-detail：店铺身份、首券与普通券、主推荐商家、主题导航、侧栏商家已有排版方法；整页业务/异常状态与独立样本覆盖仍 partial。
-- home：已接入首页方向、用户确认的四张参考处理方法、按用途确定的卡片容量与截断边界、70×70 Logo 下限、PC480px／手机400px Banner 上限，以及跨站跨端构图审核。homepage-first 仅在该模式启用；尚未整理的其他首页组件专项不算已完成。
-- 其他 14 个页面族：已有业务字段框架和共同质量底线，页面专项细则待整理。未整理不等于没有业务约束，也不等于达到详情页的细节覆盖程度。
-
-knowledge/index.json 是机器可读入口，knowledge/pages 是页面状态和扩展位置。追加首页等规则按 templates/page-rule.md 填写，再注册 active/candidate 和作用域；不要直接套详情卡84px或8px间距。
-
-## 目录职责
-
-core 保存通用执行、知识匹配、质量与遮蔽验证；workflows/coupon-pages 保存流程配置与制作方法；knowledge 保存公开索引、页面入口及只读导出规范；designers 保存可选个人方法；systems 描述工具能力和边界；bin 提供选择、冻结和完整性验证；templates 提供任务/规则/审核模板；docs 提供离线架构说明。runs 与私有知识/连接记录不进入版本管理和发布包。
-
-## 版本来源与分发
-
-当前迁移采用兼容导出：原 Harness skills 仍是已有规则的唯一编辑源，本包 knowledge/imported 是带逐文件 sourceHash/sha256 的可携带快照。core、页面索引、工具适配和辅助程序以本包为源。没有两份需要手工同步的正文。
-
-在上游 site-harness-v2 根运行 node scripts/export-designer-automation.mjs，更新导出与 manifest；Harness workflow 返回同一包的版本、入口及哈希，并检测上游漂移。可复制整个 Designer-Automation 目录，排除 .gitignore 指定的私有路径；不要只复制 SKILL.md。项目内 skill 入口在 .agents/skills/designer-automation，任意其他 Agent 可直接读 AGENTS.md。原 Harness 全局 skill 和历史冻结包继续有效。
-
-导入的旧资源中，`skills/…`、`policy/…` 和 `docs/…` 以 knowledge/imported 为知识根；源码中的 source/docs 指候选项目。原生工具名和原机器运行命令仅为 Harness 适配说明；其他 Agent 用 systems 中的等价能力，缺失记 not-run。没有复制 MCP 实现、密钥、私人运行记录或连接成功证明。
-
-架构、规则与完整性工具可供不同 Agent 使用；不代表已用所有 Agent 实际生成并验收新站。每次候选仍须单独进行真实浏览器检查和独立视觉审核，结论与适用范围记录在对应 run。
+当前尚未进行真实业务站点联测，不能据此宣称任意站点或全部 Agent 已通过生成与验收。
