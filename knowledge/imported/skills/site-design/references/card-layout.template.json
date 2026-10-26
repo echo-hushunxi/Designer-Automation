@@ -1,0 +1,62 @@
+{
+  "version": "2026-10-20.7",
+  "scope": "Fill authorized pages and exact candidate; preserve historic baselines",
+  "families": [
+    {
+      "pages": [],
+      "component": "",
+      "selectors": [],
+      "purpose": "",
+      "requiredFields": [],
+      "desktopGrouping": "",
+      "mobileGrouping": "",
+      "mobileComposition": {
+        "readingOrder": [],
+        "fieldGroups": [],
+        "logoToOffer": "",
+        "dateBelongsTo": "",
+        "actionToOffer": "",
+        "samePurposePeers": [],
+        "sameWidthEvidence": [],
+        "colorIndependentVerdict": "not-run"
+      },
+      "naturalGrowth": "",
+      "alignmentAxis": "",
+      "shortContent": "",
+      "longContentException": "",
+      "identityDifferences": [],
+      "sampleRoutes": [],
+      "review": {
+        "candidate": "",
+        "evidence": [],
+        "density": "not-run",
+        "diversity": "not-run"
+      },
+      "referenceMethod": {
+        "principle": "",
+        "siteAdaptation": "",
+        "focus": ""
+      },
+      "capacity": {
+        "desktop": {
+          "widthRange": [],
+          "height": null,
+          "maxHeight": null,
+          "logo": [],
+          "titleLines": null
+        },
+        "mobile": {
+          "widthRange": [],
+          "height": null,
+          "maxHeight": null,
+          "logo": [],
+          "titleLines": null
+        },
+        "summaryFields": [],
+        "omittedFields": [],
+        "fullDetail": ""
+      }
+    }
+  ],
+  "withoutCards": []
+}

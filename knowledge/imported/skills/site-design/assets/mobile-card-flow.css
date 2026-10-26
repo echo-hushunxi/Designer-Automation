@@ -1,0 +1,16 @@
+.mobile-claim-text,.mobile-date-prefix{display:contents}.mobile-claim-icon{display:none}
+@media(max-width:760px){
+ body[data-delivery-page=home] .mobile-date-prefix{display:none}
+ body[data-delivery-page=home][data-delivery-site] .mobile-claim[data-compact-offer-action=base]{width:44px;min-width:44px;height:44px;min-height:44px;padding:0;display:flex;align-items:center;justify-content:center;gap:0;box-sizing:border-box}
+ body[data-delivery-page=home][data-delivery-site] .mobile-claim[data-compact-offer-action=base]>.mobile-claim-content{display:none}
+ body[data-delivery-page=home][data-delivery-site] .mobile-claim[data-compact-offer-action=base]>.mobile-claim-icon{display:block;width:20px;height:20px;margin:0;padding:0;border:0;flex:none}
+ body[data-delivery-page=home][data-delivery-site] [data-reading-layout=horizontal]{align-items:stretch}
+ body[data-delivery-page=home][data-delivery-site] [data-reading-layout=horizontal] [data-reading-frame]{height:100%;min-height:0;align-self:stretch;border:0;border-radius:8px}
+ body[data-delivery-page=home][data-delivery-site] [data-reading-layout=horizontal] [data-reading-photo]{height:100%;min-height:0;max-height:none;align-self:stretch;object-fit:cover;border-radius:8px}
+ body[data-delivery-page=home][data-delivery-site] [data-decorative-reading-action]{display:inline-flex;align-items:center;min-height:20px;height:auto;line-height:20px;margin-top:8px}
+}
+@media(max-width:360px){
+ body[data-delivery-page=home][data-delivery-site] .mobile-claim[data-compact-offer-action=narrow]{width:44px;min-width:44px;height:44px;min-height:44px;padding:0;display:flex;align-items:center;justify-content:center;gap:0;box-sizing:border-box}
+ body[data-delivery-page=home][data-delivery-site] .mobile-claim[data-compact-offer-action=narrow]>.mobile-claim-content{display:none}
+ body[data-delivery-page=home][data-delivery-site] .mobile-claim[data-compact-offer-action=narrow]>.mobile-claim-icon{display:block;width:20px;height:20px;margin:0;padding:0;border:0;flex:none}
+}

@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "request": "Replace with the designer's actual request and preservation boundaries",
+  "artifactRoot": ".",
+  "allowedPaths": ["**/*.html", "**/*.css"],
+  "widths": [320,393,1440],
+  "breakpoints": [],
+  "commands": {},
+  "pages": [
+    {"id":"home","family":"home","route":"/index.html","dependsOn":["index.html"],"interactions":[]}
+  ]
+}

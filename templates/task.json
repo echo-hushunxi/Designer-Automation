@@ -1,0 +1,233 @@
+{
+  "version": 2,
+  "request": "Replace with the exact current user request; never infer full-site scope from a partial-page task.",
+  "author": "actual-author-id",
+  "adapter": "generic",
+  "mode": "new-design",
+  "delivery": "local HTML ZIP with independent browser and offline review; publication only in authorized scope",
+  "data": {
+    "kind": "api",
+    "provenance": "Replace with the authorized API or source-backed frozen snapshot and its evidence path"
+  },
+  "projects": [
+    {
+      "id": "actual-project-id",
+      "source": "actual-independent-source-path",
+      "candidateId": "UNBOUND",
+      "designIntent": "State an original, usable shopping composition and PC/mobile information priorities; no mandatory visual template",
+      "pages": [
+        {
+          "id": "home",
+          "routes": [
+            "/en/"
+          ],
+          "breakpoints": [
+            640,
+            1000
+          ],
+          "modules": [
+            {
+              "id": "header",
+              "selector": "header",
+              "cardFamily": "navigation",
+              "designDecision": "State actual layout and interaction expectations; record capacity-based regrouping, good baseline samples and applicable adaptive criteria, without inheriting these example breakpoints",
+              "states": [
+                "initial"
+              ],
+              "samples": [
+                "actual navigation links"
+              ],
+              "sampleCases": [
+                {
+                  "role": "short",
+                  "id": "header-replace-with-real-short-entity-id"
+                },
+                {
+                  "role": "long",
+                  "id": "header-replace-with-real-long-entity-id"
+                },
+                {
+                  "role": "last-row",
+                  "id": "header-replace-with-real-last-row-entity-id"
+                }
+              ],
+              "markedRole": "header",
+              "criteria": []
+            },
+            {
+              "id": "campaign",
+              "selector": "[data-module=campaign]",
+              "cardFamily": "campaign",
+              "designDecision": "Original shopping composition; PC <=480px, mobile <=400px; record capacity-based regrouping, good baseline samples and applicable adaptive criteria, without inheriting these example breakpoints",
+              "states": [
+                "initial"
+              ],
+              "samples": [
+                "actual campaign"
+              ],
+              "sampleCases": [
+                {
+                  "role": "short",
+                  "id": "campaign-replace-with-real-short-entity-id"
+                },
+                {
+                  "role": "long",
+                  "id": "campaign-replace-with-real-long-entity-id"
+                },
+                {
+                  "role": "last-row",
+                  "id": "campaign-replace-with-real-last-row-entity-id"
+                }
+              ],
+              "markedRole": "campaign",
+              "criteria": []
+            },
+            {
+              "id": "featured-offers",
+              "selector": "[data-module=featured-offers]",
+              "cardFamily": "featured-coupon",
+              "designDecision": "Describe field grouping, capacity and mobile regrouping; record capacity-based regrouping, good baseline samples and applicable adaptive criteria, without inheriting these example breakpoints",
+              "states": [
+                "initial"
+              ],
+              "samples": [
+                "actual shortest and longest CID"
+              ],
+              "sampleCases": [
+                {
+                  "role": "short",
+                  "id": "featured-offers-replace-with-real-short-entity-id"
+                },
+                {
+                  "role": "long",
+                  "id": "featured-offers-replace-with-real-long-entity-id"
+                },
+                {
+                  "role": "last-row",
+                  "id": "featured-offers-replace-with-real-last-row-entity-id"
+                }
+              ],
+              "markedRole": "featured-offers",
+              "criteria": []
+            },
+            {
+              "id": "more-offers",
+              "selector": "[data-module=more-offers]",
+              "cardFamily": "coupon-summary",
+              "designDecision": "Describe this module purpose and card family; record capacity-based regrouping, good baseline samples and applicable adaptive criteria, without inheriting these example breakpoints",
+              "states": [
+                "initial"
+              ],
+              "samples": [
+                "actual first and last CID"
+              ],
+              "sampleCases": [
+                {
+                  "role": "short",
+                  "id": "more-offers-replace-with-real-short-entity-id"
+                },
+                {
+                  "role": "long",
+                  "id": "more-offers-replace-with-real-long-entity-id"
+                },
+                {
+                  "role": "last-row",
+                  "id": "more-offers-replace-with-real-last-row-entity-id"
+                }
+              ],
+              "markedRole": "more-offers",
+              "criteria": []
+            },
+            {
+              "id": "merchant-discovery",
+              "selector": "[data-module=merchant-discovery]",
+              "cardFamily": "merchant",
+              "designDecision": "Merchant-first hierarchy, actual counts and reachable store pages; record capacity-based regrouping, good baseline samples and applicable adaptive criteria, without inheriting these example breakpoints",
+              "states": [
+                "initial"
+              ],
+              "samples": [
+                "actual SID"
+              ],
+              "sampleCases": [
+                {
+                  "role": "short",
+                  "id": "merchant-discovery-replace-with-real-short-entity-id"
+                },
+                {
+                  "role": "long",
+                  "id": "merchant-discovery-replace-with-real-long-entity-id"
+                },
+                {
+                  "role": "last-row",
+                  "id": "merchant-discovery-replace-with-real-last-row-entity-id"
+                }
+              ],
+              "markedRole": "merchant-discovery",
+              "criteria": []
+            },
+            {
+              "id": "topic-discovery",
+              "selector": "[data-module=topic-discovery]",
+              "cardFamily": "category",
+              "designDecision": "Semantic category navigation; independently designed organization; record capacity-based regrouping, good baseline samples and applicable adaptive criteria, without inheriting these example breakpoints",
+              "states": [
+                "initial"
+              ],
+              "samples": [
+                "actual category IDs"
+              ],
+              "sampleCases": [
+                {
+                  "role": "short",
+                  "id": "topic-discovery-replace-with-real-short-entity-id"
+                },
+                {
+                  "role": "long",
+                  "id": "topic-discovery-replace-with-real-long-entity-id"
+                },
+                {
+                  "role": "last-row",
+                  "id": "topic-discovery-replace-with-real-last-row-entity-id"
+                }
+              ],
+              "markedRole": "topic-discovery",
+              "criteria": []
+            },
+            {
+              "id": "footer",
+              "selector": "footer",
+              "cardFamily": "information-navigation",
+              "designDecision": "Readable real service links; record capacity-based regrouping, good baseline samples and applicable adaptive criteria, without inheriting these example breakpoints",
+              "states": [
+                "initial"
+              ],
+              "samples": [
+                "actual links"
+              ],
+              "sampleCases": [
+                {
+                  "role": "short",
+                  "id": "footer-replace-with-real-short-entity-id"
+                },
+                {
+                  "role": "long",
+                  "id": "footer-replace-with-real-long-entity-id"
+                },
+                {
+                  "role": "last-row",
+                  "id": "footer-replace-with-real-last-row-entity-id"
+                }
+              ],
+              "markedRole": "footer",
+              "criteria": []
+            }
+          ],
+          "reviewWidths": []
+        }
+      ],
+      "artifactRoot": "actual-project-id",
+      "layoutBudget": "layout/actual-project-id.json"
+    }
+  ]
+}

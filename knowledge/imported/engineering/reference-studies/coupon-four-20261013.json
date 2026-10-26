@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "kind": "live-reference-observations",
+  "date": "2026-10-13",
+  "method": "CUA rendered screenshots and read-only live DOM computed styles; actual card navigation and search UI",
+  "scope": "Four public sites, homepage and one store sample at 1440x1000 and 375x844, plus representative directory/category/offer/event/article/information pages",
+  "notFormalHarnessReceipts": true,
+  "measurementNotes": [
+    "CSS pixels, not image-pixel estimates. Initial mixed-width exploratory measurements were excluded from the normalized table.",
+    "Store gap is second card top minus first card bottom, excluding intervening ad slots. A CSS gap of normal can coexist with 20px card margins.",
+    "The desktop store samples are Taco Bueno except Dealmerica, which uses Chewy. They are equivalent page purposes, not identical content.",
+    "375px browser viewport has a 360px document area with a 15px scrollbar in this environment. Phone gutters use the document area.",
+    "Measurements are reference examples, not hard universal values or evidence of full-site acceptance. Refresh live references before a later release review.",
+    "Screenshots were visually inspected in CUA; this file archives measurements and observations, not screenshot files."
+  ],
+  "sites": [
+    {
+      "name": "Couponur",
+      "home": "https://couponur.com/",
+      "store": "https://couponur.com/businessList/tacobueno.html",
+      "measuredAt": "2026-10-13T10:37:51.313Z",
+      "cssMainFont": "Sora",
+      "colorRoles": "White and soft pink/purple campaign, dark text, red inner-page actions; campaign merchant board uses several coordinated accent colors",
+      "homeDesktopGroups": [
+        {"selector": ".banner-deal-grid", "gapPx": 10},
+        {"selector": ".value-list", "gapPx": 12},
+        {"selector": ".recommendation-layout", "gapPx": 14},
+        {"selector": ".recommendation-list", "gapPx": 10},
+        {"selector": ".recommendation-deal-grid", "gapPx": 12},
+        {"selector": ".featured-layout", "gapPx": 20}
+      ],
+      "storeDesktop": {"cardWidthPx": 820, "firstCardHeightPx": 126, "gapPx": 10, "paddingPx": [18,18,18,16], "codeCardRadiusPx": 14, "dealCardRadiusPx": 18, "titlePx": 17, "titleWeight": 780, "titleLineHeightPx": 23, "datePx": 12, "logoPx": [84,84], "logoFit": "contain", "ctaPx": [164,44], "ctaTextPx": 12},
+      "storePhone": {"gapPx": 10, "cardWidthPx": 332, "firstCardHeightPx": 177, "gutterPx": 14, "titlePx": 16, "datePx": 12, "logoPx": [60,60], "action": "Text button below information, beside the logo region"},
+      "homePhone": "Merchant campaign board becomes a horizontal track; last-chance cards become one column; some compact recommendation cards remain two columns",
+      "clickedFirstCardDestination": "https://couponur.com/businessDetail/66311.html"
+    },
+    {
+      "name": "Dealmerica",
+      "home": "https://dealmerica.com/",
+      "store": "https://dealmerica.com/businessList/chewy.html",
+      "measuredAt": "2026-10-13T10:37:51.939Z",
+      "cssMainFont": "Capriola",
+      "colorRoles": "Navy event campaign, white shopping surfaces, dark text, orange/red action treatment",
+      "homeDesktopGroups": [{"selector": ".recommendation-list", "gapPx": 20}],
+      "storeDesktop": {"cardWidthPx": 820, "firstCardHeightPx": 92, "gapPx": 20, "gapMechanism": "margin-bottom", "paddingPx": [10,14,10,10], "radiusPx": 6, "titlePx": 16, "titleWeight": 400, "titleLineHeightPx": 24, "datePx": 14, "logoPx": [100,72], "logoFit": "contain", "ctaPx": [127,36], "ctaTextPx": 14},
+      "storePhone": {"gapPx": 20, "cardWidthPx": 351, "firstCardHeightPx": 92, "gutterPx": 4.5, "titlePx": 16, "datePx": 14, "logoPx": [72,72], "action": "Arrow icon replaces desktop text button; sampled long title is truncated"},
+      "homePhone": "Super-value cards become one column; category coupon grids use two columns and 14px gaps",
+      "clickedFirstCardDestination": "https://dealmerica.com/businessDetail/642430.html"
+    },
+    {
+      "name": "Couponbon",
+      "home": "https://couponbon.com/",
+      "store": "https://couponbon.com/businessList/tacobueno.html",
+      "measuredAt": "2026-10-13T10:37:52.966Z",
+      "cssMainFont": "Sora",
+      "colorRoles": "White/light gray surfaces, dark text, orange-red ticket accents, outlines and actions",
+      "homeDesktopGroups": [
+        {"selector": ".value-list", "gapPx": 18},
+        {"selector": ".recommended-coupon-list", "gapPx": 42, "note": "38px arrow extends approximately 21px beyond card; remaining visible clearance is approximately 21px"},
+        {"selector": ".featured-deal-list", "gapPx": 24}
+      ],
+      "storeDesktop": {"cardWidthPx": 820, "firstCardHeightPx": 124, "gapPx": 24, "paddingPx": [20,20,20,20], "radiusPx": 8, "titlePx": 16, "titleWeight": 500, "titleLineHeightPx": 24, "datePx": 12, "logoPx": [82,82], "logoFit": "cover", "ctaPx": [168,38], "ctaTextPx": 15, "note": "Computed gray outer surface is covered by white ticket pseudo-elements; judge actual pixels"},
+      "storePhone": {"gapPx": 24, "cardWidthPx": 332, "firstCardHeightPx": 115, "gutterPx": 14, "titlePx": 16, "datePx": 11, "logoPx": [70,70], "action": "Circular arrow replaces desktop text button; sampled long title is truncated"},
+      "homePhone": "Campaign becomes a single carousel card; recommendation and featured grids use one column and 16px gaps",
+      "clickedFirstCardDestination": "https://couponbon.com/businessDetail/66311.html",
+      "additionalReachablePagePurposes": [
+        {"purpose": "Product/service ranking and comparison", "url": "https://couponbon.com/topGoodsList/meal-delivery-service.html"},
+        {"purpose": "Product/service recommendation detail", "url": "https://couponbon.com/topGoodsListDetail/factor.html"}
+      ]
+    },
+    {
+      "name": "Couponister",
+      "home": "https://couponister.com/",
+      "store": "https://couponister.com/businessList/tacobueno.html",
+      "measuredAt": "2026-10-13T10:37:53.662Z",
+      "cssMainFont": "Sora; some CTA roles use Roboto",
+      "colorRoles": "White surfaces, dark text, blue list actions; red/yellow/blue merchant campaign tiles",
+      "homeDesktopGroups": [{"selector": ".value-list", "gapPx": 18}, {"selector": ".recommended-coupon-list", "gapPx": 18}],
+      "storeDesktop": {"cardWidthPx": 820, "firstCardHeightPx": 112, "gapPx": 12, "paddingPx": [14,14,14,14], "radiusPx": 18, "titlePx": 16, "titleWeight": 700, "titleLineHeightPx": 22, "datePx": 12, "logoPx": [80,80], "logoFit": "cover", "ctaGroupPx": [158,40], "solidCtaSegmentPx": [116,40], "ctaTextPx": 14},
+      "storePhone": {"gapPx": 12, "cardWidthPx": 336, "firstCardHeightPx": 108, "gutterPx": 12, "titlePx": 16, "datePx": 12, "logoPx": [80,80], "action": "Circular blue arrow replaces desktop split ticket CTA; sampled long title is truncated"},
+      "homePhone": "Campaign merchant board stacks vertically; last-chance cards use one column; recommendation grid changes six columns to two with 12px gaps",
+      "clickedFirstCardDestination": "https://couponister.com/businessDetail/66311.html"
+    }
+  ],
+  "purposeComparison": {
+    "actuallyOpenedOnAllFour": ["home","store-detail","categories-index","category-detail","search","offer-detail","occasion-detail","guide-detail","about","contact","privacy","disclaimer"],
+    "noSeparatePublicEntryFoundInInspectedNavigation": ["stores-index","offers-index","occasions-index","guides-index","terms"],
+    "absenceIsNotAnExhaustiveNonexistenceClaim": true,
+    "categoryDirectory": "All four /allCategories pages are category directories even when an incoming label says View all brands or Stores",
+    "extraCouponbonPagesWereHiddenOnHomepage": true
+  },
+  "observedIssuesNotToPromote": [
+    "Phone title truncation and 11-12px metadata are observed reference treatments, not replacements for current full-title and 14px policies.",
+    "Ad slots and Watch an ad to get the promo code are commercial modules, outside the current no-ad generation scope.",
+    "Category summary quantities match merchant-count meaning; labels such as deals cannot be copied without count-kind verification.",
+    "Meal-delivery Factor detail describes a business-process optimization tool: observed entity/content mismatch, not a safe reusable content example.",
+    "The references share route patterns, IDs and many records. Shared implementation/data is an inference; four sites are not four independent industry samples."
+  ]
+}

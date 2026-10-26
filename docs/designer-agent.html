@@ -1,0 +1,14 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Designer-Automation 执行与审核架构</title>
+<style>body{font:16px/1.7 system-ui;max-width:1000px;margin:32px auto;padding:0 20px;color:#162b38;background:#f7fafb}h1{font-size:30px}h2{font-size:22px}section{background:white;border:1px solid #ccdce3;border-radius:12px;padding:22px;margin:20px 0}a{color:#155ca1}li{margin:10px 0}.notice{border-left:4px solid #b83c26;padding:12px 16px;background:#fff4ed}</style>
+<h1>Designer-Automation</h1><p>逐工程执行、逐项取证的生成与审核架构。Harness · Codex · Generic 读取同一规则包；具体执行与条款以链接正文为准。</p>
+<section><h2>入口与职责</h2><p><a href="../AGENTS.md">AGENTS</a> → <a href="../core/workflow.md">core/workflow：执行顺序</a> → <a href="../core/quality.md">core/quality：逐工程必查维度</a> → <a href="../knowledge/index.json">页面与模式规则</a> → <a href="../templates/coverage.json">覆盖清单</a> → <a href="../templates/review.json">独立审核记录</a> → 最终交付对账。</p><p>systems负责宿主能力映射，bin负责规则选择与文件冻结/一致性检查；它们不能替代真实视觉判断。</p></section>
+<section><h2>现有制作到交付顺序</h2><ol>
+<li><strong>完整登记：</strong>用 <code>init --projects</code> 把用户指定的全部工程 ID 冻结进任务，再登记源码/基线、授权区域及受影响回归；不能只做当前打开的一套。</li>
+<li><strong>定义应查范围：</strong>工程 → 页面/路由 → 模块/组件 → 卡型 → 视口/断点 → 状态 → 规则来源。共享组件展开实际调用位置。</li>
+<li><strong>实现前确定：</strong>真实字段、Logo最终显示/外框预算与卡内占位、层级、动作关系、四层间距和手机重组。</li>
+<li><strong>作者实查：</strong>PC、手机、320px和断点两侧；短长内容、困难Logo、连续列表、末卡、首次滚入及重绘；实际测量、看图和操作。</li>
+<li><strong>独立整轮审核：</strong>先实看再读方案，核对清单有无漏列；一次返回集中问题包。收集期间不改该工程源码。</li>
+<li><strong>统一返工与交付：</strong>关闭问题包后修源、构建新候选，复验遗留及受影响项；逐工程核对截图、报告、ZIP和真实入口。</li></ol></section>
+<section><h2>每个工程必须处理的十个维度</h2><p>工程与规则覆盖 · 内容与模块 · 容器和响应式 · 字号与层级 · Logo显示与占位 · 卡片密度与构图 · 按钮及全部入口 · 状态和重绘 · 跨工程/跨用途差异 · 交付身份一致性。</p><p>冻结前，程序核对每个已登记工程的候选身份和这十维至少一条检查；封评时逐工程、逐候选、逐检查 ID 核对。每项记录实际样本、来源、候选、路由、宽度、状态、动作、证据和结论。未执行记not-run；无此角色及范围外分别解释。人工仍要把登记清单与用户原话、真实页面和卡型核对，程序无法推断人为漏填的工程。</p>
+<p class="notice"><strong>Logo排版漏检的纠正：</strong>44px点击热区和同尺寸空框，都不是Logo显示够大的证明。Paloma 48px手机角标已被用户否决；后续还出现96px框内实际图片仍为64px。要核对最终生效的图片盒、显示占位和周围文字/按钮关系，重分卡片空间，逐端逐子卡型看真实像素。源图分辨率、锐度及素材溯源不列入本排版标准。</p></section>
+<section><h2>完成与状态边界</h2><p>适用硬规则失败、重大视觉缺陷、必查未执行、证据候选不一致，都不能报告全部完成。内部ready/pass、用户认可、激活/部署分开记录；用户否决高于旧内部通过，原失败保留。</p><p>规则可用 ≠ 已执行；文件完整 ≠ 视觉合格；一页通过 ≠ 全站通过；一套实图不能代替同批其他工程。辅助程序不能自动发现人为漏列的卡型，独立审核必须回看真实范围。</p><p>原skills为已有规范编辑源 → 导出带哈希快照 → 三种适配读取 → 每候选冻结。页面专项完成度以索引为准；不把待整理标成已验证，不修改V1和未授权工程。</p></section></html>

@@ -1,0 +1,43 @@
+{
+  "instructions": "Init with --projects listing every user-requested project ID. Before freezing, fill one project/candidate entry for each ID and at least one check for each required dimension per project. Checks use project-prefixed unique IDs and include projectId, candidateId, dimension, page, route, component, cardFamily, viewport, state, rule, ruleSource, nonempty samples and expected result. Explain out-of-scope and role absence; missing capabilities remain not-run. The checker reconciles declared scope only; an independent human must compare this list with the actual user request and real pages. New task-derived reports have a separate visual density check per module and PC/phone/narrow width; bind sampleCases, observedSamples and group/short/long/last-row evidenceViews. Whole-page or geometry evidence does not replace these.",
+  "projects": [],
+  "requiredDimensions": [
+    "project-and-rule-coverage",
+    "content-and-modules",
+    "responsive-geometry",
+    "layout-stability",
+    "page-composition-and-rhythm",
+    "typography-and-hierarchy",
+    "palette-and-color-states",
+    "imagery-and-brand-coherence",
+    "logo-display-and-slot",
+    "card-density-and-composition",
+    "actions-and-entry-targets",
+    "states-and-redraw",
+    "peer-and-purpose-diversity",
+    "delivery-identity"
+  ],
+  "visualDimensions": {
+    "page-composition-and-rhythm": [
+      "focusAndOrder",
+      "groupingAndSpace",
+      "alignmentAndBalance"
+    ],
+    "palette-and-color-states": [
+      "colorRolesAndBalance",
+      "readabilityAndStates"
+    ],
+    "imagery-and-brand-coherence": [
+      "contentAndMediaFit",
+      "brandAndCraft"
+    ],
+    "card-density-and-composition": [
+      "purposeAndHierarchy",
+      "shortLongContent",
+      "spaceAndAction",
+      "groupAndLastRow",
+      "mobileComposition"
+    ]
+  },
+  "checks": []
+}

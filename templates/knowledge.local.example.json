@@ -1,0 +1,15 @@
+{
+  "entries": [
+    {
+      "id": "private-example",
+      "status": "candidate",
+      "pages": [
+        "home"
+      ],
+      "path": "knowledge/local/example.md",
+      "source": "replace-with-actual-evidence",
+      "validFrom": "2026-10-20",
+      "version": "1"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "reviewer": "independent-actual-id",
+  "candidateHash": "SHA256_OF_candidate.lock.json",
+  "verdict": "not-run",
+  "projectResults": [
+    {
+      "projectId": "actual-project-id",
+      "candidateId": "actual-frozen-candidate-id",
+      "verdict": "not-run"
+    }
+  ],
+  "coverageReconciliation": {
+    "expectedChecks": [],
+    "observedChecks": [],
+    "missingChecks": [],
+    "outsideScope": []
+  },
+  "checks": [
+    {
+      "id": "project-id/home/offer-entry/393/logo-display",
+      "projectId": "actual-project-id",
+      "candidateId": "actual-frozen-candidate-id",
+      "dimension": "logo-display-and-slot",
+      "buildId": "actual-frozen-build-id",
+      "page": "home",
+      "route": "actual-route",
+      "component": "actual-component-selector",
+      "cardFamily": "actual-card-family",
+      "viewport": "393x852",
+      "state": "initial-and-visible",
+      "ruleSource": "applicable-versioned-rule-and-clause",
+      "status": "not-run",
+      "reason": "Not yet executed",
+      "measurements": {
+        "displayBox": null,
+        "frameBox": null,
+        "cardSpacingJudgment": "not-run",
+        "hitArea": null
+      },
+      "evidence": []
+    }
+  ],
+  "visualCheckInstructions": "For every executed visual dimension, keep the exact frozen check identity; fill observations for each frozen criteria key and pixelEvidence with actual PNG/JPEG/WebP paths also listed in evidence. Use separate PC/mobile checks. Measurements alone are not pixel evidence; missing execution remains not-run. These fields verify documentation, not the truth of an aesthetic verdict. Each module density check must also contain observedSamples [{role,id}] from the frozen sampleCases and evidenceViews [{view:\"group|short|long|last-row\",evidence:\"review-1/actual.png\"}]. Those images must be in pixelEvidence; one readable group screenshot may serve several roles. Whole-page verdicts cannot replace module records.",
+  "findings": [],
+  "ownerAcceptance": "pending",
+  "notRun": [
+    "Real browser review not yet executed"
+  ]
+}

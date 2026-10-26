@@ -1,0 +1,35 @@
+{
+  "id": "coupon-pages",
+  "version": 1,
+  "modes": [
+    "new-design",
+    "reuse",
+    "reference-rebuild",
+    "preserve"
+  ],
+  "profiles": [
+    "standard",
+    "homepage-first"
+  ],
+  "stages": [
+    "resolve",
+    "plan",
+    "make",
+    "self-check",
+    "independent-review",
+    "repair",
+    "deliver"
+  ],
+  "toolGroups": {
+    "author": [
+      "inspection",
+      "authoring"
+    ],
+    "reviewer": [
+      "inspection",
+      "review"
+    ]
+  },
+  "entry": "playbook.md",
+  "acceptance": "Actual evidence, never configuration success"
+}

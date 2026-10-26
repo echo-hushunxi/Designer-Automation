@@ -1,0 +1,23 @@
+/* Desktop keeps the authored content; mobile changes the control composition. */
+body[data-delivery-page=home] .mobile-heading-label{display:contents}
+body[data-delivery-page=home] .mobile-heading-icon{display:none}
+body[data-delivery-page=home] .home-rail-shell{display:contents}
+@media(max-width:760px){
+ body[data-delivery-site][data-delivery-page=home] .mobile-section-heading{display:grid;grid-template-columns:minmax(0,1fr) 44px;gap:8px;align-items:center}
+ body[data-delivery-site][data-delivery-page=home] .mobile-section-heading h2{min-width:0;margin:0}
+ body[data-delivery-site][data-delivery-page=home] .mobile-heading-link{display:grid;place-items:center;width:44px;height:44px;min-width:44px;min-height:44px;margin:0;padding:0;box-sizing:border-box;justify-self:end;position:relative}
+ body[data-delivery-site][data-delivery-page=home] .mobile-heading-label{display:block;position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+ body[data-delivery-site][data-delivery-page=home] .mobile-heading-icon{display:block;width:20px;height:20px;flex:none}
+ body[data-delivery-site][data-delivery-page=home] .home-rail-shell{display:block;position:relative;width:100%;min-width:0;padding-inline:44px;box-sizing:border-box;margin:12px auto;flex:1}
+ body[data-delivery-site][data-delivery-page=home] .home-rail-shell>.home-scroll-rail{width:100%;max-width:none;margin:0;box-sizing:border-box}
+ body[data-delivery-site][data-delivery-page=home] .home-rail-shell[data-rail-kind=stores]>.home-scroll-rail{grid-auto-columns:min(260px,100%)}
+ body[data-delivery-site][data-delivery-page=home] .home-rail-shell>.home-rail-controls{display:contents;position:static;margin:0;width:auto}
+ body[data-delivery-site][data-delivery-page=home] .home-rail-shell>.home-rail-controls[hidden]{display:none}
+ body[data-delivery-site][data-delivery-page=home] .home-rail-shell .home-rail-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;min-width:44px;min-height:44px;border:0;background:transparent;box-shadow:none}
+ body[data-delivery-site][data-delivery-page=home] .home-rail-shell .home-rail-arrow::before{content:'';position:absolute;inset:6px;border:1px solid currentColor;border-radius:50%;background:var(--rail-surface,#fff);z-index:-1}
+ body[data-delivery-site][data-delivery-page=home] .home-rail-shell .home-rail-arrow:first-child{left:0}
+ body[data-delivery-site][data-delivery-page=home] .home-rail-shell .home-rail-arrow:last-child{right:0}
+ body:is([data-delivery-site=orbitperks],[data-delivery-site=mavora])[data-delivery-page=home] .home-rail-shell{width:calc(100% - 24px)}
+ body[data-delivery-site=orbitperks][data-delivery-page=home] .op-guide-cover,body[data-delivery-site=mavora][data-delivery-page=home] .mv-guide-cover{border:0;border-radius:8px;clip-path:none;mask-image:none}
+ body[data-delivery-site=orbitperks][data-delivery-page=home] .op-guide-cover img,body[data-delivery-site=mavora][data-delivery-page=home] .mv-guide-cover img{border-radius:8px;clip-path:none;mask-image:none}
+}

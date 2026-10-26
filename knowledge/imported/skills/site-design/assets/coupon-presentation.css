@@ -1,0 +1,43 @@
+[data-coupon-footer-inner]{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+[data-coupon-footer-brand]{display:flex;align-items:center;gap:8px;font-size:24px;font-weight:750}
+[data-coupon-footer-brand] :is(svg,img){max-width:150px;max-height:44px}
+[data-coupon-footer-links]{display:flex!important;flex-wrap:wrap;gap:8px 24px;align-items:center}
+[data-coupon-footer-links]>a{display:inline-flex;align-items:center;min-height:44px;font-size:14px;white-space:nowrap}
+[data-coupon-footer-copyright]{flex-basis:100%;font-size:14px}
+[data-coupon-reading-photo]{object-fit:contain!important}
+[data-coupon-shopping-only]{display:flex!important;justify-content:flex-start!important;gap:0!important}
+[data-coupon-shopping-only] [data-density-action]{width:min(100%,240px)!important;min-width:0!important;flex:none!important}
+@media(max-width:760px){
+ [data-coupon-footer-inner]{align-items:flex-start;gap:16px}
+ [data-coupon-footer-links]{width:100%;gap:4px 24px}
+ [data-coupon-reading-responsive]{display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto auto!important;align-items:start!important;height:auto!important;min-height:0!important;gap:12px!important}
+ [data-coupon-reading-responsive]>*{grid-column:1!important;grid-row:auto!important}
+ [data-coupon-reading-responsive] [data-reading-copy]{display:block!important;height:auto!important;min-height:0!important;width:100%!important;padding:0!important}
+ [data-coupon-reading-responsive] [data-reading-frame], [data-coupon-reading-responsive] [data-coupon-reading-photo]{width:100%!important;max-width:none!important;height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:auto!important;align-self:start!important;border-radius:8px!important}
+ [data-coupon-reading-responsive] [data-reading-copy] h3{height:auto!important;min-height:0!important;margin:0!important}
+ [data-coupon-reading-responsive] [data-decorative-reading-action]{height:auto!important;min-height:20px!important;margin-top:8px!important}
+ body[data-owner-detail=rivetdeals] [data-owner-row]{align-items:center!important;padding-block:12px!important;min-height:96px!important;height:auto!important}
+ body[data-owner-detail=rivetdeals] [data-owner-row] :is(.da-logo,.da-copy,.da-action-slot){align-self:center!important;grid-row:1!important;margin-block:0!important;transform:none!important}
+ body[data-owner-detail=rivetdeals] [data-owner-row] .da-action-slot{display:flex!important;align-items:center!important;justify-content:center!important}
+}
+/* Important geometry belongs to the established contract layer. */
+@layer detail-density {
+ @media(max-width:700px){
+  body[data-owner-density][data-owner-detail=rivetdeals] [data-owner-row]{display:grid!important;grid-template-columns:70px minmax(0,1fr) 44px!important;grid-template-rows:auto!important;align-items:center!important;gap:10px!important;padding:12px!important;box-sizing:border-box!important;min-height:96px!important;height:96px!important}
+  body[data-owner-density][data-owner-detail=rivetdeals] [data-owner-row] :is(.da-logo,.da-copy,.da-action-slot){grid-row:1!important;align-self:center!important;margin:0!important;transform:none!important;position:relative!important;inset:auto!important}
+  body[data-owner-density][data-owner-detail=rivetdeals] [data-owner-row] .da-logo{grid-column:1!important;width:70px!important;height:70px!important}
+  body[data-owner-density][data-owner-detail=rivetdeals] [data-owner-row] .da-copy{grid-column:2!important;min-height:0!important;height:auto!important}
+  body[data-owner-density][data-owner-detail=rivetdeals] [data-owner-row] .da-action-slot{grid-column:3!important;display:flex!important;align-items:center!important;justify-content:center!important;width:44px!important;height:44px!important}
+ }
+}
+[data-coupon-footer] [data-coupon-footer-links]>a{color:inherit}
+@layer detail-density {
+ body[data-owner-density][data-owner-detail] [data-density-unified] [data-owner-claim][data-density-claim=deal]{display:flex!important;grid-template-columns:none!important;justify-content:flex-start!important;align-items:flex-start!important;gap:0!important}
+ body[data-owner-density][data-owner-detail] [data-density-unified] [data-owner-claim][data-density-claim=deal] [data-density-action]{width:min(100%,240px)!important;min-width:0!important;max-width:100%!important;flex:none!important;white-space:nowrap!important}
+}
+@layer detail-density {
+ body[data-owner-density][data-owner-detail] [data-density-unified] [data-owner-claim][data-density-claim=deal] [data-density-action]{margin:0!important;position:relative!important;inset:auto!important;align-self:flex-start!important}
+}
+@layer detail-density {
+ body[data-owner-density][data-owner-detail] [data-density-unified] [data-owner-claim][data-density-claim=deal]{flex-direction:column!important}
+}

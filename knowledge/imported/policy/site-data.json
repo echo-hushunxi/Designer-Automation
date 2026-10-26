@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "id": "feishu-coupon-public-api",
+  "sourceUrl": "https://tanyueco.feishu.cn/wiki/N2exwDwzpiYaV6kXoZvcmW9cnie",
+  "origin": "http://new.sp.com",
+  "prefix": "/open-api/coupon",
+  "defaultLang": "us",
+  "module": "src/site-data.mjs",
+  "endpoints": {
+    "home": "/home",
+    "recommendedStores": "/recommended-stores",
+    "categories": "/all-categories",
+    "blogs": "/money-saving-tips",
+    "events": "/events"
+  }
+}

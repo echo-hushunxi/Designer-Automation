@@ -1,0 +1,220 @@
+{
+  "version": 1,
+  "source": "knowledge/imported/skills/site-v2/references/coupon-site-framework.md",
+  "note": "Module IDs describe responsibilities, not DOM wrappers or layout. A selector may map a combined area. All required roles must still exist. Optional modules may be added; conditional events/guides need real data. No prescribed colors, columns, card shapes or typography families.",
+  "pages": {
+    "home": {
+      "modules": [
+        "header",
+        "campaign",
+        "featured-offers",
+        "more-offers",
+        "merchant-discovery",
+        "topic-discovery",
+        "footer"
+      ]
+    },
+    "stores-index": {
+      "modules": [
+        "header",
+        "store-directory",
+        "footer"
+      ]
+    },
+    "store-detail": {
+      "modules": [
+        "header",
+        "store-identity",
+        "store-coupons",
+        "recommended-stores",
+        "topic-navigation",
+        "sidebar-stores",
+        "footer"
+      ]
+    },
+    "categories-index": {
+      "modules": [
+        "header",
+        "category-directory",
+        "footer"
+      ]
+    },
+    "category-detail": {
+      "modules": [
+        "header",
+        "category-identity",
+        "category-stores",
+        "footer"
+      ]
+    },
+    "search": {
+      "modules": [
+        "header",
+        "query",
+        "store-results",
+        "footer"
+      ]
+    },
+    "offers-index": {
+      "modules": [
+        "header",
+        "type-filter",
+        "offer-results",
+        "topic-navigation",
+        "sidebar-stores",
+        "footer"
+      ]
+    },
+    "offer-detail": {
+      "modules": [
+        "header",
+        "main-coupon",
+        "recommended-coupons",
+        "recommended-stores",
+        "topic-navigation",
+        "sidebar-stores",
+        "footer"
+      ]
+    },
+    "occasions-index": {
+      "modules": [
+        "header",
+        "occasion-directory",
+        "footer"
+      ]
+    },
+    "occasion-detail": {
+      "modules": [
+        "header",
+        "occasion-identity",
+        "occasion-offers",
+        "occasion-navigation",
+        "footer"
+      ]
+    },
+    "guides-index": {
+      "modules": [
+        "header",
+        "guide-directory",
+        "footer"
+      ]
+    },
+    "guide-detail": {
+      "modules": [
+        "header",
+        "article",
+        "related-guides",
+        "footer"
+      ]
+    },
+    "about": {
+      "modules": [
+        "header",
+        "service-information",
+        "footer"
+      ]
+    },
+    "contact": {
+      "modules": [
+        "header",
+        "contact-information",
+        "footer"
+      ]
+    },
+    "privacy": {
+      "modules": [
+        "header",
+        "privacy-information",
+        "footer"
+      ]
+    },
+    "terms": {
+      "modules": [
+        "header",
+        "terms-information",
+        "footer"
+      ]
+    },
+    "disclaimer": {
+      "modules": [
+        "header",
+        "source-and-limits",
+        "footer"
+      ]
+    }
+  },
+  "states": {
+    "main-coupon": [
+      "initial",
+      "revealed",
+      "copied",
+      "refresh-masked",
+      "deal",
+      "unavailable",
+      "copy-error",
+      "keyboard",
+      "reduced-motion",
+      "hover",
+      "pressed"
+    ],
+    "store-coupons": [
+      "initial",
+      "filtered",
+      "empty",
+      "redraw",
+      "first-visible-summary",
+      "keyboard",
+      "reduced-motion",
+      "hover",
+      "pressed"
+    ],
+    "recommended-coupons": [
+      "initial",
+      "hover",
+      "pressed",
+      "keyboard",
+      "reduced-motion"
+    ],
+    "recommended-stores": [
+      "initial",
+      "hover",
+      "pressed",
+      "keyboard",
+      "reduced-motion"
+    ],
+    "topic-navigation": [
+      "initial",
+      "hover",
+      "pressed",
+      "keyboard",
+      "reduced-motion"
+    ],
+    "sidebar-stores": [
+      "initial",
+      "hover",
+      "pressed",
+      "keyboard",
+      "reduced-motion"
+    ],
+    "store-results": [
+      "initial",
+      "searched",
+      "empty",
+      "keyboard"
+    ],
+    "offer-results": [
+      "initial",
+      "filtered",
+      "empty",
+      "redraw",
+      "keyboard"
+    ],
+    "store-identity": [
+      "initial",
+      "hover",
+      "pressed",
+      "keyboard",
+      "reduced-motion"
+    ]
+  }
+}

@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 1,
+  "id": "six-site-repairs-20261015",
+  "adoptedFor": "homepage-first",
+  "scope": "Historical maintenance observations adopted as prevention/review methods only for future homepage-first generation and its extension; not a universal skin, quota or retroactive project policy.",
+  "userInstruction": "沉淀好这次的改动和检查；下次生成避免这些问题，审核也审核这些；同样只作为首页驱动创作。",
+  "originalRetrospective": {
+    "name": "Couponrite人工修改经验总结.md",
+    "sha256": "860adefad5c8a84e8955a7e0de460faa1d35a42ff32146ff26211b97cc861df4"
+  },
+  "sites": [
+    {
+      "slug": "aster",
+      "projectId": "aster-white-alignment-20261014",
+      "build": "b-4c66d6e5-c96f-464e-a74a-1ea945f60705",
+      "revision": "r-88c589fe-cf36-4358-9c87-e31d73a78e19",
+      "sourceHash": "81a4bab73dcae5b6e7271854fd0cd4d6386ec3cc58217b398983e9fe016fa424",
+      "artifactHash": "ea77ff3efcf5b00b208c362df3066654ae6688dc7d5c0aa9e4cd9225fe77140c",
+      "zipHash": "ae63850dac38944a9463ae96b9f3b557423fb71c2bd4da05a43a3c2a68f59ca9",
+      "changes": "补齐已有有效 craft 资源的项目和构建绑定；所有输出文件与原已认可版本逐字节相同。"
+    },
+    {
+      "slug": "orbitperks",
+      "projectId": "orbitperks-article-images-20261014",
+      "build": "b-23a3f6b4-2056-489a-8bf3-98c84f5f7918",
+      "revision": "r-59a682ee-a528-4d0b-a35e-956b477a3350",
+      "sourceHash": "1e689fc01d9cb98b5994c31d77900bb59dc3a0ecc66dc17dfd45d914b30e3c4c",
+      "artifactHash": "79c41e7bd827990416976ca79fe56b9540d3355fd17545590c582508044517cd",
+      "zipHash": "f12da5df000c7049968cc149700704e7b6dfcc9632e5d2938d7813ca211cb0c0",
+      "changes": "结构校验区分真实可见标题与 inert template 备用标题；过期不可用状态按实际用途校验；详情页脚移除文章入口；移除自动生成的邮箱；修正包说明。"
+    },
+    {
+      "slug": "jingle",
+      "projectId": "jingle-holiday-homepage-20261015",
+      "build": "b-ab10b6b5-4009-4a88-8301-73d351eaafcc",
+      "revision": "r-65948e4d-7abf-4c9c-b317-9193f4b726ce",
+      "sourceHash": "5f4bf31fc7054faaf3ebc30bc6e98a83f0dab7bf298316c23c1b95f76edc7a45",
+      "artifactHash": "35a2a9fe0c522f677277505a4f8feac9a508261b0bf228c0111ea239e2c73689",
+      "zipHash": "96345b149a7ad481edbece9b52ae0d3afd150c8d501e8a3bcd5d5009ee7b7caa",
+      "changes": "修正 HTML 包 README：数据来自公共 Coupon 库快照，实际兑换以商家为准。页面和资源字节保持一致。"
+    },
+    {
+      "slug": "paloma",
+      "projectId": "paloma-white-alignment-20261014",
+      "build": "b-ca155a9f-4082-4563-a6ca-cb514c955d06",
+      "revision": "r-b21aa013-1a2f-449f-964d-e23b5c7d0cc5",
+      "sourceHash": "4db19864391905357f6cc26e680793c0071d3007893fd6499e624783df19da47",
+      "artifactHash": "7a3beb7147a957a6d82eae9f625f59806ce232a18cc1d111da0831fc1ce074bf",
+      "zipHash": "a52d25be2ae318b12349fb4541bd81ba20f38385189c8321f7b702163dd9cf50",
+      "changes": "补齐已有 craft 绑定；17 个真实过期旧链接从404改为不可用提示和商家恢复入口；排除原券内容和领取操作；到期后禁用主券；详情页脚移除文章入口；移除自动生成的邮箱及错误联系文案；修正包说明。"
+    },
+    {
+      "slug": "ribbonperks",
+      "projectId": "ribbonperks-refero-20261014",
+      "build": "b-ed29bd8c-2f1c-4a8d-8e29-b122fae0e7a5",
+      "revision": "r-f047912c-717b-48ba-85ea-2c646a527eb1",
+      "sourceHash": "3bd4c56abddba6a76b6f1418af1b4c3be7fd217dea7f6ad27e14371fe00c2fbf",
+      "artifactHash": "2b7b0ceb45c6f32c0896aa3491e67ea980134f5d72797291c72fe831145c1189",
+      "zipHash": "455dea1306353b80cba3814e7c4dda6dd066a37c8b4baddc2f313de0abced979",
+      "changes": "以另一任务已完成独立第二轮复验的新详情页 b-01cd25ff 为基线，仅修正包说明；完整保留该版本全部 HTML、CSS 和资源字节。"
+    },
+    {
+      "slug": "mavora",
+      "projectId": "mavora-article-images-20261014",
+      "build": "b-2e8701be-04f8-437d-bf97-d5ce3dbd6564",
+      "revision": "r-16367b2a-3ad0-469e-bd3f-5de5940f3759",
+      "sourceHash": "98b0b3085cac4b97874c681b059d19f0b14c41604d561663a4292feb140e0765",
+      "artifactHash": "e7709f7686317e2c31651c71a0d69ef0fea18bfeb073d198c003098205182f90",
+      "zipHash": "fe791b638594c298ca6ccfb7fdce33e0a5c29e6e49ce176b68ffba3845b7390b",
+      "changes": "按同一份 Couponrite 文档 H01-H08 完整核查，并修复初轮 MV01-MV12 及复验发现的 MV13 平板末行孤卡。详见独立复验逐项结果。"
+    }
+  ],
+  "resolutions": [
+    {
+      "id": "MV01-filter-hidden-display",
+      "status": "resolved",
+      "initialObservation": "At 375, Deals + Education reports 0 offers, but all 430 coupon articles remain visibly laid out. DOM: all=430, hidden=430, visible height>0=430; first hidden card computed display:grid. Codes-only sets hidden on 284 deals yet all 430 remain visible. The same hidden-attribute override exposes an empty Expired offers heading on Artist Works (1 active, 0 historical).",
+      "verifiedObservation": "Real Codes146, Deals283, Education+Deals0, Reset429 and Clothing71 all match visible article count. Zero state visibly contains no coupon article; Artist Works has0 valid offers and no empty expired heading."
+    },
+    {
+      "id": "MV02-search-row-overflow",
+      "status": "resolved",
+      "initialObservation": "Real no-match search renders alternative merchant rows at minimum width 355.64px; at 320 document clientWidth=305, scrollWidth=368, first row right=367.64. At 375 client=360, scroll=368. Actual dunk match at320 has client305/scroll326 and first row right326.27. Screenshot clips right edge and shows horizontal scrollbar.",
+      "verifiedObservation": "No-match alternatives and actual dunk match fit320; no-match fits all6 widths.320 client305=scroll305,375 client360=scroll360. Logos/name/count/arrow remain readable."
+    },
+    {
+      "id": "MV03-expired-content-exposed",
+      "status": "resolved",
+      "initialObservation": "Dell store visibly renders 7 historical expired coupons under Expired offers, including Up to $600 Off PCs & More. Its old detail URL still displays original title, merchant logo and original expiry as a full main coupon. Claim button is correctly absent; content exclusion is not implemented.",
+      "verifiedObservation": "c_24339 is generic unavailable with safe store recovery and no original title/code/claim; Dell store no longer contains expired-history section or original sample. c_17211 is similarly unavailable."
+    },
+    {
+      "id": "MV04-phone-mixed-cta-width",
+      "status": "resolved",
+      "initialObservation": "Mixed ticket list still has Copy code width136px and SHOP NOW width139.90625px at all three phone widths; both44px tall. At768/1440 both are150px. The same mixed related-ticket group appears on Gap detail.",
+      "verifiedObservation": "Mixed listing and deal-related tickets equal at320=247x44,375=302x44,414=320x44;768/1024/1440=150x44. Main claim intentionally uses its own separate context."
+    },
+    {
+      "id": "MV05-ticket-click-affordance",
+      "status": "resolved",
+      "initialObservation": "Actual non-control blank clicks in first listing card, first store card and first related coupon card do not navigate. Only title/merchant/action links act. Coupon article has no card-level navigation or card hover rule. Title Enter works; nested merchant link correctly enters its store; main intentional claim works.",
+      "verifiedObservation": "Real blank clicks in list/store/related cards enter their own masked CID. Independent merchant link enters its store; title Enter works; related card date can be visibly dragged-selected without navigation. Hover frame visible; actual main Enter-copy and refresh masking succeed."
+    },
+    {
+      "id": "MV06-phone-recommendation-density",
+      "status": "resolved",
+      "initialObservation": "Recommended stores remain16 full-width cards, each168.25px high, creating roughly2932px of store cards and gaps before the sidebar. Large empty right portions carry only an arrow. At1440 the4-column grid is coherent and full;375/414 single-column stacking contradicts the frozen plan's two-column store grid and weakens browsing efficiency.",
+      "verifiedObservation": "Phone density remains repaired at320/375/414. Fresh2e768/1024 and761/1100 boundary views now have4 complete rows of4 genuine merchants; full names wrap where necessary and badge tracks align."
+    },
+    {
+      "id": "MV07-sidebar-purpose-overlap",
+      "status": "resolved",
+      "initialObservation": "4 of8 sidebar Brands to explore merchants (Ralph Lauren, Gap, Ulta, Wayfair) repeat the16 main Recommended stores. Both supply logo/name/offer count/store destination; sidebar chooses first8 catalogue records, with no separately documented shopping purpose. Phone concatenates the two regions.",
+      "verifiedObservation": "Observed main16 and sidebar8 share0 destinations. Categories remain independent; sidebar alternatives expose other merchants without unsupported popularity wording."
+    },
+    {
+      "id": "MV08-logo-optical-balance",
+      "status": "resolved",
+      "initialObservation": "Main recommendation PetSmart and Ralph Lauren marks have visibly small lettering inside64px boxes compared with Gap/Dell; Artist Works horizontal mark occupies only a narrow band in its square main/identity logo frame. Equal outer boxes do not yield equal visual recognition.",
+      "verifiedObservation": "Official unchanged polo-player, PetSmart SVG and ArtistWorks glyph variants improve visible recognition; original colors/proportions retained. Seen on home/recommendations/search/identity; original public snapshots and old assets preserved."
+    },
+    {
+      "id": "MV09-detail-guide-footer",
+      "status": "resolved",
+      "initialObservation": "Coupon detail footer still includes Saving guides link. The main shopping module order is otherwise main coupon, related offers, recommended stores.",
+      "verifiedObservation": "Live code/deal/unavailable details expose0 guide links; independent static scan of all527 generated Mavora detail files finds0 guide-link failures."
+    },
+    {
+      "id": "MV10-source-title-type-contradiction",
+      "status": "resolved",
+      "initialObservation": "c_17211 renders a concatenated title beginning May21-25,2022 and ending CODE: GOALS, while expiry is Jun12,2027 and main state says No code needed. Frozen original record contains this title and sale type; this is sourced data impurity, not a newly invented code. It also appears as Artist Works only active coupon.",
+      "verifiedObservation": "Raw c_17211 record remains byte-identical in frozen public data, is isolated from active selection, and old URL is generic unavailable. Active count429, deal283; ArtistWorks0 valid offers. Genuine long active c_26036 fully wraps at all6 widths."
+    },
+    {
+      "id": "MV11-contact-source-link-claim",
+      "status": "resolved",
+      "initialObservation": "Current Contact correctly states no public inbox, but says each offer page keeps a source link. The inspected code detail has only internal store/related/navigation links and no source external URL.",
+      "verifiedObservation": "Actual Contact now describes listed dates and merchant checking route without promising a per-coupon source link; correctly states no monitored inbox/form/account."
+    },
+    {
+      "id": "MV12-export-readme-demo-copy",
+      "status": "resolved",
+      "initialObservation": "Frozen export README says coupon content is unredeemable demonstration data, while the site describes the real public library snapshot.",
+      "verifiedObservation": "Candidate README states public Coupon snapshot and merchant redemption limits, removes unredeemable-demo assertion. Direct ZIP hashes match all6 exact candidates; Jingle/Ribbon README-only and Aster fully byte-identical checks independently performed."
+    },
+    {
+      "id": "MV13-tablet-recommendation-last-row",
+      "status": "resolved",
+      "initialObservation": "Missed first-round tablet recommendation last row; collected in the second closed packet.",
+      "verifiedObservation": "Fresh actual pixels at768/1024 and761/1100 show16 genuine stores arranged4x4 with no singleton trailing row.760 remains2 columns,1101/1440 remain4,375/414 remain2 and320 compact1. All10 observed document widths equal clientWidth. Same-row badges align even when Dunkin Donuts wraps at1024; names retain17px."
+    }
+  ],
+  "checks": [
+    {
+      "id": "H01",
+      "status": "pass",
+      "observation": "Home retains3 featured +9 more offers with12 distinct coupon choices and clear shopping hierarchy; no artificial quantity quota.",
+      "evidenceBasis": "Original round2 e877 full affected sweep plus explicit702-file byte preservation; fresh2e affected-grid and selected core regressions are listed separately."
+    },
+    {
+      "id": "H02",
+      "status": "pass",
+      "observation": "Original full page-family title/readability views remain e877 observations. Fresh2e recommendation cards preserve names/counts/logos at all10 widths; narrow4-column1024 wraps Dunkin Donuts cleanly and aligns count badges.",
+      "evidenceBasis": "Original round2 e877 full affected sweep plus explicit702-file byte preservation; fresh2e affected-grid and selected core regressions are listed separately."
+    },
+    {
+      "id": "H03",
+      "status": "pass",
+      "observation": "Blank/title/nested merchant actions, own-CID mask, keyboard, actual main clipboard and real drag selection independently operated.",
+      "evidenceBasis": "Original round2 e877 full affected sweep plus explicit702-file byte preservation; fresh2e affected-grid and selected core regressions are listed separately."
+    },
+    {
+      "id": "H04",
+      "status": "pass",
+      "observation": "Single main coupon identity and intentional operation; no-code true link destination/source match; unavailable old routes omit original coupon; refreshed code re-masks.",
+      "evidenceBasis": "Original round2 e877 full affected sweep plus explicit702-file byte preservation; fresh2e affected-grid and selected core regressions are listed separately."
+    },
+    {
+      "id": "H05",
+      "status": "pass",
+      "observation": "Phone density and official-logo recognition retained; fresh2e16-store grid finishes in full4-column rows at768/1024 and both761/1100 boundaries. No truncation, fake merchants or root overflow.",
+      "evidenceBasis": "Original round2 e877 full affected sweep plus explicit702-file byte preservation; fresh2e affected-grid and selected core regressions are listed separately."
+    },
+    {
+      "id": "H06",
+      "status": "pass",
+      "observation": "Sidebar alternatives now0/8 duplicate main recommended16 and do not invent popularity. Browse topics remains clear.",
+      "evidenceBasis": "Original round2 e877 full affected sweep plus explicit702-file byte preservation; fresh2e affected-grid and selected core regressions are listed separately."
+    },
+    {
+      "id": "H07",
+      "status": "pass",
+      "observation": "Original real0/1/many cases retained via unchanged HTML/JS/data. Fresh2e0-visible-card filter state works. Actual grid checked at320/375/414/760/761/768/1024/1100/1101/1440; all complete rows with readable content and no overflow.",
+      "evidenceBasis": "Original round2 e877 full affected sweep plus explicit702-file byte preservation; fresh2e affected-grid and selected core regressions are listed separately."
+    },
+    {
+      "id": "H08",
+      "status": "pass",
+      "observation": "Same-context actions, official-logo variants, text hierarchy and filtered redraw checked across actual home/store/list/detail/search paths; shared hidden state repaired.",
+      "evidenceBasis": "Original round2 e877 full affected sweep plus explicit702-file byte preservation; fresh2e affected-grid and selected core regressions are listed separately."
+    }
+  ],
+  "verification": {
+    "independentDecision": "pass",
+    "scope": "scoped-preview",
+    "openRepairs": 0,
+    "regressionTests": {
+      "command": "node --test generation/remaining-issues-20261015/regressions.test.mjs",
+      "passed": 8,
+      "failed": 0
+    },
+    "extractedFiles": 5466,
+    "actualZipDownloads": 6,
+    "downloadHashesMatch": true,
+    "workbenchSixApproved": true
+  },
+  "limits": [
+    {
+      "id": "offline-runtime",
+      "reason": "Initial exact fileURL was explicitly rejected by browser policy; not retried or bypassed. LocalHTTP is not claimed as file/offline validation."
+    },
+    {
+      "id": "native-formal-review",
+      "reason": "No callable native site_review/site_browser; no fabricated receipts or formal acceptance."
+    },
+    {
+      "id": "denied-clipboard/missing-assets",
+      "reason": "Normal real clipboard succeeds; browser-denied permission and forced missing-media states not induced."
+    },
+    {
+      "id": "expiry-exact-instant",
+      "reason": "Historical expired states independently observed and all17 PalomaHTML checked; no browser clock override used to force a future active-offer deadline."
+    },
+    {
+      "id": "full-site-url-enumeration",
+      "reason": "Representative changed UI families and specified states inspected, not every URL in every site. Other-site acceptance is scoped maintenance; byte equality protects unchanged surfaces."
+    },
+    {
+      "id": "no-code-outbound-repeat",
+      "reason": "This Chrome fallback was explicitly scoped to HTTP localhost. Final Gap link exact href and frozen source match; actual Gap external opening was already independently operated in initial round, not repeated here."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "generation/remaining-issues-20261015/REPORT.md",
+      "sha256": "1b266b41e1e2092e739b6508a6e75ea56d0484ea77e4cbab18602a572b5faddf"
+    },
+    {
+      "path": "generation/remaining-issues-20261015/independent-final-review.json",
+      "sha256": "d601a042522b81ed0d05e41d104c8c9ebaf3df975d8550bb7790decd418224de"
+    },
+    {
+      "path": "generation/remaining-issues-20261015/independent-review-round2.json",
+      "sha256": "bf22836b865348304c7eb242b37e57a7fa125dc8ee5a2ca697ca203c0baa8928"
+    },
+    {
+      "path": "generation/remaining-issues-20261015/mavora-initial-review.json",
+      "sha256": "dcefa9620d745ad4ed7d0ee38b4a7e1314142442a2b65ff9c42d99983521442e"
+    },
+    {
+      "path": "generation/remaining-issues-20261015/artifact-checks.json",
+      "sha256": "7ba05a61a468f38b6f7d8b79f6dec63e1964226687ed0eb0d2aaf939105869c0"
+    },
+    {
+      "path": "generation/remaining-issues-20261015/zip-extraction-checks.json",
+      "sha256": "707e21613f2f212e22ab076c559f2dad69a38ec033aed6feb8517648364b0176"
+    },
+    {
+      "path": "generation/remaining-issues-20261015/mavora-tablet-repair-delta.json",
+      "sha256": "631e17cf400ad64d5b8f7e8b71be63834186537503147ca752ad64556917b2f6"
+    },
+    {
+      "path": "generation/remaining-issues-20261015/regressions.test.mjs",
+      "sha256": "fe62fec94cfe6d89f57724933c2b343ac5c4e194c0effc3543e88bb6b3edb97b"
+    },
+    {
+      "path": "generation/remaining-issues-20261015/activation.json",
+      "sha256": "175e6db9f062a57b5a63137edd4ec1416923c61f7792e9379e811438409845f9"
+    },
+    {
+      "path": "generation/remaining-issues-20261015/download-verification.json",
+      "sha256": "e2e83ab62009594ac7d8771d81bc75f93d5682758418b0dc32e6be55c8887bd8"
+    },
+    {
+      "path": "generation/remaining-issues-20261015/browser-download.json",
+      "sha256": "d1c1ce017f0c651f4f78010a54e642cb7dfcf570c012c3995fb3cd26b54b6cda"
+    },
+    {
+      "path": "generation/remaining-issues-20261015/workbench-verification.json",
+      "sha256": "6436237abd01b638f21eac7fb9ee4c05cd2cbe1a312df3686f93f2ae7631adac"
+    }
+  ],
+  "reuse": "Keep case build/hash identities and capability limits. New-site authors and reviewers must obtain their own applicable candidate evidence; old screenshots or successful downloads are not acceptance for a new site."
+}

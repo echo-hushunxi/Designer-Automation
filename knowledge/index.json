@@ -1,0 +1,439 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-10-26.1",
+  "pages": {
+    "home": {
+      "business": "active",
+      "detail": "partial"
+    },
+    "stores-index": {
+      "business": "active",
+      "detail": "pending"
+    },
+    "store-detail": {
+      "business": "active",
+      "detail": "partial"
+    },
+    "categories-index": {
+      "business": "active",
+      "detail": "pending"
+    },
+    "category-detail": {
+      "business": "active",
+      "detail": "pending"
+    },
+    "search": {
+      "business": "active",
+      "detail": "pending"
+    },
+    "offers-index": {
+      "business": "active",
+      "detail": "pending"
+    },
+    "offer-detail": {
+      "business": "active",
+      "detail": "active"
+    },
+    "occasions-index": {
+      "business": "active",
+      "detail": "pending"
+    },
+    "occasion-detail": {
+      "business": "active",
+      "detail": "pending"
+    },
+    "guides-index": {
+      "business": "active",
+      "detail": "pending"
+    },
+    "guide-detail": {
+      "business": "active",
+      "detail": "pending"
+    },
+    "about": {
+      "business": "active",
+      "detail": "pending"
+    },
+    "contact": {
+      "business": "active",
+      "detail": "pending"
+    },
+    "privacy": {
+      "business": "active",
+      "detail": "pending"
+    },
+    "terms": {
+      "business": "active",
+      "detail": "pending"
+    },
+    "disclaimer": {
+      "business": "active",
+      "detail": "pending"
+    }
+  },
+  "entries": [
+    {
+      "id": "persistent-layout-quality",
+      "status": "active",
+      "version": "2026-10-23.1",
+      "pages": [
+        "*"
+      ],
+      "path": "core/quality.md",
+      "source": "owner-persistent-design-standard-20261021"
+    },
+    {
+      "id": "shared-business",
+      "status": "active",
+      "version": "2026-10-20.8",
+      "pages": [
+        "*"
+      ],
+      "path": "knowledge/imported/skills/site-v2/references/coupon-site-framework.md",
+      "source": "existing-owner-rules"
+    },
+    {
+      "id": "shared-craft",
+      "status": "active",
+      "version": "2026-10-20.8",
+      "pages": [
+        "*"
+      ],
+      "path": "knowledge/imported/skills/site-design/references/coupon-common-craft.md",
+      "source": "existing-owner-rules"
+    },
+    {
+      "id": "real-data",
+      "status": "active",
+      "version": "2026-10-20-export",
+      "pages": [
+        "*"
+      ],
+      "path": "knowledge/imported/skills/site-data/SKILL.md",
+      "source": "existing-owner-rules"
+    },
+    {
+      "id": "quality-policy",
+      "status": "active",
+      "version": "2026-10-20-export",
+      "pages": [
+        "*"
+      ],
+      "path": "knowledge/imported/policy/quality.json",
+      "source": "existing-owner-rules"
+    },
+    {
+      "id": "rejected-directions",
+      "status": "active",
+      "version": "2026-10-20-export",
+      "pages": [
+        "*"
+      ],
+      "path": "knowledge/imported/policy/owner-design-rejections.json",
+      "source": "existing-owner-rules"
+    },
+    {
+      "id": "independent-review",
+      "status": "active",
+      "version": "2026-10-26.1",
+      "pages": [
+        "*"
+      ],
+      "path": "knowledge/imported/skills/site-design-review/SKILL.md",
+      "source": "existing-owner-rules",
+      "roles": [
+        "reviewer"
+      ]
+    },
+    {
+      "id": "detail-page",
+      "status": "active",
+      "version": "2026-10-22.2",
+      "pages": [
+        "offer-detail",
+        "store-detail"
+      ],
+      "path": "knowledge/pages/offer-detail.md",
+      "source": "existing-owner-rules"
+    },
+    {
+      "id": "detail-generation",
+      "status": "active",
+      "version": "2026-10-23.7",
+      "pages": [
+        "offer-detail",
+        "store-detail"
+      ],
+      "path": "knowledge/imported/skills/coupon-detail-generation/SKILL.md",
+      "source": "existing-owner-rules",
+      "roles": [
+        "author"
+      ]
+    },
+    {
+      "id": "detail-review",
+      "status": "active",
+      "version": "2026-10-23.7",
+      "pages": [
+        "offer-detail",
+        "store-detail"
+      ],
+      "path": "knowledge/imported/skills/coupon-detail-review/SKILL.md",
+      "source": "existing-owner-rules",
+      "roles": [
+        "reviewer"
+      ]
+    },
+    {
+      "id": "home-page",
+      "status": "active",
+      "version": "2026-10-20-export",
+      "pages": [
+        "home"
+      ],
+      "path": "knowledge/pages/home.md",
+      "source": "existing-owner-rules"
+    },
+    {
+      "id": "home-direction",
+      "status": "active",
+      "version": "2026-10-20-export",
+      "pages": [
+        "home"
+      ],
+      "path": "knowledge/imported/skills/site-design/references/homepage-visual-priority.md",
+      "source": "existing-owner-rules",
+      "modes": [
+        "new-design",
+        "reuse"
+      ]
+    },
+    {
+      "id": "homepage-first",
+      "status": "active",
+      "version": "2026-10-20-export",
+      "pages": [
+        "*"
+      ],
+      "path": "knowledge/imported/skills/site-homepage-first/SKILL.md",
+      "source": "existing-owner-rules",
+      "profiles": [
+        "homepage-first"
+      ],
+      "modes": [
+        "new-design"
+      ]
+    },
+    {
+      "id": "reference-rebuild",
+      "status": "active",
+      "version": "2026-10-20-export",
+      "pages": [
+        "*"
+      ],
+      "path": "knowledge/imported/skills/site-reference-rebuild/SKILL.md",
+      "source": "existing-owner-rules",
+      "modes": [
+        "reference-rebuild"
+      ]
+    },
+    {
+      "id": "other-page-status",
+      "status": "active",
+      "version": "2026-10-20-export",
+      "pages": [
+        "stores-index",
+        "store-detail",
+        "categories-index",
+        "category-detail",
+        "search",
+        "offers-index",
+        "occasions-index",
+        "occasion-detail",
+        "guides-index",
+        "guide-detail",
+        "about",
+        "contact",
+        "privacy",
+        "terms",
+        "disclaimer"
+      ],
+      "path": "knowledge/pages/coverage.md",
+      "source": "existing-owner-rules"
+    },
+    {
+      "id": "card-density-and-diversity",
+      "status": "active",
+      "version": "2026-10-23.7",
+      "pages": [
+        "*"
+      ],
+      "path": "knowledge/imported/skills/site-design/references/card-density-and-diversity.md",
+      "source": "owner-layout-rejection-20261020-and-observed-four-builds"
+    },
+    {
+      "id": "home-card-reference-methods",
+      "status": "active",
+      "version": "2026-10-23.3",
+      "pages": [
+        "home"
+      ],
+      "path": "knowledge/imported/skills/site-design/references/home-card-reference-methods.md",
+      "source": "owner-reference-methods-and-observed-visual-rejection-20261021"
+    },
+    {
+      "id": "detail-layout-methods",
+      "status": "active",
+      "version": "2026-10-23.7",
+      "pages": [
+        "offer-detail",
+        "store-detail"
+      ],
+      "path": "knowledge/imported/skills/coupon-detail-generation/references/detail-layout-methods.md",
+      "source": "owner-paloma-merchant-count-axis-rejection-and-browser-regression-20261022"
+    },
+    {
+      "id": "store-detail-layout",
+      "status": "active",
+      "version": "2026-10-22.10",
+      "pages": [
+        "store-detail"
+      ],
+      "path": "knowledge/pages/store-detail.md",
+      "source": "owner-approved-detail-methods-and-eight-store-ui-maintenance-20261021"
+    },
+    {
+      "id": "detail-measurement-standard",
+      "status": "active",
+      "version": "2026-10-22.8",
+      "pages": [
+        "offer-detail",
+        "store-detail"
+      ],
+      "path": "knowledge/imported/skills/coupon-detail-generation/references/detail-standard.md",
+      "source": "owner-paloma-merchant-count-axis-rejection-and-browser-regression-20261022"
+    },
+    {
+      "id": "detail-browser-inspector",
+      "status": "active",
+      "version": "2026-10-22.8",
+      "pages": [
+        "offer-detail",
+        "store-detail"
+      ],
+      "path": "knowledge/imported/skills/coupon-detail-review/scripts/inspect-detail.mjs",
+      "source": "owner-paloma-merchant-count-axis-rejection-and-browser-regression-20261022"
+    },
+    {
+      "id": "detail-capacity-contract",
+      "status": "active",
+      "version": "2026-10-22.12",
+      "pages": [
+        "offer-detail",
+        "store-detail"
+      ],
+      "path": "knowledge/imported/skills/coupon-detail-generation/references/detail-contract.json",
+      "source": "owner-paloma-merchant-count-axis-rejection-and-browser-regression-20261022"
+    },
+    {
+      "id": "global-layout-baseline",
+      "status": "active",
+      "version": "2026-10-26.1",
+      "pages": [
+        "*"
+      ],
+      "path": "knowledge/imported/skills/site-design/references/global-layout-baseline.md",
+      "source": "owner-all-page-layout-baseline-20261021"
+    },
+    {
+      "id": "global-layout-inspector",
+      "status": "active",
+      "version": "2026-10-26.1",
+      "pages": [
+        "*"
+      ],
+      "path": "knowledge/imported/skills/site-design-review/scripts/inspect-layout.mjs",
+      "source": "owner-all-page-layout-baseline-20261021"
+    },
+    {
+      "id": "visual-completion",
+      "status": "active",
+      "version": "2026-10-22.2",
+      "pages": [
+        "*"
+      ],
+      "path": "knowledge/imported/skills/site-design/references/visual-completion.md",
+      "source": "owner-confirmed-visual-upgrade-and-primary-design-methods-20261022"
+    },
+    {
+      "id": "research-informed-visual-craft",
+      "status": "active",
+      "version": "2026-10-22.1",
+      "pages": [
+        "*"
+      ],
+      "modes": [
+        "new-design",
+        "reuse"
+      ],
+      "path": "knowledge/imported/skills/site-design/references/creative-craft.md",
+      "source": "existing-research-methods-explicit-author-entry-20261022"
+    },
+    {
+      "id": "home-visual-calibration",
+      "status": "active",
+      "version": "2026-10-22.4",
+      "pages": [
+        "home"
+      ],
+      "path": "knowledge/imported/skills/site-design/references/cases/owner-home-visual-calibration-20261022.md",
+      "source": "owner-approved-paloma-and-jingle-aster-refinement-feedback-20261022"
+    },
+    {
+      "id": "initial-reading-html",
+      "status": "active",
+      "version": "2026-10-26.1",
+      "pages": [
+        "home",
+        "guides-index",
+        "guide-detail"
+      ],
+      "path": "knowledge/imported/skills/site-design/assets/reading-static.mjs",
+      "source": "owner-mobile-reading-callsite-review-20261024",
+      "roles": [
+        "author",
+        "reviewer"
+      ]
+    },
+    {
+      "id": "reading-callsite-styles",
+      "status": "active",
+      "version": "2026-10-26.1",
+      "pages": [
+        "home",
+        "guides-index",
+        "guide-detail"
+      ],
+      "path": "knowledge/imported/skills/site-design/assets/reading-callsite.css",
+      "source": "owner-mobile-reading-callsite-review-20261024",
+      "roles": [
+        "author",
+        "reviewer"
+      ]
+    },
+    {
+      "id": "automatic-responsive-gate",
+      "status": "active",
+      "version": "2026-10-26.1",
+      "pages": [
+        "*"
+      ],
+      "path": "knowledge/imported/skills/site-design-review/scripts/automatic-layout.mjs",
+      "source": "owner-new-generation-automatic-review-20261024",
+      "roles": [
+        "author",
+        "reviewer"
+      ]
+    }
+  ]
+}

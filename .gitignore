@@ -1,0 +1,10 @@
+runs/
+knowledge/local/
+config/knowledge.local.json
+systems/connection-check-*.md
+.codex/plugins/
+.env*
+node_modules/
+.designer-data/
+.codex/config.toml
+*.log

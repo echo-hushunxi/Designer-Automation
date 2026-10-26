@@ -1,0 +1,35 @@
+[
+  {
+    "file": "desktop-second.png",
+    "evidenceId": "ev-4e267aeb-f78b-46c9-a15f-dbefd911cee1",
+    "author": "2901c7d4-457c-497a-ae91-0bc5538ffce1",
+    "buildId": "b-5c7938bb-2a01-4688-a169-677c1839ea86",
+    "route": "en/index.html",
+    "width": 1440,
+    "height": 1000,
+    "scrollY": 950,
+    "sha256": "649d0683427e0e121f9701c088a304c1a96cd90d5379de9fc5a3ef89a5a2ba47"
+  },
+  {
+    "file": "phone-second.png",
+    "evidenceId": "ev-1e513503-d805-4488-ba47-260f64ac1642",
+    "author": "2901c7d4-457c-497a-ae91-0bc5538ffce1",
+    "buildId": "b-5c7938bb-2a01-4688-a169-677c1839ea86",
+    "route": "en/index.html",
+    "width": 375,
+    "height": 844,
+    "scrollY": 844,
+    "sha256": "f2e68f34826ab5992ec96cb5d657e8d61b64bc19dbde83a1d959920bf5da015d"
+  },
+  {
+    "file": "narrow-first.png",
+    "evidenceId": "ev-1f063ec6-5448-41ad-a957-cf3a762d3125",
+    "author": "2901c7d4-457c-497a-ae91-0bc5538ffce1",
+    "buildId": "b-5c7938bb-2a01-4688-a169-677c1839ea86",
+    "route": "en/index.html",
+    "width": 320,
+    "height": 700,
+    "scrollY": 0,
+    "sha256": "df05443de2feaf1048b9a2df72a21608abc07f7a535d7ef0120e3d130e31823b"
+  }
+]

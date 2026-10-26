@@ -1,0 +1,161 @@
+{
+  "version": 1,
+  "profile": "homepage-first",
+  "at": "2026-10-16T00:45:05.602Z",
+  "scope": "Observed cases and exact final delivery identities; not a shared skin, quota, extra review stage or future acceptance.",
+  "run": "generation/stitch-duo-20261016",
+  "originalSix": [
+    {
+      "slug": "mavora",
+      "projectId": "mavora-article-images-20261014",
+      "buildId": "b-0d961729-e4c1-4869-9429-13bc4e6d5c01",
+      "revisionId": "r-49262c53-a8fa-4bf9-aa8d-fef80a2b53ac",
+      "sourceHash": "668328fcaf5911561ddcbb66de888e59c312ea52229d0bb69e8ef0092b2a89ed",
+      "artifactHash": "1464022d709934d8bc159e0ea7a9fd5dd9a358cf00412877a88783b6009815de",
+      "zipHash": "b9913589dfd435436a98148298049a0ec90003607df27b785c2fe4130494fae4",
+      "delivery": "verified",
+      "downloadStatus": 200,
+      "downloadMatches": true,
+      "checkedAt": "2026-10-16T00:02:27.125Z"
+    },
+    {
+      "slug": "paloma",
+      "projectId": "paloma-white-alignment-20261014",
+      "buildId": "b-5fab078e-82a5-457c-8d9e-0f8338aefa9a",
+      "revisionId": "r-66be0e67-f635-4430-90e5-0a502a6d40ed",
+      "sourceHash": "871367b10af1cc863c3c55070a7dec320c4d8f6df4910eb25bf5ca9c66b1b09d",
+      "artifactHash": "719a9f41a43cea78e301053e5bca0cebc3e3d96b05f98a86eafdd3429b531bcb",
+      "zipHash": "cf0d6a358e7763d54e15ceb8deb83f8a00fb0903882999b4cf6bad3a50d60d22",
+      "delivery": "verified",
+      "downloadStatus": 200,
+      "downloadMatches": true,
+      "checkedAt": "2026-10-16T00:02:28.354Z"
+    },
+    {
+      "slug": "jingle",
+      "projectId": "jingle-holiday-homepage-20261015",
+      "buildId": "b-cf7ce4eb-6296-4d2d-8e3a-1ea96f3b5d43",
+      "revisionId": "r-7302395a-3fd6-4ba2-949f-8c1f2f6c8e9d",
+      "sourceHash": "4ce2fe1b83c204163b1711d7cefb7e9a6b2ad1f4f25a3d919373f22b7bd6f630",
+      "artifactHash": "2899c965408fec71033cee05efb9625f4aa49e280ae0dbb87f91709a77336970",
+      "zipHash": "8fb8545c75cfe51a2084dac3eccd204a6825c9239c82f960f76204aef2550835",
+      "delivery": "verified",
+      "downloadStatus": 200,
+      "downloadMatches": true,
+      "checkedAt": "2026-10-16T00:02:28.735Z"
+    },
+    {
+      "slug": "orbitperks",
+      "projectId": "orbitperks-article-images-20261014",
+      "buildId": "b-67a64f9a-33c3-4b70-ab1b-86841c870f6f",
+      "revisionId": "r-a0c7ed97-63a1-4d8e-a8ec-7a8feb1a77e1",
+      "sourceHash": "eeb130e0b06b2e3e1775713364d86ccf62278e719f4e8dd59ce049c1b9fb70d4",
+      "artifactHash": "e8eae09d935108c5fab100cd2709d5e50929fedbbe212860d732247e796dc223",
+      "zipHash": "59e2bd70f184a70dc673f3769aa610b4d2174da85748d39a03e0e9b7d6abd634",
+      "delivery": "verified",
+      "downloadStatus": 200,
+      "downloadMatches": true,
+      "checkedAt": "2026-10-16T00:02:29.522Z"
+    },
+    {
+      "slug": "ribbonperks",
+      "projectId": "ribbonperks-refero-20261014",
+      "buildId": "b-0ff1c3c7-c832-4a2f-aced-a6a1e8955765",
+      "revisionId": "r-86a9451f-bc1a-443c-8f69-404181d1398b",
+      "sourceHash": "ccbca91043e3bdc648c6e856760e051e072933a7172750271b171f67d0eba553",
+      "artifactHash": "c55aadba562d56d7fc9067722169e59c97aac3c0b4e7b5523bdb4b08c1185719",
+      "zipHash": "d86fe6f3bab282cf622d3900463445db438ac8281c50c3b4bb4268e7550e81e6",
+      "delivery": "verified",
+      "downloadStatus": 200,
+      "downloadMatches": true,
+      "checkedAt": "2026-10-16T00:02:30.428Z"
+    },
+    {
+      "slug": "aster",
+      "projectId": "aster-white-alignment-20261014",
+      "buildId": "b-812a0982-63ad-40a7-8d11-5a9b81d61eeb",
+      "revisionId": "r-3e072c86-40c0-41f9-b77e-0cc631d8621d",
+      "sourceHash": "d72e8b66265074fc721b513a11eed986f78efe5da4b6469fd65d5e37c06ce445",
+      "artifactHash": "ddc6f4e6c58e8104470fe9ae238ef8f78e0576b5c336aba687cc157b4cc2597b",
+      "zipHash": "954c2d6d741fb51fc1395fb29db22d4d8d6508fa65443f7862f0dcc6ba349ac5",
+      "delivery": "verified",
+      "downloadStatus": 200,
+      "downloadMatches": true,
+      "checkedAt": "2026-10-16T00:02:31.206Z"
+    }
+  ],
+  "newSites": [
+    {
+      "slug": "folioperks",
+      "projectId": "folio-perks-stitch-20261016",
+      "buildId": "b-229e16cb-01f6-4021-a09d-0209d94856ad",
+      "revisionId": "r-40bec722-bd44-4051-986d-5a2e37f43f62",
+      "sourceHash": "0762fa1704505212d43b9f45bdd5d53db22bf93b14b694e251f00b4249c33837",
+      "artifactHash": "d55585c46cf5f763ff7d7b0ff4a3ccf1160b3889c012ec2e2349a22940ebfbe4",
+      "zipHash": "517990e66d09edb9d0590e1e29f880e5a993f8856c86d1f3ded28faf0a4f3fe0",
+      "reviewHash": "5d894399db1d3c62bb2ef9c9f67bfdf4b2256fc0b00b966526e2852730f18780",
+      "reviewer": "/root/coupon_skill_acceptance",
+      "proofStoreRoot": "<HARNESS_ROOT>/generation/stitch-duo-20261016/store"
+    },
+    {
+      "slug": "rivetdeals",
+      "projectId": "rivet-deals-stitch-20261016",
+      "buildId": "b-a70ce560-114a-48fa-b4e9-998c175a7deb",
+      "revisionId": "r-6ba28917-bdad-44c5-86b4-8fe52b7266d1",
+      "sourceHash": "851ddbce52daa15fac5abfee73ae20ca3a7900ad74a0ccc6e0d33aa07036b141",
+      "artifactHash": "86c94899d35328a614739ea37fc8f8591df5293d6cc5c530465bd1a18a68172c",
+      "zipHash": "5567d09eb7ebe842d1b859ddad3d8332df0ea9db490b188d95714da1d6090fe0",
+      "reviewHash": "154c0b34800232d86cdbab9969f956a44e8262d7c145baf6081cbb3b782f6553",
+      "reviewer": "/root/reaudit_as_jg_1016",
+      "proofStoreRoot": "<HARNESS_ROOT>/generation/stitch-duo-20261016/store"
+    }
+  ],
+  "findings": [
+    {
+      "id": "RIVET-QUICK-ALIGN-01",
+      "cause": "One-line and two-line real deadlines moved benefit/date/divider tracks although CTA bottoms and numeric checks passed.",
+      "prevention": "Inspect full real neighbor groups at actual narrow widths; choose purpose-specific tracks, not a universal card template."
+    },
+    {
+      "id": "RIVET-STORE-BREAKPOINT-01",
+      "cause": "A narrow-tablet grid retained four columns and a phone name shared width with the arrow. The home subset concealed additional full-directory cases.",
+      "prevention": "Inspect complete merchant data, glyph paint, counts, arrows and actual height at chosen breakpoint neighbors and320px; reflow without shrinking or clipping."
+    },
+    {
+      "id": "RIVET-HERO-COPY-CONTRAST-01",
+      "cause": "Photo/background integration changed the final red field. Large black heading remained compliant but normal16/18px black caption fell to3.7249.",
+      "prevention": "Recompute actual normal and large text contrast after image/background changes; validate the real final text region."
+    },
+    {
+      "id": "FOL-DIR-HEADER-SEARCH-LOGO",
+      "cause": "Outer form size did not prove the actual input hit box; a complete official logo needed a correct optical variant/backing.",
+      "prevention": "Measure actual controls and inspect original logo pixels in every static and dynamic role."
+    },
+    {
+      "id": "FOL-FULL-03",
+      "cause": "One-line and two-line merchant names shifted counts and arrows in the complete store directory although names remained readable.",
+      "prevention": "Check the complete real merchant set and neighboring breakpoint widths; align the brand-specific metadata tracks without copying another site skin."
+    },
+    {
+      "id": "FOL-FULL-01-02",
+      "cause": "Nonempty generic offer titles omitted merchant identity and single-merchant category counts used plural nouns.",
+      "prevention": "Check real TDK meaning and zero/single/plural text; preserve source offer conditions and avoid fabricated identifier uniqueness."
+    },
+    {
+      "id": "MEASUREMENT-LIST-EMPTY",
+      "cause": "The actual zero-result filtered state was correct, but the scanner omitted its explicit data-list-empty marker.",
+      "prevention": "Preserve old receipts, recognize only visible main empty states with no populated coupons, test hidden/outside/populated counterexamples and remeasure the affected state with the corrected native tool."
+    },
+    {
+      "id": "RIVET-EMPTY-RELATED-OFFERS-01 / FOL-FULL-04",
+      "cause": "Expiry removed the selected related coupons but left an empty recommendation heading and divider.",
+      "prevention": "Check the containing module after removing records; honor its declared empty strategy in static and runtime states, scope the empty copy accurately, and verify idempotence, recovery and retained merchant recommendations."
+    },
+    {
+      "id": "SIX-REVIEW-20261016",
+      "cause": "Long code wrapping, logo mapping, shared action tracks and actual responsive boundaries required additional source-scoped fixes.",
+      "prevention": "Keep old sources, concentrate actual defects, freeze new candidates and recheck the exact offline/archive/current download."
+    }
+  ],
+  "evidenceBoundary": "Native full-site reviews and release ran in the retained proofStoreRoot. Published source/archive copies are byte-identical; native receipt paths were never edited. User visual acceptance remains not-recorded."
+}

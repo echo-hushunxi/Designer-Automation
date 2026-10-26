@@ -1,0 +1,11 @@
+{
+  "read-files":{"status":"not-run","tool":"actual tool/command binding","evidence":"capability-evidence/read.json"},
+  "write-source":{"status":"not-run","tool":"actual tool/command binding","evidence":"capability-evidence/write.json"},
+  "build":{"status":"not-run","tool":"actual project build tool","evidence":"capability-evidence/build.json"},
+  "browser-read":{"status":"not-run","tool":"actual browser","evidence":"capability-evidence/browser.json"},
+  "browser-interaction":{"status":"not-run","tool":"actual browser","evidence":"capability-evidence/browser.json"},
+  "screenshot":{"status":"not-run","tool":"actual browser","evidence":"capability-evidence/browser.json"},
+  "geometry":{"status":"not-run","tool":"actual browser evaluate","evidence":"capability-evidence/browser.json"},
+  "independent-review":{"status":"not-run","tool":"actual independent context/role","evidence":"capability-evidence/reviewer.json"},
+  "offline":{"status":"not-run","tool":"actual ZIP extraction and file browser","evidence":"capability-evidence/offline.json"}
+}

@@ -1,0 +1,211 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+const {chromium}=await import(process.env.DA_PLAYWRIGHT_MODULE||'playwright-core');
+if(!process.env.SITE_BROWSER_EXECUTABLE)throw Error('Set SITE_BROWSER_EXECUTABLE to the actual available browser; missing capability is not-run');
+import {inspectDetail} from '../../knowledge/imported/skills/coupon-detail-review/scripts/inspect-detail.mjs';
+
+test('actual browser rejects hidden layout, clipped identity, empty roles and wrong visible IDs',async t=>{
+ const browser=await chromium.launch({executablePath:process.env.SITE_BROWSER_EXECUTABLE,headless:true});
+ t.after(()=>browser.close());const page=await browser.newPage({viewport:{width:320,height:800}});
+ const base={requiredRoles:[]};
+ await t.test('merchant axes reject arrow-column drift and centered boxes with shifted text',async()=>{
+  await page.setViewportSize({width:393,height:900});
+  await page.setContent(`<style>.store{display:grid;box-sizing:border-box;width:285px;padding:12px;border:1px solid #ddd;grid-template-columns:minmax(0,1fr) 44px;grid-template-rows:72px auto 48px;gap:8px;align-items:center;justify-items:center}.logo{grid-column:1/-1;width:72px;height:72px}.name{grid-column:1/-1;font:16px/20px Arial;text-align:center;width:100%}.count{grid-column:1;grid-row:3;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:48px;font:14px/20px Arial}.number{font:20px/28px Arial}.unit{font:14px/20px Arial}.arrow{grid-column:2;grid-row:3;width:44px;height:44px}</style><a class="store" href="/stores/real/"><img class="logo" alt="Real Store" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E"><span class="name">Real Store</span><span class="count"><b class="number">30</b><span class="unit">offers</span></span><span class="arrow" aria-hidden="true">→</span></a>`);
+  const group={name:'primary',cards:'.store',logo:'.logo',nameSelector:'.name',countSelector:'.count',expectedCount:1,alignment:[{axis:'center-x',reference:'logo',fields:[{selector:'.name',text:true},{selector:'.count',text:true}],tolerancePx:2}]};
+  const config={...base,requireMerchantAlignment:true,merchantGroups:[group]};
+  const bad=await page.evaluate(inspectDetail,config);
+  assert(bad.failures.some(f=>f.rule==='merchant-declared-alignment'&&f.selector==='.count'&&f.delta===-26));
+  await page.addStyleTag({content:'.count{grid-column:1/-1}'});
+  const centered=await page.evaluate(inspectDetail,config);assert.equal(centered.failures.length,0,JSON.stringify(centered.failures));
+  await page.addStyleTag({content:'.count{align-items:flex-start}'});
+  const shifted=await page.evaluate(inspectDetail,config);
+  assert(shifted.failures.some(f=>f.rule==='merchant-declared-alignment'&&f.kind==='text-line'));
+  assert(!shifted.failures.some(f=>f.rule==='merchant-declared-alignment'&&f.kind==='box'));
+  await page.addStyleTag({content:'.count{align-items:center}.unit{transform:translateX(6px)}'});
+  const unit=await page.evaluate(inspectDetail,config);assert(unit.failures.some(f=>f.rule==='merchant-declared-alignment'&&f.kind==='text-line'&&Math.abs(f.delta-6)<.1),JSON.stringify(unit.failures));
+  await page.addStyleTag({content:'.unit{transform:none}.count{flex-direction:row;align-items:baseline;justify-content:center;gap:4px}'});
+  const inline=await page.evaluate(inspectDetail,config);assert.equal(inline.failures.length,0,JSON.stringify(inline.failures));
+  assert.equal(inline.merchantGroups[0].cards[0].alignment.filter(a=>a.selector==='.count'&&a.kind==='text-line').length,1,'Mixed-size inline number/unit form one visual line');
+  await page.locator('.name').evaluate(e=>e.textContent='A longer merchant name that wraps naturally');
+  assert.equal((await page.evaluate(inspectDetail,config)).failures.length,0);
+  const missing=await page.evaluate(inspectDetail,{...config,merchantGroups:[{...group,alignment:[{...group.alignment[0],fields:[{selector:'.missing',text:true}]}]}]});assert(missing.failures.some(f=>f.rule==='merchant-alignment-field-coverage'));
+  const noMapping=await page.evaluate(inspectDetail,{...config,merchantGroups:[{...group,alignment:[]}]});assert(noMapping.failures.some(f=>f.rule==='merchant-alignment-group-mapping'));
+  const nameOnly=await page.evaluate(inspectDetail,{...config,merchantGroups:[{...group,alignment:[{...group.alignment[0],fields:[{selector:'.name',text:true}]}]}]});assert(nameOnly.failures.some(f=>f.rule==='merchant-alignment-role-mapping'&&f.field==='count'));
+  const boxOnly=await page.evaluate(inspectDetail,{...config,merchantGroups:[{...group,alignment:[{...group.alignment[0],fields:[{selector:'.name',text:true},{selector:'.count'}]}]}]});assert(boxOnly.failures.some(f=>f.rule==='merchant-alignment-text-mapping'&&f.field==='count'));
+  const emptyOptional=await page.evaluate(inspectDetail,{...config,merchantGroups:[{cards:'.missing',required:false}]});assert(emptyOptional.failures.some(f=>f.rule==='merchant-alignment-group-coverage'));
+  const emptyDeclared=await page.evaluate(inspectDetail,{...config,merchantGroups:[{cards:'.missing',expectedCount:0}]});assert.equal(emptyDeclared.failures.length,0,JSON.stringify(emptyDeclared.failures));
+  const falseEmpty=await page.evaluate(inspectDetail,{...config,merchantGroups:[{...group,expectedCount:0}]});assert(falseEmpty.failures.some(f=>f.rule==='merchant-group-coverage'));
+  assert((await page.evaluate(inspectDetail,{...base,requireMerchantAlignment:true})).failures.some(f=>f.rule==='merchant-alignment-group-coverage'));
+  const invalid=await page.evaluate(inspectDetail,{...config,merchantGroups:[{...group,alignment:[{...group.alignment[0],axis:'baseline'}]}]});assert(invalid.failures.some(f=>f.rule==='merchant-alignment-mapping'));
+ });
+ await t.test('merchant alignment respects a declared horizontal text group instead of imposing stacked cards',async()=>{
+  await page.setContent(`<style>.store{display:flex;align-items:center;gap:12px;width:280px;height:100px}.logo{width:72px;height:72px}.copy{display:flex;flex-direction:column;gap:4px}.name{font:16px/20px Arial}.count{font:14px/20px Arial}</style><a class="store" href="/stores/real/"><img class="logo" alt="Real" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E"><span class="copy"><span class="name">Real Store</span><span class="count">30 offers</span></span></a>`);
+  const config={...base,requireMerchantAlignment:true,merchantGroups:[{name:'horizontal',cards:'.store',logo:'.logo',nameSelector:'.name',countSelector:'.count',expectedCount:1,alignment:[{axis:'center-y',reference:'logo',fields:[{selector:'.copy'}],tolerancePx:2}]}]};
+  assert.equal((await page.evaluate(inspectDetail,config)).failures.length,0);
+  await page.addStyleTag({content:'.copy{transform:translateY(8px)}'});
+  assert((await page.evaluate(inspectDetail,config)).failures.some(f=>f.rule==='merchant-declared-alignment'&&f.axis==='center-y'&&f.delta===8));
+ });
+ await t.test('store cards retain visible names and truthful offer counts',async()=>{
+  await page.setContent('<style>h1{font:24px/28px Arial;margin:0}.count{font:14px/22px Arial}header{margin-bottom:12px}section{height:80px}</style><main><header><img width="100" height="100" src="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\'/%3E"><h1>Real Store</h1><span class="count">3 offers</span></header><section>Coupon content</section></main>');
+  const config={...base,storeHeading:{container:'main>header',name:'h1',count:'.count',logo:'img',logoPx:100,maximumHeightPx:200,expectedName:'Real Store',expectedCount:3,followingContent:'main>section',forbiddenFeaturedCoupon:'[data-store-leading]'}};
+  const good=await page.evaluate(inspectDetail,config);assert.equal(good.failures.length,0,JSON.stringify(good.failures));assert.equal(good.storeHeading.actualCount,3);
+  await page.locator('section').evaluate(e=>e.setAttribute('data-store-leading',''));assert((await page.evaluate(inspectDetail,config)).failures.some(f=>f.rule==='store-page-featured-coupon'));await page.locator('section').evaluate(e=>e.removeAttribute('data-store-leading'));
+  await page.locator('img').evaluate(e=>e.style.width='80px');assert((await page.evaluate(inspectDetail,config)).failures.some(f=>f.rule==='store-card-logo-size'));
+  await page.locator('img').evaluate(e=>e.style.width='100px');await page.locator('header').evaluate(e=>e.style.height='201px');assert((await page.evaluate(inspectDetail,config)).failures.some(f=>f.rule==='store-card-height'));await page.locator('header').evaluate(e=>e.style.height='');
+  await page.locator('h1').evaluate(e=>{e.style.position='absolute';e.style.top='10px'});assert((await page.evaluate(inspectDetail,config)).failures.some(f=>f.rule==='store-card-logo-text-overlap'));await page.locator('h1').evaluate(e=>{e.style.position='';e.style.top=''});
+  await page.locator('h1').evaluate(e=>e.hidden=true);assert((await page.evaluate(inspectDetail,config)).failures.some(f=>f.rule==='store-heading-fields'));
+  await page.locator('h1').evaluate(e=>e.hidden=false);await page.locator('.count').evaluate(e=>e.textContent='30 offers');assert((await page.evaluate(inspectDetail,config)).failures.some(f=>f.rule==='store-heading-count-mismatch'));
+  await page.locator('.count').evaluate(e=>e.remove());assert((await page.evaluate(inspectDetail,config)).failures.some(f=>f.rule==='store-heading-fields'));
+ });
+ await t.test('short coupon title cannot reserve an empty line or push its date away',async()=>{
+  await page.setContent('<style>.card{width:240px;height:100px;display:flex;flex-direction:column;justify-content:center;gap:5px}.title{display:block;height:44px;margin:0;font:16px/22px Arial}.date{display:block;font:14px/20px Arial}</style><main><article class="card"><h3 class="title">Save 20% today</h3><time class="date">Apr 22, 2027</time></article></main>');
+  const config={...base,couponTextGroups:[{name:'coupons',cards:'.card',title:'.title',date:'.date',expectedCount:1,maximumTitleDateGapPx:8}]};
+  const bad=await page.evaluate(inspectDetail,config);assert(bad.failures.some(f=>f.rule==='coupon-title-unused-line-space'));
+  await page.addStyleTag({content:'.title{height:auto}'});
+  const short=await page.evaluate(inspectDetail,config);assert.equal(short.failures.length,0,JSON.stringify(short.failures));assert.equal(short.couponTextGroups[0].cards[0].visibleLines,1);
+  await page.locator('.title').evaluate(e=>e.textContent='Save 20% on your next purchase with this coupon');
+  const long=await page.evaluate(inspectDetail,config);assert.equal(long.failures.length,0,JSON.stringify(long.failures));assert.equal(long.couponTextGroups[0].cards[0].visibleLines,2);
+  await page.addStyleTag({content:'.date{margin-top:22px}'});
+  assert((await page.evaluate(inspectDetail,config)).failures.some(f=>f.rule==='coupon-title-date-gap'));
+  await page.locator('.date').evaluate(e=>e.remove());assert((await page.evaluate(inspectDetail,config)).failures.some(f=>f.rule==='coupon-text-group-fields'));
+ });
+ await t.test('separate merchant cards reject touching edges and panel flush content without confusing grid rows',async()=>{
+  await page.setViewportSize({width:768,height:1000});
+  const card='<a class="store" href="/stores/real/"><img width="72" height="72" src="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\'/%3E"><span class="name">Store</span></a>';
+  await page.setContent(`<style>.panel{width:300px;border:1px solid #ddd;padding:12px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.store{display:flex;flex-direction:column;align-items:center;gap:8px;padding:8px;background:white}.name{font:16px/20px Arial}h2{margin:0 0 12px;font:18px/24px Arial}</style><main><section class="panel"><h2>Featured stores</h2><div class="grid">${card.repeat(4)}</div></section></main>`);
+  const selectors={...base,logoMinimumPx:70,merchantGroups:[{name:'sidebar',cards:'.store',logo:'img',nameSelector:'.name',expectedCount:4,spacing:{container:'.panel',minimumGapPx:8,minimumInsetPx:12,insetFields:'h2'}}]};
+  const good=await page.evaluate(inspectDetail,selectors);assert.equal(good.failures.length,0,JSON.stringify(good.failures));
+  assert(good.merchantGroups[0].spacing.gaps.some(value=>value.axis==='x'&&value.gap===8));
+  assert(good.merchantGroups[0].spacing.gaps.some(value=>value.axis==='y'&&value.gap===8));
+  await page.addStyleTag({content:'.grid{gap:0}'});
+  const touching=await page.evaluate(inspectDetail,selectors);assert(touching.failures.some(f=>f.rule==='merchant-card-gap'&&f.gap===0));
+  await page.addStyleTag({content:'.grid{gap:8px}.panel{padding-left:0;padding-right:0}'});
+  const flush=await page.evaluate(inspectDetail,selectors);assert(flush.failures.some(f=>f.rule==='merchant-panel-inset'&&f.left===0));assert(!flush.failures.some(f=>f.rule==='merchant-card-gap'));
+  await page.addStyleTag({content:'.panel{padding:12px}.grid{grid-template-columns:1fr;gap:0}'});
+  const stack=await page.evaluate(inspectDetail,selectors);assert(stack.failures.some(f=>f.rule==='merchant-card-gap'&&f.axis==='y'&&f.gap===0));
+  await page.addStyleTag({content:'.store+.store{margin-top:8px}'});
+  const fixed=await page.evaluate(inspectDetail,selectors);assert.equal(fixed.failures.length,0,JSON.stringify(fixed.failures));
+  const absent=await page.evaluate(inspectDetail,{...selectors,merchantGroups:[{...selectors.merchantGroups[0],spacing:{...selectors.merchantGroups[0].spacing,container:'.missing'}}]});assert(absent.failures.some(f=>f.rule==='merchant-spacing-container-coverage'));
+ });
+ await t.test('summary truncation cannot conceal a clipped parent; short first titles cannot opt into clamping',async()=>{
+  await page.setContent('<a class="card" href="/stores/real/" style="display:block;width:200px;height:80px"><span style="display:contents;overflow:hidden"><span class="name" style="display:block;font:16px/20px Arial">Actual visible name</span></span></a>');
+  const contents=await page.evaluate(inspectDetail,{...base,names:'.name'});
+  assert(!contents.failures.some(f=>f.rule==='full-field-ancestor-clipping'),JSON.stringify(contents.failures));
+  const contentsCapacity=await page.evaluate(inspectDetail,{...base,capacityFields:[{selector:'.name',card:'.card',maxLines:1}]});
+  assert(!contentsCapacity.failures.some(f=>f.rule==='capacity-field-ancestor-clipping'),JSON.stringify(contentsCapacity.failures));
+  await page.setContent('<style>.card{width:220px;height:100px}.clip{height:12px;overflow:hidden}.name{display:block;width:180px;height:20px;font:16px/20px Arial;overflow:hidden;white-space:nowrap}</style><a class="card" href="/offers/real/"><div class="clip"><span class="name">Real coupon title</span></div></a>');
+  const summary=await page.evaluate(inspectDetail,{...base,capacityFields:[{selector:'.name',card:'.card',maxLines:1}]});
+  assert(summary.failures.some(f=>f.rule==='capacity-field-ancestor-clipping'));
+  await page.setContent('<article class="first"><h2 style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical">Short title</h2><time style="display:block;width:40px;white-space:nowrap;overflow:hidden;font-size:14px">Ends December 31, 2027</time><p class="terms" style="width:50px;height:16px;overflow:hidden">Full eligibility conditions must be readable.</p></article>');
+  const first=await page.evaluate(inspectDetail,{...base,firstCoupon:'.first',firstCouponTitle:'h2',dates:'time',fullCouponFields:'.terms'});
+  assert(first.failures.some(f=>f.rule==='first-coupon-clamp-forbidden'));
+  assert(first.failures.some(f=>f.role==='first-coupon-date'&&f.rule==='full-field-own-clipping'));
+  assert(first.failures.some(f=>f.role==='first-coupon-required-field'&&f.rule==='full-field-own-clipping'));
+ });
+ await t.test('declared summary capacity allows truncation but never exempts the first coupon',async()=>{
+  await page.setContent('<style>.card{display:block;width:200px;height:100px}.name{display:block;width:90px;height:20px;font:16px/20px Arial;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style><main><a class="card" href="/stores/real/"><span class="name">A very long real merchant name</span></a></main>');
+  const selectors={...base,names:'.name',capacityFields:[{selector:'.name',card:'.card',maxLines:1}]};
+  const good=await page.evaluate(inspectDetail,selectors);assert.equal(good.failures.length,0,JSON.stringify(good.failures));
+  await page.locator('.card').evaluate(e=>e.setAttribute('href','#'));
+  assert((await page.evaluate(inspectDetail,selectors)).failures.some(f=>f.rule==='capacity-full-detail-link'));
+  await page.locator('.card').evaluate(e=>e.setAttribute('href','/stores/real/'));
+  const first=await page.evaluate(inspectDetail,{...selectors,firstCoupon:'.card',firstCouponTitle:'.name'});
+  assert(first.failures.some(f=>f.rule==='first-coupon-capacity-forbidden'));
+  assert(first.failures.some(f=>f.rule==='full-field-own-clipping'));
+ });
+ await t.test('hidden attribute overridden by author layout is an actual failure',async()=>{
+  await page.setContent('<style>article{display:grid!important;width:200px;height:80px}</style><main><article hidden>Hidden code offer</article></main>');
+  const result=await page.evaluate(inspectDetail,base);assert(result.failures.some(f=>f.rule==='hidden-element-occupies-layout'));
+ });
+ await t.test('full identity checks both own ellipsis and ancestor clipping',async()=>{
+  await page.setContent('<main><span class="name" style="display:block;width:80px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:16px">Dick\'s Sporting Goods</span></main>');
+  assert((await page.evaluate(inspectDetail,{...base,names:'.name'})).failures.some(f=>f.rule==='full-field-own-clipping'));
+  await page.setContent('<main><div style="width:80px;overflow:hidden"><span class="name" style="display:block;width:240px;font-size:16px">Dick\'s Sporting Goods</span></div></main>');
+  assert((await page.evaluate(inspectDetail,{...base,names:'.name'})).failures.some(f=>f.rule==='full-field-ancestor-clipping'));
+  await page.setContent('<main><span class="name" style="display:inline-block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:16px Arial">Brylane Home</span></main>');
+  await page.locator('.name').evaluate(e=>e.style.width=(Math.floor(e.getBoundingClientRect().width)-1)+'px');
+  const subtle=await page.evaluate(inspectDetail,{...base,names:'.name'});
+  assert(subtle.failures.some(f=>f.rule==='full-field-own-clipping'),'One integer pixel of overflow must not be waived by the clipping tolerance');
+ });
+ await t.test('missing merchant group and incomplete card cannot look like successful empty coverage',async()=>{
+  await page.setContent('<main><section data-coupon-module="recommended-stores"></section></main>');
+  const missing=await page.evaluate(inspectDetail,{...base,merchantGroups:[{name:'primary',cards:'.store',expectedCount:16}]});
+  assert(missing.failures.some(f=>f.rule==='merchant-group-coverage'));assert(missing.failures.some(f=>f.rule==='missing-merchant-cards'));
+  await page.setContent('<main><section data-coupon-module="recommended-stores"><a class="store" href="/stores/real/">Real merchant with missing logo/name mapping</a></section></main>');
+  assert((await page.evaluate(inspectDetail,base)).failures.some(f=>f.rule==='missing-merchant-field'));
+  await page.setContent('<main><section data-coupon-module="recommended-stores"><a href="/stores/index.html">All stores</a></section></main>');
+  const navigationOnly=await page.evaluate(inspectDetail,base);
+  assert(navigationOnly.failures.some(f=>f.rule==='missing-merchant-cards'));assert(!navigationOnly.failures.some(f=>f.rule==='missing-merchant-field'));
+ });
+ await t.test('zero result checks actual visible IDs and counter, not the hidden flags',async()=>{
+  await page.setContent('<style>article{display:grid!important}</style><main><p id="count">0 of 0 offers</p><article data-offer-id="code-1" hidden>Code offer</article></main>');
+  const listState={cards:'article',expectedVisibleIds:[],counter:'#count',expectedCounterText:'0 of 0 offers'};
+  assert((await page.evaluate(inspectDetail,{...base,listState})).failures.some(f=>f.rule==='list-visible-id-mismatch'));
+  await page.addStyleTag({content:'main article[hidden]{display:none!important}'});
+  const good=await page.evaluate(inspectDetail,{...base,listState});assert.equal(good.failures.length,0,JSON.stringify(good.failures));
+  await page.locator('#count').evaluate(e=>e.textContent='1 of 1 offer');
+  assert((await page.evaluate(inspectDetail,{...base,listState})).failures.some(f=>f.rule==='list-counter-mismatch'));
+ });
+ await t.test('correct nonempty IDs, wrapped merchant and explicit empty merchant state pass',async()=>{
+  await page.setContent('<main><article data-offer-id="code-1"><span class="name" style="display:block;width:105px;font:16px/1.3 Arial;white-space:normal">Dick\'s Sporting Goods</span></article></main>');
+  const good=await page.evaluate(inspectDetail,{...base,names:'.name',listState:{cards:'article',expectedVisibleIds:['code-1']},merchantGroups:[{name:'data-empty',cards:'.absent',required:false,expectedCount:0}]});
+  assert.equal(good.failures.length,0,JSON.stringify(good.failures));
+ });
+ await t.test('visible long title overflow inside a nonoverflowing page still fails',async()=>{
+  await page.setContent('<main style="width:200px"><h1 style="font:16px/1.4 Arial;width:100px;overflow:visible">DickssportinggoodsDickssportinggoods</h1><button style="width:100px;height:48px;font-size:14px">Reveal</button></main>');
+  const selectors={...base,main:'main',mainTitle:'h1',claimAction:'button'};
+  const bad=await page.evaluate(inspectDetail,selectors);assert(bad.failures.some(f=>f.rule==='main-title-width-overflow'));assert(bad.failures.some(f=>f.rule==='main-title-outside-coupon'));
+  await page.addStyleTag({content:'h1{overflow-wrap:anywhere}'});
+  const good=await page.evaluate(inspectDetail,selectors);assert.equal(good.failures.length,0,JSON.stringify(good.failures));
+ });
+ await t.test('column review measures actual contents and only excludes a truly shared tail',async()=>{
+  await page.setViewportSize({width:1440,height:1000});
+  await page.setContent('<style>.layout{display:grid;grid-template-columns:200px 100px;gap:20px}.lead{height:100px}.tail{height:1000px}aside section{height:200px}</style><main class="layout"><div class="primary"><section class="lead">Coupon</section><section class="tail">16 stores</section></div><aside><section>Four stores</section></aside></main>');
+  const selectors={...base,columnBalance:{primary:'.primary',sidebar:'aside',sharedTail:'.tail'}};
+  const bad=await page.evaluate(inspectDetail,selectors);assert(bad.failures.some(f=>f.rule==='column-end-gap-needs-review'));assert.equal(bad.columnBalance.sharedTailSpansColumns,false);
+  await page.addStyleTag({content:'.primary{display:contents}.lead{grid-column:1;grid-row:1}.tail{grid-column:1/-1;grid-row:2}aside{grid-column:2;grid-row:1}'});
+  const good=await page.evaluate(inspectDetail,selectors);assert.equal(good.columnBalance.sharedTailSpansColumns,true);assert.equal(good.failures.length,0,JSON.stringify(good.failures));
+  const current=await page.evaluate(inspectDetail,{...selectors,columnBalance:{...selectors.columnBalance,fixedPrimaryColumn:true}});
+  assert(current.failures.some(f=>f.rule==='primary-content-crosses-sidebar'));
+ });
+ await t.test('unavailable detail still measures columns without requiring a claim and checks nested discovery',async()=>{
+  await page.setViewportSize({width:1440,height:1000});
+  await page.setContent('<style>main{display:grid;grid-template-columns:600px 300px;gap:24px}.unavailable{height:120px}.recommendations{height:400px}.topics-list{height:400px}.stores-list{height:800px}</style><main><div class="primary"><section class="unavailable" role="status">Offer no longer available</section><section class="recommendations">16 real stores</section></div><aside><section class="topics"><h2>Topics</h2><div class="topics-list">10 categories</div></section><section class="stores"><h2>Stores</h2><div class="stores-list">16 sidebar stores</div></section></aside></main>');
+  const selectors={...base,columnBalance:{primary:'.primary',sidebar:'aside'},columnBalances:[{name:'discovery',primary:'aside>.topics',sidebar:'aside>.stores'}]};
+  const bad=await page.evaluate(inspectDetail,selectors);assert(bad.failures.some(f=>f.rule==='column-end-gap-needs-review'));assert(!bad.failures.some(f=>f.rule==='missing-main-title'));
+  await page.addStyleTag({content:'main{grid-template-columns:1fr}aside{display:grid;grid-template-columns:300px 600px;gap:24px}.stores-list{height:1100px}'});
+  const nestedBad=await page.evaluate(inspectDetail,selectors);assert.equal(nestedBad.columnBalance.isTwoColumn,false);assert(nestedBad.failures.some(f=>f.rule==='column-end-gap-needs-review'&&f.name==='discovery'));
+  await page.addStyleTag({content:'.stores-list{height:600px}'});
+  const good=await page.evaluate(inspectDetail,selectors);assert.equal(good.columnBalances[0].isTwoColumn,true);assert.equal(good.failures.length,0,JSON.stringify(good.failures));
+ });
+ await t.test('visible merchant text inside the card must still fit its own badge',async()=>{
+  await page.setContent('<main style="width:240px"><span class="name" style="display:block;box-sizing:border-box;width:100px;padding:2px 7px;font:16px/1.3 Arial;overflow:visible;overflow-wrap:normal">BalloonsFAST</span></main>');
+  const bad=await page.evaluate(inspectDetail,{...base,names:'.name'});assert(bad.failures.some(f=>f.rule==='full-field-own-width-overflow'));assert(!bad.failures.some(f=>f.rule==='horizontal-overflow'));
+  await page.addStyleTag({content:'.name{overflow-wrap:anywhere!important}'});const good=await page.evaluate(inspectDetail,{...base,names:'.name'});assert.equal(good.failures.length,0,JSON.stringify(good.failures));
+ });
+ await t.test('unavailable entry compares the frozen merchant path instead of accepting any working directory link',async()=>{
+  await page.setContent('<main><section class="unavailable"><h1>This offer is unavailable</h1><a style="display:inline-flex;align-items:center;min-height:44px;font:14px Arial" href="../../../en/stores/index.html">Find current store offers</a></section></main>');
+  const selectors={...base,main:'.coupon',unavailableState:{container:'.unavailable',expectedStorePath:'/stores/artist-works/'}};
+  const bad=await page.evaluate(inspectDetail,selectors);assert(bad.failures.some(f=>f.rule==='unavailable-store-destination'));
+  await page.locator('.unavailable a').evaluate(e=>e.href='../../../en/stores/artist-works/index.html');const good=await page.evaluate(inspectDetail,selectors);assert.equal(good.failures.length,0,JSON.stringify(good.failures));
+  await page.locator('.unavailable a').evaluate(e=>e.remove());assert((await page.evaluate(inspectDetail,selectors)).failures.some(f=>f.rule==='missing-unavailable-store-action'));
+ });
+ await t.test('ordinary coupon rejects nested Logo overflow and a decorative rail crossing actual text',async()=>{
+  await page.setViewportSize({width:320,height:800});
+  await page.setContent(`<style>body{margin:0}.coupon{position:relative;width:304px;height:96px;font:16px/22px Arial}.rail{position:absolute;inset:0;width:304px;height:96px}.logo{position:absolute;left:12px;top:12px;width:72px;height:72px}.logo span{display:block;width:72px;height:72px}.logo img{display:block;box-sizing:content-box;width:72px;height:72px;border:1px solid #ddd}.title,.date{position:absolute;left:92px;top:18px;margin:0;width:146px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.date{top:44px;font-size:14px}.action{position:absolute;left:248px;top:26px;width:44px;height:44px}</style><article class="coupon"><svg class="rail" viewBox="0 0 304 96"><rect class="logo-area" width="95" height="96" fill="#f8f8f8"/></svg><a class="logo" href="/stores/real/"><span><img alt="Castlery" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E"></span></a><h2 class="title">$60 Off Any Order</h2><time class="date">Mar 17, 2027</time><a class="action" href="/offers/real/">→</a></article>`);
+  const selectors={...base,recommendationBoundaries:[{name:'ordinary',cards:'.coupon',logo:'.logo',wrappers:'.logo span',fields:'.title,.date',action:'.action',logoArea:'.logo-area',expectedCount:1}]};
+  const bad=await page.evaluate(inspectDetail,selectors);
+  assert(bad.failures.some(f=>f.rule==='recommendation-logo-containment'));
+  assert(bad.failures.some(f=>f.rule==='recommendation-text-enters-logo-rail'));
+  assert(!bad.failures.some(f=>f.rule==='horizontal-overflow'));
+  await page.addStyleTag({content:'.logo img{box-sizing:border-box}'});
+  await page.locator('.logo-area').evaluate(e=>e.setAttribute('width','88'));
+  const good=await page.evaluate(inspectDetail,selectors);assert.equal(good.failures.length,0,JSON.stringify(good.failures));
+  await page.addStyleTag({content:'.date{left:78px;overflow:visible}'});
+  assert((await page.evaluate(inspectDetail,selectors)).failures.some(f=>f.rule==='recommendation-text-enters-logo'));
+  await page.addStyleTag({content:'.date{left:220px}'});
+  assert((await page.evaluate(inspectDetail,selectors)).failures.some(f=>f.rule==='recommendation-text-enters-action'));
+  const empty=await page.evaluate(inspectDetail,{...base,recommendationBoundaries:[{cards:'.missing'}]});
+  assert(empty.failures.some(f=>f.rule==='recommendation-boundary-coverage'));
+ });
+});

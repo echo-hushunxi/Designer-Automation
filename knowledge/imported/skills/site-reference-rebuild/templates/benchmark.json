@@ -1,0 +1,87 @@
+{
+  "references": [
+    {
+      "source": "<bound referenceUrl>",
+      "captureIds": [],
+      "observation": ""
+    },
+    {
+      "source": "<second observed quality benchmark>",
+      "observation": ""
+    }
+  ],
+  "dimensions": {
+    "hero": {
+      "level": "not-run",
+      "observation": "",
+      "evidenceIds": []
+    },
+    "firstTwoFolds": {
+      "level": "not-run",
+      "observation": "",
+      "evidenceIds": []
+    },
+    "typography": {
+      "level": "not-run",
+      "observation": "",
+      "evidenceIds": []
+    },
+    "imagery": {
+      "level": "not-run",
+      "observation": "",
+      "evidenceIds": []
+    },
+    "cardsAndActions": {
+      "level": "not-run",
+      "observation": "",
+      "evidenceIds": []
+    },
+    "mobile": {
+      "level": "not-run",
+      "observation": "",
+      "evidenceIds": []
+    }
+  },
+  "referenceAnalysis": {
+    "layout": {
+      "reference": "",
+      "actual": "",
+      "adaptation": ""
+    },
+    "typography": {
+      "reference": "",
+      "actual": "",
+      "adaptation": ""
+    },
+    "palette": {
+      "reference": "",
+      "actual": "",
+      "adaptation": ""
+    },
+    "imagery": {
+      "reference": "",
+      "actual": "",
+      "adaptation": ""
+    },
+    "cards": {
+      "reference": "",
+      "actual": "",
+      "adaptation": ""
+    },
+    "spacing": {
+      "reference": "",
+      "actual": "",
+      "adaptation": ""
+    },
+    "mobile": {
+      "reference": "",
+      "actual": "",
+      "adaptation": ""
+    },
+    "motion": {
+      "reference": "",
+      "actual": "",
+      "adaptation": ""
+    }
+  }
+}

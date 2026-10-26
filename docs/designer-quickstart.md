@@ -1,0 +1,48 @@
+# 设计师快速连接
+
+需要Node 22.19+、Git及私有仓库访问权限。共享经验只连接中央服务，其他设计师不用启动自己的服务。
+
+## 只配置一次
+
+管理员单独提供designer-token.txt。它是共享经验的写入令牌，不包含规则发布权限，不要放进Git。
+
+```sh
+git clone git@github.com:echo-hushunxi/Designer-Automation.git
+cd Designer-Automation
+npm ci
+npm run connect -- --url http://192.168.12.9:4381 --token-file /实际位置/designer-token.txt
+```
+
+连接命令会生成被Git忽略、仅当前用户可读的.codex/config.toml和.designer-data/client.json。无需手写JSON/TOML或永久设置环境变量。之后在Agent中重新打开项目或重启该MCP连接，让项目配置生效；Codex项目配置需要可信项目。[官方MCP配置说明](https://learn.chatgpt.com/docs/extend/mcp?surface=cli)支持项目级配置、Streamable HTTP和静态请求头。
+
+以上地址用于可路由到192.168.12.9的内网。主机另一个内网地址为192.168.11.228，同一服务也监听http://192.168.11.228:4381/mcp。选择设计师能访问的地址；公网连接需使用管理员实际提供的域名/IP，不因服务在本机启动就宣称已公网可用。
+
+使用其他Agent时可加--client generic，保存工作流连接但不写Codex配置；再在该Agent的MCP设置中填写：
+
+| 字段 | 值 |
+| --- | --- |
+| 名称 | designer_experience |
+| 类型 | Streamable HTTP |
+| 地址 | http://192.168.12.9:4381/mcp |
+| Authorization | Bearer加空格，再加管理员提供的写入令牌 |
+
+## 日常只需对话
+
+在拉取的项目中告诉Agent：
+
+> 先读AGENTS.md和core/maintenance.md，连接designer_experience。只查看共享经验工具是否可用，暂时不要测试任何站点。后续我给站点Git地址后，按审核→调整→给我查看的流程处理，先读取适用经验，并保存我的反馈与已验证的修复经验。
+
+Agent应能看到experience_search、experience_capture。任务开始查询适用经验并固定快照；反馈随时保存为待验证案例，修复后保存带实际证据的经验。正式发布由维护者完成。设计师不必提交/推送Git来同步日常经验。
+
+workbench自动复用connect保存的连接；服务短暂不可达时，反馈保留本地待同步队列，恢复后让Agent执行npm run workbench -- sync。不要编造站点哈希来试写经验；只需列工具和读取已有经验来确认连接。
+
+## 主机管理员
+
+```sh
+npm run knowledge:service -- install
+npm run knowledge:service -- status
+```
+
+macOS使用当前用户LaunchAgent常驻，登录时启动、异常退出自动重启。其他系统可以通过npm run knowledge和既有进程管理器运行。数据、日志和凭据保存在用户Library/Application Support/Designer-Automation/experience目录，独立于Git工作区。只分发designer-token.txt，service.json内的维护者凭据留在主机。
+
+暂停服务使用npm run knowledge:service -- stop；停止不会删除经验数据。换机/改IP后重新运行connect即可更新客户端地址。启动服务与MCP认证检查不代表任何站点已通过审核。

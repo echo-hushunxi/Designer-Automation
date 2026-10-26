@@ -1,0 +1,501 @@
+{
+  "version": 2,
+  "siteType": "coupon-aggregation",
+  "dataSource": "feishu-coupon-public-api",
+  "pages": [
+    {
+      "id": "home",
+      "requiredModules": [
+        "home-header",
+        "campaign",
+        "featured-offers",
+        "more-offers",
+        "merchant-discovery",
+        "topic-discovery",
+        "footer"
+      ],
+      "optionalModules": [
+        "occasions",
+        "saving-guides"
+      ],
+      "cardTypes": [
+        "campaign",
+        "offer-entry",
+        "store-entry",
+        "category-entry",
+        "occasion-entry",
+        "guide-entry"
+      ],
+      "conditional": false
+    },
+    {
+      "id": "stores-index",
+      "requiredModules": [
+        "compact-header",
+        "merchant-directory",
+        "footer"
+      ],
+      "optionalModules": [],
+      "cardTypes": [
+        "store-entry"
+      ],
+      "conditional": false
+    },
+    {
+      "id": "store-detail",
+      "requiredModules": [
+        "compact-header",
+        "store-breadcrumb",
+        "store-identity",
+        "store-offers",
+        "related-stores",
+        "browse-sidebar",
+        "footer"
+      ],
+      "optionalModules": [],
+      "cardTypes": [
+        "store-identity",
+        "offer-entry",
+        "store-entry",
+        "category-entry"
+      ],
+      "conditional": false
+    },
+    {
+      "id": "categories-index",
+      "requiredModules": [
+        "compact-header",
+        "category-directory",
+        "footer"
+      ],
+      "optionalModules": [],
+      "cardTypes": [
+        "category-entry"
+      ],
+      "conditional": false
+    },
+    {
+      "id": "category-detail",
+      "requiredModules": [
+        "compact-header",
+        "category-identity",
+        "scoped-merchants",
+        "footer"
+      ],
+      "optionalModules": [],
+      "cardTypes": [
+        "category-entry",
+        "store-entry"
+      ],
+      "conditional": false
+    },
+    {
+      "id": "search",
+      "requiredModules": [
+        "compact-search-header",
+        "query-results",
+        "footer"
+      ],
+      "optionalModules": [
+        "alternative-stores"
+      ],
+      "cardTypes": [
+        "store-entry"
+      ],
+      "conditional": false
+    },
+    {
+      "id": "offers-index",
+      "requiredModules": [
+        "compact-header",
+        "offer-filters",
+        "offer-results",
+        "browse-sidebar",
+        "footer"
+      ],
+      "optionalModules": [],
+      "cardTypes": [
+        "offer-entry",
+        "category-entry",
+        "store-entry"
+      ],
+      "conditional": false
+    },
+    {
+      "id": "offer-detail",
+      "requiredModules": [
+        "compact-header",
+        "main-coupon",
+        "related-offers",
+        "recommended-stores",
+        "browse-sidebar",
+        "footer"
+      ],
+      "optionalModules": [],
+      "cardTypes": [
+        "main-coupon",
+        "offer-entry",
+        "store-entry",
+        "category-entry"
+      ],
+      "conditional": false
+    },
+    {
+      "id": "occasions-index",
+      "requiredModules": [
+        "compact-header",
+        "occasion-directory",
+        "footer"
+      ],
+      "optionalModules": [],
+      "cardTypes": [
+        "occasion-entry"
+      ],
+      "conditional": true
+    },
+    {
+      "id": "occasion-detail",
+      "requiredModules": [
+        "compact-header",
+        "occasion-identity",
+        "associated-offers",
+        "occasion-navigation",
+        "footer"
+      ],
+      "optionalModules": [],
+      "cardTypes": [
+        "occasion-entry",
+        "offer-entry"
+      ],
+      "conditional": true
+    },
+    {
+      "id": "guides-index",
+      "requiredModules": [
+        "compact-header",
+        "guide-directory",
+        "footer"
+      ],
+      "optionalModules": [],
+      "cardTypes": [
+        "guide-entry"
+      ],
+      "conditional": true
+    },
+    {
+      "id": "guide-detail",
+      "requiredModules": [
+        "compact-header",
+        "article",
+        "related-guides",
+        "footer"
+      ],
+      "optionalModules": [],
+      "cardTypes": [
+        "guide-entry"
+      ],
+      "conditional": true
+    },
+    {
+      "id": "about",
+      "requiredModules": [
+        "compact-header",
+        "information-content",
+        "footer"
+      ],
+      "optionalModules": [],
+      "cardTypes": [],
+      "conditional": false
+    },
+    {
+      "id": "contact",
+      "requiredModules": [
+        "compact-header",
+        "information-content",
+        "footer"
+      ],
+      "optionalModules": [],
+      "cardTypes": [],
+      "conditional": false
+    },
+    {
+      "id": "privacy",
+      "requiredModules": [
+        "compact-header",
+        "information-content",
+        "footer"
+      ],
+      "optionalModules": [],
+      "cardTypes": [],
+      "conditional": false
+    },
+    {
+      "id": "terms",
+      "requiredModules": [
+        "compact-header",
+        "information-content",
+        "footer"
+      ],
+      "optionalModules": [],
+      "cardTypes": [],
+      "conditional": false
+    },
+    {
+      "id": "disclaimer",
+      "requiredModules": [
+        "compact-header",
+        "information-content",
+        "footer"
+      ],
+      "optionalModules": [],
+      "cardTypes": [],
+      "conditional": false
+    }
+  ],
+  "cards": [
+    {
+      "id": "campaign",
+      "requiredFields": [
+        "headline",
+        "artwork",
+        "action"
+      ],
+      "optionalFields": [
+        "supporting-copy"
+      ]
+    },
+    {
+      "id": "offer-entry",
+      "requiredFields": [
+        "merchant-logo",
+        "merchant-name",
+        "offer-title",
+        "expiry-or-unknown",
+        "action"
+      ],
+      "optionalFields": [
+        "offer-type",
+        "category"
+      ]
+    },
+    {
+      "id": "main-coupon",
+      "requiredFields": [
+        "merchant-logo",
+        "merchant-name",
+        "offer-title",
+        "expiry-or-unknown",
+        "offer-type",
+        "code-deal-expired-action-state"
+      ],
+      "optionalFields": []
+    },
+    {
+      "id": "store-entry",
+      "requiredFields": [
+        "merchant-logo",
+        "merchant-name",
+        "active-offer-count",
+        "store-action"
+      ],
+      "optionalFields": [
+        "category"
+      ]
+    },
+    {
+      "id": "store-identity",
+      "requiredFields": [
+        "merchant-logo",
+        "merchant-name",
+        "active-offer-count"
+      ],
+      "optionalFields": [
+        "category",
+        "official-store-link"
+      ]
+    },
+    {
+      "id": "category-entry",
+      "requiredFields": [
+        "category-name",
+        "category-artwork",
+        "category-action"
+      ],
+      "optionalFields": [
+        "scoped-offer-count"
+      ]
+    },
+    {
+      "id": "occasion-entry",
+      "requiredFields": [
+        "occasion-title",
+        "occasion-action"
+      ],
+      "optionalFields": [
+        "source-artwork",
+        "source-dates",
+        "associated-offer-count"
+      ]
+    },
+    {
+      "id": "guide-entry",
+      "requiredFields": [
+        "article-title",
+        "article-action"
+      ],
+      "optionalFields": [
+        "source-cover",
+        "source-summary",
+        "source-date"
+      ]
+    }
+  ],
+  "forbiddenModules": [
+    "auth",
+    "newsletter",
+    "community",
+    "cashback",
+    "extension",
+    "advertising",
+    "fake-social-proof",
+    "shopping-how-it-works",
+    "decorative-eyebrow"
+  ],
+  "forbiddenOfferFields": [
+    "description-paragraph",
+    "invented-discount",
+    "unverified-success-rate",
+    "fake-usage-count",
+    "fake-rating"
+  ],
+  "states": [
+    "masked-code-entry",
+    "intentional-reveal-copy",
+    "copy-denied-feedback",
+    "reload-remask",
+    "no-code-shop",
+    "expired-no-claim",
+    "search-empty-query",
+    "search-no-match",
+    "filter-real-visible-results",
+    "long-title",
+    "missing-optional-content",
+    "narrow-layout",
+    "expired-excluded"
+  ],
+  "freedom": [
+    "palette",
+    "font-family",
+    "campaign-composition",
+    "component-geometry",
+    "spacing-and-rhythm",
+    "density",
+    "column-count",
+    "module-order-except-business-order",
+    "imagery-and-topic-art",
+    "action-silhouette",
+    "responsive-composition"
+  ],
+  "businessOrder": [
+    "offer-detail: main-coupon > related-offers > recommended-stores; recommended-stores is last main shopping module",
+    "home: saving-guides last or penultimate when enabled"
+  ],
+  "legacyScope": "Existing projects are unchanged unless explicitly adopted; historical artifacts keep their frozen contract.",
+  "moduleCards": {
+    "campaign": [
+      "campaign"
+    ],
+    "featured-offers": [
+      "offer-entry"
+    ],
+    "more-offers": [
+      "offer-entry"
+    ],
+    "merchant-discovery": [
+      "store-entry"
+    ],
+    "topic-discovery": [
+      "category-entry"
+    ],
+    "occasions": [
+      "occasion-entry"
+    ],
+    "saving-guides": [
+      "guide-entry"
+    ],
+    "merchant-directory": [
+      "store-entry"
+    ],
+    "store-identity": [
+      "store-identity"
+    ],
+    "store-offers": [
+      "offer-entry"
+    ],
+    "related-stores": [
+      "store-entry"
+    ],
+    "browse-sidebar": [
+      "category-entry",
+      "store-entry"
+    ],
+    "category-directory": [
+      "category-entry"
+    ],
+    "category-identity": [
+      "category-entry"
+    ],
+    "scoped-merchants": [
+      "store-entry"
+    ],
+    "query-results": [
+      "store-entry"
+    ],
+    "alternative-stores": [
+      "store-entry"
+    ],
+    "offer-results": [
+      "offer-entry"
+    ],
+    "main-coupon": [
+      "main-coupon"
+    ],
+    "related-offers": [
+      "offer-entry"
+    ],
+    "recommended-stores": [
+      "store-entry"
+    ],
+    "occasion-directory": [
+      "occasion-entry"
+    ],
+    "occasion-identity": [
+      "occasion-entry"
+    ],
+    "associated-offers": [
+      "offer-entry"
+    ],
+    "occasion-navigation": [
+      "occasion-entry"
+    ],
+    "guide-directory": [
+      "guide-entry"
+    ],
+    "related-guides": [
+      "guide-entry"
+    ]
+  },
+  "expiredVisibility": "Exclude expired coupons from all rendered shopping surfaces; old detail URLs render only an unavailable state. Preserve raw records for provenance.",
+  "presentation": {
+    "version": "2026-10-26.1",
+    "footerLinks": [
+      "About Us",
+      "Disclaimer",
+      "Contact Us",
+      "Privacy Policy"
+    ],
+    "copyAction": "Copy code",
+    "shoppingOnly": true,
+    "fullReadingImages": true
+  }
+}

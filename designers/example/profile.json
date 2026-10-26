@@ -1,0 +1,6 @@
+{
+  "id": "example",
+  "status": "active",
+  "method": "designers/example/method.md",
+  "priority": "preference-only"
+}

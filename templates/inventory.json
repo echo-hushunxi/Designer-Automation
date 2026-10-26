@@ -1,0 +1,101 @@
+{
+  "instructions": "Collected independently from actual candidate routes and modules, with build identity in evidence. Do not copy expected plan and call it observed. Scope outside the task is reported separately; omitted required modules cannot be waived. Independently collect every actual card family and real short/long/last-row entity ID in moduleCards; record actual semantic markedRoles, including extra roles. An empty markedRoles list is only valid when no role markers exist.",
+  "routes": [
+    {
+      "project": "actual-project-id",
+      "page": "home",
+      "route": "/en/",
+      "modules": [
+        "header",
+        "campaign",
+        "featured-offers",
+        "more-offers",
+        "merchant-discovery",
+        "topic-discovery",
+        "footer"
+      ],
+      "evidence": "review-1/actual-browser-inventory.json",
+      "markedRoles": [
+        "header",
+        "campaign",
+        "featured-offers",
+        "more-offers",
+        "merchant-discovery",
+        "topic-discovery",
+        "footer"
+      ],
+      "moduleCards": [
+        {
+          "module": "header",
+          "cardFamily": "navigation",
+          "sampleIds": [
+            "header-replace-with-real-short-entity-id",
+            "header-replace-with-real-long-entity-id",
+            "header-replace-with-real-last-row-entity-id"
+          ],
+          "evidence": "review-1/actual-browser-inventory.json"
+        },
+        {
+          "module": "campaign",
+          "cardFamily": "campaign",
+          "sampleIds": [
+            "campaign-replace-with-real-short-entity-id",
+            "campaign-replace-with-real-long-entity-id",
+            "campaign-replace-with-real-last-row-entity-id"
+          ],
+          "evidence": "review-1/actual-browser-inventory.json"
+        },
+        {
+          "module": "featured-offers",
+          "cardFamily": "featured-coupon",
+          "sampleIds": [
+            "featured-offers-replace-with-real-short-entity-id",
+            "featured-offers-replace-with-real-long-entity-id",
+            "featured-offers-replace-with-real-last-row-entity-id"
+          ],
+          "evidence": "review-1/actual-browser-inventory.json"
+        },
+        {
+          "module": "more-offers",
+          "cardFamily": "coupon-summary",
+          "sampleIds": [
+            "more-offers-replace-with-real-short-entity-id",
+            "more-offers-replace-with-real-long-entity-id",
+            "more-offers-replace-with-real-last-row-entity-id"
+          ],
+          "evidence": "review-1/actual-browser-inventory.json"
+        },
+        {
+          "module": "merchant-discovery",
+          "cardFamily": "merchant",
+          "sampleIds": [
+            "merchant-discovery-replace-with-real-short-entity-id",
+            "merchant-discovery-replace-with-real-long-entity-id",
+            "merchant-discovery-replace-with-real-last-row-entity-id"
+          ],
+          "evidence": "review-1/actual-browser-inventory.json"
+        },
+        {
+          "module": "topic-discovery",
+          "cardFamily": "category",
+          "sampleIds": [
+            "topic-discovery-replace-with-real-short-entity-id",
+            "topic-discovery-replace-with-real-long-entity-id",
+            "topic-discovery-replace-with-real-last-row-entity-id"
+          ],
+          "evidence": "review-1/actual-browser-inventory.json"
+        },
+        {
+          "module": "footer",
+          "cardFamily": "information-navigation",
+          "sampleIds": [
+            "footer-replace-with-real-short-entity-id",
+            "footer-replace-with-real-long-entity-id",
+            "footer-replace-with-real-last-row-entity-id"
+          ],
+          "evidence": "review-1/actual-browser-inventory.json"
+        }
+      ]
+    }
+  ]
+}

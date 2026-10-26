@@ -1,0 +1,552 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-20T07:19:51.655Z",
+  "ownerInstruction": "这些低质量站点都从成果库删掉，都是一些低质量无法应用的站点，以后不许生成这种低质量站点了 Preserve all earlier owner rejections. The original eveandember and merryperks projects remain outside this deletion scope.",
+  "instructions": "All listed designs are owner-rejected negative examples, never positive references or reuse origins. Do not recreate their identities, Banner artwork, prompts, page/card/action composition or overall visual language under new names. Changing colors, text or images alone does not resolve rejection. Historical internal pass/ready records cannot overturn the owner verdict. Future sites must demonstrate commercially finished, practically usable desktop/mobile home, store, listing and detail pages against the excellent references and approved original homepage baselines before expansion or delivery. Automated fingerprints prevent exact reuse; independent visual review must reject lookalike or unfinished directions. Functional success, numeric compliance or layout novelty cannot replace this visual judgment.",
+  "designs": [
+    {
+      "projectId": "daymark",
+      "slug": "daymark",
+      "name": "Daymark",
+      "status": "owner-rejected",
+      "rejectedAt": "2026-09-30T07:42:18.519Z",
+      "currentBuild": "b-aa97b39d-a1c8-432b-8dfe-294ad102d062",
+      "artifactHash": "2fa0d98a750de8610ac281c8deab03da348878d30dc49314a6ecfd82ec4c07f4",
+      "zipHash": "3b814700f46861aca5af0fde0a7277e5d7885c9d4250d6e331db4c1bb96ff50f",
+      "direction": "Rejected blue/lime shopping still-life campaign, rounded segmented panels and blue horizontal coupon/action layout.",
+      "fingerprints": [
+        {
+          "kind": "Banner",
+          "file": "daymark-hero.png",
+          "sha256": "83e023b6f5348319adb8a4b530f999813ca4f092e77b8674ec3a8ac85897afcf"
+        },
+        {
+          "kind": "style",
+          "file": "daymark.css",
+          "sha256": "5f3dfcd98f14e5069f432b373e865b92869b989875534b40b149f15242fe1d51",
+          "normalizedStyleHash": "3aad3f4109d8b48acea317276619bb6b9e905d17196552731f41ec6b7f9b2582"
+        }
+      ]
+    },
+    {
+      "projectId": "dealcircuit",
+      "slug": "dealcircuit",
+      "name": "DealCircuit",
+      "status": "owner-rejected",
+      "rejectedAt": "2026-09-30T07:42:18.519Z",
+      "currentBuild": "b-dd183c00-8228-426b-9203-da3398ce4f4c",
+      "artifactHash": "f7519155fc7020c14b9ae237956a79d46e632e4c807bff3dfdb9f6183c407940",
+      "zipHash": "815f1aa2fc50387c11f8da9fe87b5feb9b4a5e157779bce8f14aa9ae0b6311e5",
+      "direction": "Rejected cobalt/lime product still-life campaign, generic promotional panels and segmented coupon-card skin.",
+      "fingerprints": [
+        {
+          "kind": "Banner",
+          "file": "dealcircuit-hero.png",
+          "sha256": "c6baca3b57e6fca9611aa3a9af465f9b036d02382cdc2123c5a52132f5379bd0"
+        },
+        {
+          "kind": "style",
+          "file": "dealcircuit.css",
+          "sha256": "2c31436c80123f73ec1064ba141210572012ed881ff8c6eea3e59e5b04cd6934",
+          "normalizedStyleHash": "b2b68acce706c8c9dd927b02bfc53cdbe967bfb5c288096858507413d55199ed"
+        },
+        {
+          "kind": "style",
+          "file": "dealcircuit.css",
+          "sha256": "87b871ac1b1bc868b4ca4b0f34ead080a31ceb200dc6e90d0472875de5d641c4",
+          "normalizedStyleHash": "668cdec91a75e7da0f2b445cd3dcf67437882df2d8cb6210e94d8945b975faaf"
+        }
+      ]
+    },
+    {
+      "projectId": "pickwell",
+      "slug": "pickwell",
+      "name": "Pickwell",
+      "status": "owner-rejected",
+      "rejectedAt": "2026-09-30T07:42:18.519Z",
+      "currentBuild": "b-0b22dae2-e389-4920-bce2-79b3c9078286",
+      "artifactHash": "30f331e259e4d0b1e26b8405420f5d2085f5592374bf8164bb5b612d2ad4aae7",
+      "zipHash": "a0c04600b0d74d07117f691b5d8765a6582fcb334e5dbc1529c214002ca90a3c",
+      "direction": "Rejected shopping still-life Banner, category sheet, teal/purple ledger/calendar presentation and receipt-style claim composition.",
+      "fingerprints": [
+        {
+          "kind": "Banner",
+          "file": "pickwell-categories.png",
+          "sha256": "38ab5f4676b2824694e30378a7752d3690e8f4a30ea6ee52968e48d1864277c4"
+        },
+        {
+          "kind": "Banner",
+          "file": "pickwell-hero.png",
+          "sha256": "289f685874f658bd3b4e8a2d639e0f6760de07da694c848382a9f0ace90d741e"
+        },
+        {
+          "kind": "style",
+          "file": "pickwell.css",
+          "sha256": "c75569c02e4ece6a7fb9fe422cdd92d90cfed6764c3f6ccc2e126ebfe025f379",
+          "normalizedStyleHash": "9e2ac0d3fa386052520c009c91ebd22332f258c64ea7253d2efd342804d7e20f"
+        },
+        {
+          "kind": "style",
+          "file": "pickwell.css",
+          "sha256": "1742f36bff42642436fbc3edfd5674c460b3f7099506e0d72d7e17107ed79164",
+          "normalizedStyleHash": "27202053ac1a22abc65fdd1167a6f623cbb9c097bf35c7681b8797c6ab7c0208"
+        },
+        {
+          "kind": "style",
+          "file": "pickwell.css",
+          "sha256": "f75b2327ae7a4bb233c1f3328bab03bb80a5c2e69baa0379e2cccb3f3ce3af1c",
+          "normalizedStyleHash": "9cdf4480f157a0ad54328725b29a463b185e822b1d1cc38a1e4bc734a0fa21a7"
+        },
+        {
+          "kind": "style",
+          "file": "pickwell.css",
+          "sha256": "9e3ca5d67e257b5c36a8ba89f3954c4230ffccb3a0d92b9d2d79d2afc87a1b3a",
+          "normalizedStyleHash": "0050c023520f0fac1e5e9ba96f4e49421528f26f37deb945c7e95b34174704bb"
+        },
+        {
+          "kind": "style",
+          "file": "pickwell.css",
+          "sha256": "68c2560d1ccf44d0cd32c1cf0903728a896e1ae69ecd1e6f8dac11a31ed4f0b3",
+          "normalizedStyleHash": "435530f8e20e114d310667d6e376608563101febdf5d2514a9abcc68ab1f5727"
+        },
+        {
+          "kind": "style",
+          "file": "pickwell.css",
+          "sha256": "6b24ad2f91fc6f6cc9fc3822ea0777dcf7e9cb9a2de1e292e8f6454c852efcbe",
+          "normalizedStyleHash": "77f6253cf735d68cafb37d0c83a8a27efec3f0408dacc7b17512f89240412d09"
+        },
+        {
+          "kind": "style",
+          "file": "pickwell.css",
+          "sha256": "c695f9ff74848868c95c6bb7dbd2eb92ea00fbe8be608199ef59ac25f01b8fdb",
+          "normalizedStyleHash": "1e885453978cc040b66b9d7f683708723ba5c936b5ee2e9bfad3a7566cdb62b7"
+        },
+        {
+          "kind": "style",
+          "file": "pickwell.css",
+          "sha256": "ea56bf94a3cbb4e19acec92c6717be1e8dde2713298da7b95a5680f5d98699fe",
+          "normalizedStyleHash": "e8fd7dd0980bde9c8bed931613edd751961d0e6e695ce8f97880981f1877c54d"
+        }
+      ]
+    },
+    {
+      "projectId": "poplane",
+      "slug": "poplane",
+      "name": "Poplane",
+      "status": "owner-rejected",
+      "rejectedAt": "2026-10-12T08:14:23.276Z",
+      "currentBuild": "b-77064a3c-e178-438d-b3a7-f1035dec2650",
+      "artifactHash": "94eba3be2c62afc4d0413df78d1adca0a49158af805469fb0909a6b51d556472",
+      "zipHash": "a4dc2dfab47a01498f181fa97fa986c4b6b7825a45822d3ecb8d7d2d83a558b0",
+      "direction": "Rejected oversized editorial collage/poster homepage, coral paper silhouettes and block-shadow action/card language. Do not reproduce this whole direction or the shoe illustration under another name. Native internal direction readiness was not owner acceptance.",
+      "fingerprints": [
+        {
+          "kind": "Banner",
+          "file": "poplane-collage-20261012.png",
+          "sha256": "3589270dd5fa050fffff63f45c2d58f992db37159753674ebfa10327c0acd23a"
+        },
+        {
+          "kind": "style",
+          "file": "poplane.css",
+          "sha256": "61cb5c757936b89435f2615b999924938d37c8e21aa7572ed369fd34a04d411a",
+          "normalizedStyleHash": "497c55e53c01683202cdec752edb4937c7a953a557f2f3f288a7037e3c2e180d"
+        }
+      ]
+    },
+    {
+      "projectId": "savervine",
+      "slug": "savervine",
+      "name": "savervine",
+      "status": "owner-rejected",
+      "rejectedAt": "2026-10-12T10:25:11.197Z",
+      "rejectedBuildId": "b-9ddc5952-e4dc-42ff-8345-7d32d6eb3bbb",
+      "rejectedArtifactHash": "099b7f214e9b9ce56a11a66de54b66d14d8183885073567dfdf61ecb5a8cc8e6",
+      "ownerInstruction": "这些低质量站点都从成果库删掉，都是一些低质量无法应用的站点，以后不许生成这种低质量站点了",
+      "direction": "Owner rejected the complete site as low quality and unusable. Do not recreate its overall page, coupon-card, action or promotional visual direction; renaming, recoloring or replacing artwork alone does not resolve this rejection.",
+      "fingerprints": [
+        {
+          "kind": "style",
+          "file": "savervine.css",
+          "sha256": "ffc2e97c7d9b1bea65be1f700e35385520cb361789a1a2fa2914d5c65dfb0679",
+          "normalizedStyleHash": "08796e6b074f91cad583a68e0239526db01a641c586fa3f928da068981187be8"
+        },
+        {
+          "kind": "style",
+          "file": "savervine-pages.css",
+          "sha256": "e08287c2f5ee6e1639e398787b6e0506bccbb5522e361bd0059fbe444ded3e07",
+          "normalizedStyleHash": "e55175a4e93d733133ed131dee5010e05b9e6b639c39da07c39ad268bc8e652b"
+        }
+      ],
+      "removedAt": "2026-10-13T04:16:49.061Z",
+      "removalScope": "成果库、当前交付清单和预览/下载入口；隔离历史仅供负面诊断",
+      "currentBuild": "b-9ddc5952-e4dc-42ff-8345-7d32d6eb3bbb",
+      "artifactHash": "099b7f214e9b9ce56a11a66de54b66d14d8183885073567dfdf61ecb5a8cc8e6",
+      "zipHash": "b512c8fc51c56939393b2fc93b9776fa74b2c99d541c0eacdd489e5073aab5f3"
+    },
+    {
+      "projectId": "clipwise",
+      "slug": "clipwise",
+      "name": "clipwise",
+      "status": "owner-rejected",
+      "rejectedAt": "2026-10-13T04:16:49.061Z",
+      "removedAt": "2026-10-13T04:16:49.061Z",
+      "removalScope": "成果库、当前交付清单和预览/下载入口；隔离历史仅供负面诊断",
+      "ownerInstruction": "这些低质量站点都从成果库删掉，都是一些低质量无法应用的站点，以后不许生成这种低质量站点了",
+      "currentBuild": "b-5b03a2cd-4953-476a-a211-df613c6ac45d",
+      "artifactHash": "58c1baa60e34b27803d3a0dc199d00e953d9477fc19ca2d3514b2688529eb19b",
+      "zipHash": "3116530413bf59111bc3e3c0223278144b540061460a3b86ce3efa465fe60f4a",
+      "direction": "Owner rejected the complete site as low quality and unusable. Do not recreate its overall page, coupon-card, action or promotional visual direction; renaming, recoloring or replacing artwork alone does not resolve this rejection.",
+      "fingerprints": [
+        {
+          "kind": "style",
+          "file": "assets/clipwise-pages.css",
+          "sha256": "d34c6ff405012694885108745fbae227327fb1239b5d6f86fccb53521b966777",
+          "normalizedStyleHash": "815103d4cb04b5c612d7b73f1ef7db61927ec60429cac761ab7b7934d1a4543d"
+        },
+        {
+          "kind": "style",
+          "file": "assets/clipwise.css",
+          "sha256": "37dc3fb37121b5835c8a6081131b46370cd786a77ab9f42eb1d4f82a6d0404fa",
+          "normalizedStyleHash": "7475cff82b93d410c0dc62a26d00fabfa762997fe2e706a1fe4f583c5507b9b4"
+        }
+      ]
+    },
+    {
+      "projectId": "eveandember-harness-20261008",
+      "slug": "eveandember-harness-20261008",
+      "name": "eveandember-harness-20261008",
+      "status": "owner-rejected",
+      "rejectedAt": "2026-10-13T04:16:49.061Z",
+      "removedAt": "2026-10-13T04:16:49.061Z",
+      "removalScope": "成果库、当前交付清单和预览/下载入口；隔离历史仅供负面诊断",
+      "ownerInstruction": "这些低质量站点都从成果库删掉，都是一些低质量无法应用的站点，以后不许生成这种低质量站点了",
+      "currentBuild": "b-58ea1a53-6735-46d8-8e84-63233aeb8971",
+      "artifactHash": "eb413451db54eb76409ee7fc4bf4fb024abea84e945230a05d2ee35b086b8ee0",
+      "zipHash": "7092db71b261b310d5260e0724380c875d4fc48326b0432bdf057fd884d5e26d",
+      "direction": "Owner rejected the complete site as low quality and unusable. Do not recreate its overall page, coupon-card, action or promotional visual direction; renaming, recoloring or replacing artwork alone does not resolve this rejection.",
+      "fingerprints": [
+        {
+          "kind": "style",
+          "file": "assets/eve-pages.css",
+          "sha256": "7401405abc799269a50591b4ccf622134154f289d3a4e90d4b36c30a45d659e6",
+          "normalizedStyleHash": "834d094e4ef9baaff8d9c9fdcbfe8b2e8cc85a29634ebf89bfab0d3cc20a5b33"
+        },
+        {
+          "kind": "style",
+          "file": "assets/eve.css",
+          "sha256": "648fd49a80d6c214acdabfb39bf3e1edb5604e00c6d5417ef34669f710b43572",
+          "normalizedStyleHash": "9ad30c8ab4a9e96330c58e901eef3ac50fde2c8508ef6fd746bf0a1a1ee0dc7f"
+        },
+        {
+          "kind": "Banner",
+          "file": "assets/eve-doorstep.svg",
+          "sha256": "e5f350ade1472586c14d6ee7aec9b317d58ab3c3e67b677ca851a5afcd418646"
+        }
+      ]
+    },
+    {
+      "projectId": "merryperks-harness-20261008",
+      "slug": "merryperks-harness-20261008",
+      "name": "merryperks-harness-20261008",
+      "status": "owner-rejected",
+      "rejectedAt": "2026-10-13T04:16:49.061Z",
+      "removedAt": "2026-10-13T04:16:49.061Z",
+      "removalScope": "成果库、当前交付清单和预览/下载入口；隔离历史仅供负面诊断",
+      "ownerInstruction": "这些低质量站点都从成果库删掉，都是一些低质量无法应用的站点，以后不许生成这种低质量站点了",
+      "currentBuild": "b-c697a164-9169-4cb1-8daa-578f11fc8498",
+      "artifactHash": "9926a5652730e33e7aa8eff513353b7b88e8332a57a0c4abd0e3b134c4fe87c8",
+      "zipHash": "3e5a2fbf3a3770efa192222f6a8d0fd600e3b59f11799e45c154a728d1453684",
+      "direction": "Owner rejected the complete site as low quality and unusable. Do not recreate its overall page, coupon-card, action or promotional visual direction; renaming, recoloring or replacing artwork alone does not resolve this rejection.",
+      "fingerprints": [
+        {
+          "kind": "style",
+          "file": "assets/workshop-pages.css",
+          "sha256": "7ce98d0f113aa85264f871161043f04703f315bd5f7e24ef493a9d9be97c298b",
+          "normalizedStyleHash": "00bcb407ec70b2d64b2f80f28168d4576d5c129c1752360edce44e89de2e14ad"
+        },
+        {
+          "kind": "style",
+          "file": "assets/workshop.css",
+          "sha256": "a4ebff5711538fc01c4644c5328c17f7931be27f90144b24a83b830b655c1843",
+          "normalizedStyleHash": "2ee2cf79cfe809f1dab093befece94ec60ecc907c0fe6c483776199a045da4a0"
+        },
+        {
+          "kind": "Banner",
+          "file": "assets/workshop-scene.svg",
+          "sha256": "56f284ddc8b6e2451aabca6420dc2f9831422f6ed6d2821a464eb47c558884ab"
+        }
+      ]
+    },
+    {
+      "projectId": "goodfind",
+      "slug": "goodfind",
+      "name": "goodfind",
+      "status": "owner-rejected",
+      "rejectedAt": "2026-10-13T04:16:49.061Z",
+      "removedAt": "2026-10-13T04:16:49.061Z",
+      "removalScope": "成果库、当前交付清单和预览/下载入口；隔离历史仅供负面诊断",
+      "ownerInstruction": "这些低质量站点都从成果库删掉，都是一些低质量无法应用的站点，以后不许生成这种低质量站点了",
+      "currentBuild": "b-49211279-17cc-43cc-9b1e-a7c9ddac900e",
+      "artifactHash": "a02ed54dca3f165372cb22ed1cae32308abaec59980f547a7f68606287e9c8c0",
+      "zipHash": "5e3c0600ce4c08db5b971d2903a7a35e63e3e20c46ad699e7d2e8956cdbd3181",
+      "direction": "Owner rejected the complete site as low quality and unusable. Do not recreate its overall page, coupon-card, action or promotional visual direction; renaming, recoloring or replacing artwork alone does not resolve this rejection.",
+      "fingerprints": [
+        {
+          "kind": "style",
+          "file": "assets/goodfind.css",
+          "sha256": "cc200135acaa5aa8cdf384c7d3711746fbb5f877f49f9b28164936799bc6b708",
+          "normalizedStyleHash": "5ce94c41e14efb2183b58f83749dcd4dac892824e00571267899cdcc9e8fce52"
+        },
+        {
+          "kind": "Banner",
+          "file": "assets/favicon.svg",
+          "sha256": "04522dbff9f187fec0b89d42aefa2df35ab29ec8a3a1c352f27e0de1d935323a"
+        },
+        {
+          "kind": "Banner",
+          "file": "assets/goodfind/hero-still-life.svg",
+          "sha256": "dfb03ec9f8e4579d2e0aa8fd211cfa914ecaed40170b0a30021697fb35319470"
+        }
+      ]
+    },
+    {
+      "projectId": "dealdeck",
+      "slug": "dealdeck",
+      "name": "dealdeck",
+      "status": "owner-rejected",
+      "rejectedAt": "2026-10-13T04:16:49.061Z",
+      "removedAt": "2026-10-13T04:16:49.061Z",
+      "removalScope": "成果库、当前交付清单和预览/下载入口；隔离历史仅供负面诊断",
+      "ownerInstruction": "这些低质量站点都从成果库删掉，都是一些低质量无法应用的站点，以后不许生成这种低质量站点了",
+      "currentBuild": "b-419ccaf5-b4d5-45f2-903f-aa361cdb4b9c",
+      "artifactHash": "b24f93d6d522a791ec8907c78c2109e555c89229308e4355eaba5d4a3dbb3db9",
+      "zipHash": "cc27c16b1f60ad175ef7ffeb7508362857c3f874c51032c963c9d03a73fbd1d3",
+      "direction": "Owner rejected the complete site as low quality and unusable. Do not recreate its overall page, coupon-card, action or promotional visual direction; renaming, recoloring or replacing artwork alone does not resolve this rejection.",
+      "fingerprints": [
+        {
+          "kind": "style",
+          "file": "assets/dealdeck.css",
+          "sha256": "72a140fef26c49ce537869bed725961ce124478490a4e74b5c7b42172217ff91",
+          "normalizedStyleHash": "dc83bfa3911c244e4d2ef4afd043a73185e29d00512bcf88147da0c00c491279"
+        },
+        {
+          "kind": "Banner",
+          "file": "assets/favicon.svg",
+          "sha256": "315b2a5f636f33261608ac749dca053b6410e704ec98b533d99b315d14754a9f"
+        }
+      ]
+    },
+    {
+      "projectId": "aislewise",
+      "slug": "aislewise",
+      "name": "aislewise",
+      "status": "owner-rejected",
+      "rejectedAt": "2026-10-13T04:16:49.061Z",
+      "removedAt": "2026-10-13T04:16:49.061Z",
+      "removalScope": "成果库、当前交付清单和预览/下载入口；隔离历史仅供负面诊断",
+      "ownerInstruction": "这些低质量站点都从成果库删掉，都是一些低质量无法应用的站点，以后不许生成这种低质量站点了",
+      "currentBuild": "b-73541131-bc7c-47ef-9ae4-4a01fd2f129d",
+      "artifactHash": "eac1132a04f90a1e5ffdcafed7f210a22ab9508a3852f87fb3735ea633eade2f",
+      "zipHash": "b5273e2dd67b2b372ddc8d5e1fc276f3b65737640e87d25a72ee5bd80b6a1a5e",
+      "direction": "Owner rejected the complete site as low quality and unusable. Do not recreate its overall page, coupon-card, action or promotional visual direction; renaming, recoloring or replacing artwork alone does not resolve this rejection.",
+      "fingerprints": [
+        {
+          "kind": "style",
+          "file": "assets/aislewise.css",
+          "sha256": "0c260444f508ba95d98004a3693aec0dd6be73784641962fb939a7c1b23e6704",
+          "normalizedStyleHash": "982c4b4d89ec878b7cfcd41746c639461fcd47f351ec04cdfa63eeae2ac3d2a7"
+        },
+        {
+          "kind": "Banner",
+          "file": "assets/favicon.svg",
+          "sha256": "d392f5cea1d21cc3f0b12295436948153c5d594427f6d68d42ddd60aea6e23f5"
+        }
+      ]
+    },
+    {
+      "projectId": "storeline",
+      "slug": "storeline",
+      "name": "storeline",
+      "status": "owner-rejected",
+      "rejectedAt": "2026-10-13T04:16:49.061Z",
+      "removedAt": "2026-10-13T04:16:49.061Z",
+      "removalScope": "成果库、当前交付清单和预览/下载入口；隔离历史仅供负面诊断",
+      "ownerInstruction": "这些低质量站点都从成果库删掉，都是一些低质量无法应用的站点，以后不许生成这种低质量站点了",
+      "currentBuild": "b-ad9c55f6-e15c-4d94-b297-94098f7f8908",
+      "artifactHash": "31c4b52fa871f47fd826a615136e350dfc731cb2eefe021cddabeae392092291",
+      "zipHash": "9da64db569c47a83d2b0407823f63f81911238e4373e79a7a01860a6db348227",
+      "direction": "Owner rejected the complete site as low quality and unusable. Do not recreate its overall page, coupon-card, action or promotional visual direction; renaming, recoloring or replacing artwork alone does not resolve this rejection.",
+      "fingerprints": [
+        {
+          "kind": "style",
+          "file": "assets/storeline.css",
+          "sha256": "3586556bf0415ff5c581cc22de427bfcc7b1ff50ce81aebe03074472c7fa6643",
+          "normalizedStyleHash": "3e7968968f7e811fcd79105ac15ecda930609bf9e561659578047e4204831120"
+        },
+        {
+          "kind": "Banner",
+          "file": "assets/favicon.svg",
+          "sha256": "7c29dc2bcee7c600edde50bcf6ae2e3d9865a7db07582be08860ca6b39937c38"
+        }
+      ]
+    },
+    {
+      "projectId": "gridly",
+      "slug": "gridly",
+      "name": "gridly",
+      "status": "owner-rejected",
+      "rejectedAt": "2026-10-13T04:16:49.061Z",
+      "removedAt": "2026-10-13T04:16:49.061Z",
+      "removalScope": "成果库、当前交付清单和预览/下载入口；隔离历史仅供负面诊断",
+      "ownerInstruction": "这些低质量站点都从成果库删掉，都是一些低质量无法应用的站点，以后不许生成这种低质量站点了",
+      "currentBuild": "b-d029bbdc-3f9d-4716-8d07-6c4546df53a3",
+      "artifactHash": "f0941c5b04bed53e913c0caa9b60801c61bc30d6671daa491d28f1a1050872a5",
+      "zipHash": "12969e747148579c771e34fa7e454b7790514eb3bee04f7ef6f2a189f61ec0aa",
+      "direction": "Owner rejected the complete site as low quality and unusable. Do not recreate its overall page, coupon-card, action or promotional visual direction; renaming, recoloring or replacing artwork alone does not resolve this rejection.",
+      "fingerprints": [
+        {
+          "kind": "style",
+          "file": "assets/harness-sites.css",
+          "sha256": "8351e938c8f1b2546da81cc3d860c3a685a0b1e6b5dfee5ec20fd99d43f3383e",
+          "normalizedStyleHash": "5dc0a2494582a4c889f44aff3c8eff88d33ff716b995048a6142c07342248aaa"
+        },
+        {
+          "kind": "Banner",
+          "file": "assets/gridly-hero.svg",
+          "sha256": "041bc18ebf6aa030d2bfb000c5b469d86f28882d2962a1ee9a737eac249609eb"
+        }
+      ]
+    },
+    {
+      "projectId": "counterpart",
+      "slug": "counterpart",
+      "name": "counterpart",
+      "status": "owner-rejected",
+      "rejectedAt": "2026-10-13T04:16:49.061Z",
+      "removedAt": "2026-10-13T04:16:49.061Z",
+      "removalScope": "成果库、当前交付清单和预览/下载入口；隔离历史仅供负面诊断",
+      "ownerInstruction": "这些低质量站点都从成果库删掉，都是一些低质量无法应用的站点，以后不许生成这种低质量站点了",
+      "currentBuild": "b-4af4dedc-3490-40b4-aed2-5f59b07d436f",
+      "artifactHash": "0ce3e7deda6f53e8f4f9e89ab574a6b8fb3207f50150a82846acca9e68025607",
+      "zipHash": "684f7697237edcbbcffc6010ed78946cb064a2a7f60ddb92a2fcea7dce1e7f46",
+      "direction": "Owner rejected the complete site as low quality and unusable. Do not recreate its overall page, coupon-card, action or promotional visual direction; renaming, recoloring or replacing artwork alone does not resolve this rejection.",
+      "fingerprints": [
+        {
+          "kind": "style",
+          "file": "assets/harness-sites.css",
+          "sha256": "03d566aa16ea03ac6ad981d78527767e8694d2d1bf3577dbe7532140e9ee6714",
+          "normalizedStyleHash": "92e52fb67886c386aaf27a1a39be043b0eab8f572adedd0c0215b4058ca675cb"
+        },
+        {
+          "kind": "Banner",
+          "file": "assets/favicon.svg",
+          "sha256": "db733d251939f2ba6d8bd6b4295c7edcf1a6d3b1a9f2b49da669a9bd09b59127"
+        },
+        {
+          "kind": "Banner",
+          "file": "assets/counterpart-hero.svg",
+          "sha256": "62e80b99511cdbcf74ab873b22ef02e30b5f2a5684e5d7d470836c3e99b1fff5"
+        }
+      ]
+    },
+    {
+      "projectId": "kindreddeals",
+      "slug": "kindreddeals",
+      "name": "Kindred Deals",
+      "status": "owner-rejected",
+      "rejectedAt": "2026-10-13T04:16:49.061Z",
+      "removedAt": "2026-10-13T04:16:49.061Z",
+      "removalScope": "成果库、当前交付清单和预览/下载入口；隔离历史仅供负面诊断",
+      "ownerInstruction": "这些低质量站点都从成果库删掉，都是一些低质量无法应用的站点，以后不许生成这种低质量站点了",
+      "currentBuild": "b-fa6ca902-b387-4119-878d-582aa4e67d21",
+      "artifactHash": "7873b0c59de07103be858f607dcce00f20fa30c244c9e73b97a5b51884144ca0",
+      "zipHash": "651c447c0ade03a344ec9cdf910d46fd668b2b2b74d4bef4d4476df1ea17baf4",
+      "direction": "Owner rejected the complete site as low quality and unusable. Do not recreate its overall page, coupon-card, action or promotional visual direction; renaming, recoloring or replacing artwork alone does not resolve this rejection.",
+      "fingerprints": [
+        {
+          "kind": "style",
+          "file": "assets/kindreddeals.css",
+          "sha256": "d85b16f6c4d8422b54bf6bf307ce42337e024ef11abebc0594547a3bf2ce3c17",
+          "normalizedStyleHash": "048b245ff35b3b3b91d8befb4578404297cb5e18d1bf5accd98fc3e1f3b10f2e"
+        },
+        {
+          "kind": "Banner",
+          "file": "assets/favicon.svg",
+          "sha256": "f50536980a314fce5667df4f73fb9225365f5b56aad044e54735f47e9a7831b4"
+        },
+        {
+          "kind": "Banner",
+          "file": "assets/kindreddeals-hero.png",
+          "sha256": "3dd49dabcff4fc1e60828bfe758c491356586b9bd2b0aa1a3ea7e5423f8a3c91"
+        }
+      ]
+    },
+    {
+      "projectId": "lineasavings-plan2-20261016",
+      "slug": "lineasavings",
+      "name": "lineasavings",
+      "status": "owner-rejected",
+      "rejectedAt": "2026-10-20T07:19:51.655Z",
+      "currentBuild": "b-910586d6-0ae0-44fc-9363-cfc05741b177",
+      "artifactHash": "8fda550ea1c856c2b2e8936e617ba4b3b425886f60373e58b47d9ce470d8a9e5",
+      "zipHash": "ee26516f4383617b6d6c3aac193d426bb9723c0d9f62eafb4b5ae88c47b94705",
+      "direction": "Owner explicitly rejected LineaSavings and requested deletion on2026-10-20. Never regenerate, continue, use as a positive design baseline or reuse this identity/composition under another name.",
+      "fingerprints": [
+        {
+          "kind": "style",
+          "file": "linea.css",
+          "sha256": "29909118e65ca7a72b7a86ae5c370b2fbf5066269af4c1b89977103c95ce0d23",
+          "normalizedStyleHash": "ae89e62b8a1fa26e3d35c9d0461ec2a4cf40ecbbb1afa77c26aa0e9253a88620"
+        },
+        {
+          "kind": "style",
+          "file": "linea.css",
+          "sha256": "c6bae78f5e2e0f715ca58524d81a35901715351d88d367c9465a93c49195afa7",
+          "normalizedStyleHash": "12c2271af15582ec3afa3429ee757b0bd1dd283301bbb5b38a45cfc451472eb4"
+        },
+        {
+          "kind": "style",
+          "file": "linea.css",
+          "sha256": "75b620f82a64364ef1b5672c2817df938715b46502257e2f05b6744df2165d78",
+          "normalizedStyleHash": "2ba286a7121b22d83d7aca723309725e8aa684fcaf28e8dac95a34dc3d40f055"
+        },
+        {
+          "kind": "style",
+          "file": "linea.css",
+          "sha256": "2d7cb74ce66bea60edf8f64ac693415826992420f4b8669427fb6eb5a0d7d9bb",
+          "normalizedStyleHash": "cfcf1b5c52283a85586e1010706c958aee4f6269f26fed1cd5f8f444446ebb23"
+        },
+        {
+          "kind": "style",
+          "file": "linea.css",
+          "sha256": "6c610b4b8088798ea7b02b9c63298bb03431c97814c11186b33c01d09812cef6",
+          "normalizedStyleHash": "e862e489f7642afdc84d2c956fea24267c4a2302658a51eaa1fd8be574fe81ed"
+        },
+        {
+          "kind": "style",
+          "file": "linea.css",
+          "sha256": "49b984b8d7a836b15bcea2efd2858c668c57ab83df294aea88449b638c20d2bd",
+          "normalizedStyleHash": "0a6c40fb3fe36e0422bbd766d7675a7325e3f0a07ccc4715abb25a999283d67f"
+        },
+        {
+          "kind": "style",
+          "file": "linea.css",
+          "sha256": "d0ba5b879e2d57594cbbf7d4df1a7efaaa308ffa7988872a5b0d124ad9a7aeef",
+          "normalizedStyleHash": "466962135e7de9dfa8d458b3c719349153b7cae281a0a6848a52575a01e94077"
+        },
+        {
+          "kind": "style",
+          "file": "linea.css",
+          "sha256": "a4dcf71dff6066ae193913d1a4207fffb3a3308a8604dfb6ecc089920b75b150",
+          "normalizedStyleHash": "7384e70b7aa88a49dd5bef2a434d47275c7fa2dba312aa209d5d35eee31ca3bd"
+        },
+        {
+          "kind": "style",
+          "file": "linea.css",
+          "sha256": "cd563a38f530cd3c8852a46077c681d20e21a5340c3203944f90296c3595c711",
+          "normalizedStyleHash": "68dc8af36c4884a45b554ba6478e71f253ea992e0992efe722d2d14a8a621f5a"
+        }
+      ]
+    }
+  ]
+}

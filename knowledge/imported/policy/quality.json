@@ -1,0 +1,171 @@
+{
+  "version": "site-quality-7",
+  "delivery": "html-zip",
+  "hard": {
+    "couponUI": "Original Coupon skill role coverage, title range, 50px compact headers, mobile gutters, logo frames and same-context action dimensions. New bound projects require real measured receipts; missing coverage fails.",
+    "cardTitlePx": [
+      16,
+      20
+    ],
+    "descriptionPx": [
+      12,
+      14
+    ],
+    "minimumVisibleTextPx": 14,
+    "minimumHitAreaPx": 44,
+    "normalTextContrast": 4.5,
+    "largeTextContrast": 3,
+    "noRootOverflowMask": true,
+    "requiredChecks": [
+      "structure",
+      "typography",
+      "interaction",
+      "visual",
+      "responsive",
+      "offline",
+      "preservation"
+    ],
+    "prohibitedPresentation": {
+      "selectors": [
+        "main .sample-notice",
+        "main [data-site-role=\"decorative-eyebrow\"]",
+        ".campaign-copy > .eyebrow",
+        ".journal-intro > .eyebrow",
+        ".chapter-heading > span",
+        ".page-heading > .eyebrow",
+        ".store-identity .eyebrow",
+        ".article-page > header > .eyebrow"
+      ],
+      "phrases": [
+        "AND FOR YOUR NEXT BIG IDEA",
+        "Sample catalogue · US / USD · Demo codes are not redeemable."
+      ]
+    }
+  },
+  "creative": {
+    "axes": [
+      "composition",
+      "typography",
+      "palette",
+      "imagery",
+      "cardConstruction",
+      "informationGrouping",
+      "metadataTreatment",
+      "actionConstruction",
+      "contentRhythm",
+      "mobileComposition"
+    ],
+    "structuralAxes": [
+      "composition",
+      "cardConstruction",
+      "informationGrouping",
+      "typography",
+      "metadataTreatment",
+      "actionConstruction",
+      "contentRhythm",
+      "mobileComposition"
+    ],
+    "minimumStructuralDifferences": 3,
+    "pageFamilies": [
+      "home",
+      "store",
+      "listing",
+      "detail"
+    ],
+    "comparisonRequiredFor": "new-design",
+    "paletteOnlyIsDistinct": false
+  },
+  "designReview": {
+    "role": "design-reviewer",
+    "planRequiredFor": "new-design",
+    "dimensions": [
+      "composition",
+      "hierarchy",
+      "palette",
+      "density",
+      "imagery",
+      "brandConsistency"
+    ],
+    "detailChecks": [
+      "fixedStructure",
+      "claimStates",
+      "recommendationOrder",
+      "brandFit"
+    ],
+    "detailCases": [
+      "code",
+      "deal",
+      "expired"
+    ],
+    "detailWorkflowIsNoveltyTarget": false,
+    "cardIdentity": {
+      "requiredFor": "new-design",
+      "families": [
+        "store",
+        "detail"
+      ],
+      "nonColorAxes": [
+        "cardConstruction",
+        "informationGrouping",
+        "typography",
+        "metadataTreatment",
+        "actionConstruction",
+        "mobileComposition"
+      ]
+    },
+    "sourcedStateExceptions": true
+  },
+  "viewports": [
+    320,
+    375,
+    414,
+    768,
+    1024,
+    1440
+  ],
+  "browserEvidence": {
+    "requiredFor": "new-design",
+    "receiptSource": "site_browser",
+    "prohibitedPresentationRequired": true,
+    "pageFamilies": [
+      "home",
+      "store",
+      "listing",
+      "detail"
+    ]
+  },
+  "creativeEvidence": {
+    "requiredFor": "new-design",
+    "pageFamilies": [
+      "home",
+      "store",
+      "listing",
+      "detail"
+    ],
+    "requiredAxisGroups": [
+      [
+        "composition",
+        "mobileComposition"
+      ],
+      [
+        "cardConstruction"
+      ],
+      [
+        "actionConstruction"
+      ]
+    ]
+  },
+  "contentAccuracy": {
+    "requiredFor": "new-design",
+    "manifestPath": "docs/content-provenance.json",
+    "minimumSamplesPerKind": 3,
+    "claimChecks": [
+      "code",
+      "expiry",
+      "verified",
+      "seasonal"
+    ],
+    "minimumTopics": 8,
+    "minimumMerchants": 16
+  }
+}

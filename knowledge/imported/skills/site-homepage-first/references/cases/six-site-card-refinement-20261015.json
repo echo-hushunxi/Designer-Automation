@@ -1,0 +1,203 @@
+{
+  "version": 1,
+  "profile": "homepage-first",
+  "scope": "Observed maintenance cases for creation prevention and review; not a new skin, quota or extra approval stage.",
+  "at": "2026-10-15T11:26:27.308Z",
+  "sites": [
+    {
+      "name": "Aster",
+      "slug": "aster",
+      "projectId": "aster-white-alignment-20261014",
+      "build": "b-96894930-da69-49bd-86c0-dfb448ba634d",
+      "revision": "r-c91367ba-b856-4b5e-b607-1591e613183e",
+      "sourceHash": "8adffdbba3bb27e29cfdb1cba86a88dbeca6287020258c2a3a4b11264b7e45f6",
+      "artifactHash": "b107c943d7f2c821119255d4d2a7a4ddc3aaaf8bc2808c01fafd016570c1fe01",
+      "zipHash": "ef3ff8d5db1d9775e42a1f21c50781a22b6f11f28a4ab496f39bc6d9be728570"
+    },
+    {
+      "name": "Jingle",
+      "slug": "jingle",
+      "projectId": "jingle-holiday-homepage-20261015",
+      "build": "b-df49784b-b809-4d83-835d-41cccf3e5193",
+      "revision": "r-ac6e68dc-783e-4ab6-b987-7e938a85d4ea",
+      "sourceHash": "2cc2cd47a3b2e9e324cceb3b4a0572c125af9bb3d1d7de7168525b74ef5040d4",
+      "artifactHash": "25971bd0311416f5be66cdf8f674738d4ac08c2b94f6b1a4f7fc5c9ca4c8b47d",
+      "zipHash": "1aba1048daaf36b4fa642b4f3386407942f940c2819f17facdba4b798ee75e8b"
+    },
+    {
+      "name": "Mavora",
+      "slug": "mavora",
+      "projectId": "mavora-article-images-20261014",
+      "build": "b-3a835221-2d6c-4635-ac37-c4838ed8132b",
+      "revision": "r-df48f892-024b-40ae-b2f9-1dd2a820be86",
+      "sourceHash": "aec56731bcbc4688a8b27d46bd242eb2d842bf437128962fb3c1d2b661995c55",
+      "artifactHash": "8982765947c5a4665a22aba3c92841d432ffdfb7e3b518b8d0b4aad269bf211d",
+      "zipHash": "02cde6d255a3fb69abcff47e504542d322a502b6d0b66041651f5c14c9050a21"
+    },
+    {
+      "name": "Paloma",
+      "slug": "paloma",
+      "projectId": "paloma-white-alignment-20261014",
+      "build": "b-5c08fa49-547b-4a74-88c2-9db9d37d1ba5",
+      "revision": "r-65a2e957-f2dd-443b-a30b-d19a370215d5",
+      "sourceHash": "f428ab71a779caafb5262de17529bb5808231dc0132bb7e6df83c58c6d1b993f",
+      "artifactHash": "23ef90d49ee06552172b7a06b91787c731f9323b3deecef2f95c13ddaa489ef9",
+      "zipHash": "de7e8c991d866af6f5a97370e033914baab136d94d06e30804ce896c13bbe728"
+    },
+    {
+      "name": "OrbitPerks",
+      "slug": "orbitperks",
+      "projectId": "orbitperks-article-images-20261014",
+      "build": "b-c9851b20-54d9-4697-935d-9615febbfcfd",
+      "revision": "r-54d03145-9214-4c55-b2cf-0cec14aac8e4",
+      "sourceHash": "a59fd790e4a810a4eb298ea66857ac4001f0bbd9e252f0b53d49ca0a034d1fc1",
+      "artifactHash": "3f59bbe8bba5565e305c813fe6309787f2ee65735aac04afb7c9542f7eaf0df5",
+      "zipHash": "60c6da5649a3554e8a52242f3c87698b8af4d7c25b6742c1b98b3b8731826989"
+    },
+    {
+      "name": "RibbonPerks",
+      "slug": "ribbonperks",
+      "projectId": "ribbonperks-refero-20261014",
+      "build": "b-4479feed-585d-4c75-9f02-7c8332254ce0",
+      "revision": "r-7583af94-80bf-446f-a79a-8af11cac109b",
+      "sourceHash": "8d19d49d48b0ed52b6ec6da4d71931eba155332a4f9e8ff60edbe2eb87b0ce78",
+      "artifactHash": "af7ff4c57144c89fbcd401d985c7f1f4d1d80467b0bddf90063c804ebbc34023",
+      "zipHash": "628f95a26584b812d0b01832d74926ffefcc9270a8a41e8508cc471f47e21be6"
+    }
+  ],
+  "findings": [
+    {
+      "id": "OP01/OP02/OP02-R",
+      "cause": "Nested identity tracks and flex layout ignored grid columns; a persistent scrollbar exposed a further3px overflow.",
+      "prevention": "Judge real long names in the actual usable content width, including a reserved scrollbar; measure text as well as element boxes."
+    },
+    {
+      "id": "RP01",
+      "cause": "Counting depended on an obsolete visual class after card markup changed.",
+      "prevention": "Preserve stable semantic bindings across static rendering, redraw and expiry; compare displayed counts with actual visible cards."
+    },
+    {
+      "id": "RP02",
+      "cause": "Wide text wordmark reused the square image track and collided with title.",
+      "prevention": "Give text marks readable space; check wordmark glyphs against title/action, retain type size and group action consistency."
+    },
+    {
+      "id": "MV01",
+      "cause": "Action outer box fit but the long label was clipped inside.",
+      "prevention": "Check glyph bounds and line wrapping on the real long label at narrow widths."
+    },
+    {
+      "id": "AS01/PL01",
+      "cause": "First card looked compact while the complete secondary region still had dead space or scattered field tracks.",
+      "prevention": "Compose fields by section purpose, then judge the entire secondary region, title variation and filtered redraw."
+    },
+    {
+      "id": "L05",
+      "cause": "Store main recommendations fell below their already-frozen business requirement while coupon detail recommendations met it.",
+      "prevention": "Check all applicable page families against the actual contract; source real distinct merchants, exclude current and verify sidebar purpose."
+    },
+    {
+      "id": "source-year-conflict",
+      "cause": "Past campaign/event titles coexisted with future source expiry.",
+      "prevention": "Quarantine confirmed contradictory records in all active presentation paths and maintain unavailable old routes; preserve raw evidence and distinguish product model/year clearance."
+    }
+  ],
+  "caseParameters": {
+    "mobileCampaignPx": 280,
+    "mobileImageMaxPx": 200,
+    "interpretation": "These values and the chosen button widths/columns are this repair only; use each future site contract and design."
+  },
+  "evidence": [
+    {
+      "file": "independent-initial-review.json",
+      "sha256": "2833b8212bb7720884b7238e6ac39c286508455ccbbe45e08674c52b9687fd3f"
+    },
+    {
+      "file": "independent-final-review.json",
+      "sha256": "a6ca54f95e735a63bf276d26bb937201d81b1098727e1fe45daa481e7eb94254"
+    },
+    {
+      "file": "artifact-checks.json",
+      "sha256": "525390e9b5bfee80cde48f86c1c8e17aea0b96705d7f0ab8b7ff53ea284487ea"
+    },
+    {
+      "file": "author-browser.json",
+      "sha256": "5f7fdec9bb985c63238715723c1efa8abf00dcea44771a424ddbd902e729ae8a"
+    },
+    {
+      "file": "regression-browser.json",
+      "sha256": "90afd74a36b02e36287fbf7d68660845b05b191c6723c60a56ae9d3a61c15161"
+    },
+    {
+      "file": "search-filter-browser.json",
+      "sha256": "c4175c6ae1e0ce0a5e33efae226cbb44fad73ae6f8da7c39fab649577cf8077a"
+    },
+    {
+      "file": "filter-real-record-check.json",
+      "sha256": "47d5e41aa04b64c19b9fce5f646171c9b15a53cb79d6f9e08bc1536acf16db70"
+    },
+    {
+      "file": "zip-browser.json",
+      "sha256": "072b326926d793c5d897d8ab9d144067c0a74e867a0527679d00578121dc5619"
+    },
+    {
+      "file": "content-quarantine.json",
+      "sha256": "e94f512410cfb21af1d27d8fa251ffa3f5f946662f5e1237b7d9961c43234e5c"
+    },
+    {
+      "file": "content-quarantine-browser.json",
+      "sha256": "0babaa8b659e74f29d091c870e13d2c2f3cd6d3c7709eff254da2774674b8e1b"
+    },
+    {
+      "file": "targeted-round-2.json",
+      "sha256": "5e045175b4bf90c664a1fbb9324026c1d00ce93f374810ae9dac3acefa8e1467"
+    },
+    {
+      "file": "recommendations-browser.json",
+      "sha256": "b2e4b3d57a1ae1ff1c12824a29104c84fa0ffb811bedf28302f94672d2fabe85"
+    },
+    {
+      "file": "recommendations-real-record-check.json",
+      "sha256": "e439eea0e4b824386b65217670256c8f4ac4c8223b96f65ea0d084aae0f24036"
+    },
+    {
+      "file": "independent-round-2-review.json",
+      "sha256": "9f73d48b9da74674c2f284bc164fb88fbb36afa229723d8d1b745a287706afc6"
+    },
+    {
+      "file": "final-two-browser.json",
+      "sha256": "74a5760af889ceb675f09a9362fa8c2b3263f6a21ec7b06513ae16f1abc0f0fd"
+    },
+    {
+      "file": "activation.json",
+      "sha256": "20b71b6a1ecef47aaa479a3b16e37d1f3f331bdbb4099f4f9452558efb2c86cc"
+    },
+    {
+      "file": "download-verification.json",
+      "sha256": "a1845ea375ecaf3f95649934ab2021e74379e00629f82ff8a6d20a80f7ae8a40"
+    }
+  ],
+  "reportPath": "generation/six-site-card-refinement-20261015/REPORT.md",
+  "reportHash": "1387f71d93bf1feb974cf9fd60161f06e7fd9a4580c5710a32f4e179bdeffd3d",
+  "counts": {
+    "finalScrollbarAndWordmarkViews": 14,
+    "targetedViews": 23,
+    "recommendationViews": 33,
+    "quarantinedSiteRecordInstances": 18,
+    "authorViews": 48,
+    "responsiveLayouts": 72,
+    "normalClipboard": 6,
+    "controlledFallbackAndDenial": 12,
+    "searchStates": 18,
+    "filterStates": 14,
+    "zipBrowserViews": 12,
+    "zipFiles": 5444,
+    "protectedSourceFiles": 1896
+  },
+  "limitations": [
+    "Reviewer final round did not repeat clipboard, controlled failure, ZIP/file execution, old URL isolation, simulated expiry or hover; these remain exact-build author evidence",
+    "Native formal Harness receipt/submit not run",
+    "User has not newly approved final aesthetics"
+  ],
+  "approvalBoundary": "Standing download authorization retained. No new owner aesthetic approval or fabricated native formal full-site acceptance."
+}

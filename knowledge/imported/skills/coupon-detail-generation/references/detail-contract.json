@@ -1,0 +1,306 @@
+{
+  "version": "2026-10-22.12",
+  "scope": [
+    "main-coupon",
+    "store-coupon-row",
+    "related-coupon-row"
+  ],
+  "units": "CSS px",
+  "source": "https://couponur.com/businessDetail/406085.html",
+  "referenceKind": "Measured live no-code page plus owner annotated before/after examples; attachment pixels are not CSS measurements",
+  "required": {
+    "sixSiteContentAtWidePx": 1200,
+    "compactHeaderHeight": 50,
+    "offerTitlePx": [
+      16,
+      20
+    ],
+    "merchantNamePx": [
+      16,
+      20
+    ],
+    "auxiliaryMinimumPx": 14,
+    "hitAreaMinimumPx": 44,
+    "phoneGutterPx": [
+      12,
+      15
+    ],
+    "logoAspectRatio": 1,
+    "logoObjectFit": "contain",
+    "logoPaddingPx": 0,
+    "logoBorder": "1px solid #eeeeee",
+    "fullMainTitle": true,
+    "mainTitleInsideCoupon": true,
+    "fullMerchantIdentity": "offer-detail main coupon and store identity; ordinary summaries retain source and accessible full identity",
+    "hiddenHasNoLayout": true,
+    "explicitNonemptyMerchantRoleCoverage": true,
+    "visibleListIdsMatchFrozenState": true,
+    "maskedUntilExplicitClaim": true,
+    "sameCouponAndClipboardScope": true,
+    "noCodeHasNoFakeCodeTray": true,
+    "unavailableFullViewportCoverage": true,
+    "nestedDiscoveryColumnReview": true,
+    "fullIdentityInsideOwnTrack": true,
+    "recommendationActionMatchesDeclaredAlignment": true,
+    "userPreviewEntryMatchesReviewedBuild": true,
+    "unavailableDestinationMatchesFrozenMerchant": true,
+    "metadataDoesNotCreateEmptyTouchTracks": true,
+    "actualCumulativeSpacingReviewed": true,
+    "logoMinimumPx": 70,
+    "summaryCapacityFixedPerFamilyAndViewport": true,
+    "merchantCountRoleCoverage": "Real existing coupon counts and update hooks; explicit per-site selector coverage",
+    "decoratedCountsKeepActualQuantityAndLiveHooks": true,
+    "topicBadgesRespectEvidenceAndEditorialScope": true,
+    "wrappedNamesPreserveDeclaredEllipsis": true,
+    "topicGlyphsDoNotIntersectBadgesOrMarkers": true,
+    "detailModuleCardFeedback": true,
+    "interactionKeepsLayoutAndHitAreas": true,
+    "finePointerTouchKeyboardAndReducedMotion": true,
+    "reducedMotionCoversAnimatedDescendants": true,
+    "merchantCardBrandCraftBeyondColumnChanges": true,
+    "topicIconsMatchActualCategoryMeaning": true,
+    "restrainedRecognizableCouponOutline": true,
+    "buttonSkinPreservesActionMeaningAndGeometry": true,
+    "merchantStandaloneActionOptionalAndTrackReclaimed": true,
+    "categoryNavigationBrandChoicesAndEvidenceBasedMarkers": true,
+    "buttonEmphasisMatchesActionRole": true,
+    "categoryFeaturedKeepsDeclaredGroupAlignment": true,
+    "categorySvgFinalSizeMatchesDeclaredBudget": true,
+    "categoryIconSchemeUsesColoredSemanticGlyphs": true,
+    "categoryBoundaryEvidenceReachesRequestedHostWidth": true,
+    "couponDateBelowTitle": true,
+    "desktopSidebarMaximumPx": 300,
+    "noTopicRecommendationTags": true,
+    "searchVisibleVerticalInset": true,
+    "mobileSingleOuterGutter": true,
+    "storeAndOfferDetailConsistentLayoutRules": true,
+    "shortCouponTitleUsesNaturalHeight": true,
+    "titleDateGroupHasNoReservedBlankLine": true,
+    "borderedPanelInternalPaddingPreserved": true,
+    "separateMerchantCardsHaveVisibleGap": true,
+    "storeDetailMerchantCardRequired": true,
+    "storeDetailMerchantLogoPx": 100,
+    "storeDetailMerchantCardMaximumHeightPx": 200,
+    "storeDetailMerchantNameAndCountVisible": true,
+    "storeDetailUsesOrdinaryCouponList": true,
+    "storeDetailNoFeaturedFirstCoupon": true,
+    "merchantNameAndCountNaturalCenteredGroup": true,
+    "noReservedBlankTextTracks": true,
+    "horizontalMerchantActionsCenterWithContent": true,
+    "merchantAlignmentExplicitlyMapped": true,
+    "centeredMerchantStackSharesLogoNameCountAxis": true,
+    "merchantCountVisibleTextAxisVerified": true,
+    "merchantCountActionVisibleSeparation": true,
+    "mainInformationAndClaimOneVisualRegion": true,
+    "ordinaryOfferAndMerchantTitlesOneLine": true,
+    "topicIconLeftOrAboveLeftAlignedLabel": true,
+    "stableCardAndFieldTracksAcrossStates": true,
+    "sharedOfferAndStoreDetailChangesVerifiedTogether": true,
+    "categoryNamesRemainFullyVisible": true,
+    "categoryVerticalIconAndTextCentered": true,
+    "categoryHorizontalIconCenteredAndTextLeftAligned": true,
+    "categoryIconLanguageDistinctAcrossBrands": true,
+    "categoryIconSemanticMapAndFrozenProvenance": true,
+    "categoryIconCohortPixelsReviewed": true,
+    "primaryAndSecondaryButtonsShareBrandCraft": true,
+    "decorativeButtonClipDoesNotClipHitTargetOrFocus": true,
+    "buttonDecorationHasVisibleNonzeroBounds": true,
+    "buttonNativeActionsAndMaskedStatePreserved": true,
+    "buttonCohortDesktopAndPhonePixelsReviewed": true
+  },
+  "targets": {
+    "sixSiteMaxContentPx": 1200,
+    "desktopSidebarPx": [
+      256,
+      300
+    ],
+    "desktopColumnGapPx": [
+      24,
+      32
+    ],
+    "mainLogoPx": 84,
+    "rowLogoPx": 84,
+    "desktopMainHeightPx": [
+      160,
+      220
+    ],
+    "phoneMainTypicalHeightPx": [
+      200,
+      320
+    ],
+    "phoneMainReviewThresholdPx": 365,
+    "desktopColumnEndingReviewThresholdPx": 500,
+    "desktopRowHeightPx": [
+      118,
+      144
+    ],
+    "phoneRowHeightPx": [
+      104,
+      124
+    ],
+    "codeActionHeightPx": [
+      44,
+      52
+    ],
+    "desktopCodeActionWidthPx": [
+      260,
+      300
+    ],
+    "desktopRowActionWidthPx": [
+      120,
+      140
+    ],
+    "withinCardGapPx": [
+      4,
+      16
+    ],
+    "betweenCardsPx": [
+      12,
+      16
+    ],
+    "headingToGroupPx": [
+      12,
+      16
+    ],
+    "betweenSectionsPx": [
+      24,
+      34
+    ],
+    "phoneCardPaddingPx": [
+      8,
+      10
+    ],
+    "phoneBetweenCardsPx": 8,
+    "phoneHeadingToGroupPx": 8,
+    "phoneMainToRelatedPx": 16,
+    "phoneLastCouponToDiscoveryHeadingPx": [
+      20,
+      24
+    ],
+    "ownerModuleSpacingPx": [
+      30,
+      40,
+      50
+    ],
+    "mainToRelatedOrAdPx": 20
+  },
+  "boundary": "Targets are starting budgets. Ordinary coupon titles and merchant names use one-line ellipsis in fixed family/viewport capacity. Only offer-detail main coupon and store identity use full-content rules. Never clip actions, state or code.",
+  "compactPreview": "Ordinary coupon titles and merchant names use one-line ellipsis on PC and phone, retaining full source and correct detail access. Store first item is an ordinary card. Offer-detail main coupon and store identity remain fully visible.",
+  "discovery": "Preserve required primary recommendations and existing desktop sidebar scope; prioritize complementary merchants and remove phone cross-region duplicates already fully represented in primary recommendations. Measure both column endings and resolve large accidental whitespace without padding filler.",
+  "reviewWidths": [
+    1440,
+    1024,
+    768,
+    393,
+    375,
+    320
+  ],
+  "states": [
+    "code-masked",
+    "code-copied",
+    "reload-masked",
+    "no-code",
+    "expired-old-url",
+    "withdrawn",
+    "contradictory-type-code",
+    "long-title",
+    "long-code",
+    "long-merchant",
+    "collapsed",
+    "expanded",
+    "pagination",
+    "all-codes-deals",
+    "zero-results",
+    "redraw",
+    "extracted-zip"
+  ],
+  "stateCoverage": "Real unavailable/withdrawn detail samples use the full viewport and breakpoint matrix, including extracted ZIP PC and phone. Only absent claim roles are exempt. No real sample is N/A; an unvisited cell is not-run.",
+  "layout": {
+    "offerDetail": {
+      "desktop": {
+        "primary": [
+          "claim",
+          "recommended-coupons",
+          "recommended-stores"
+        ],
+        "sidebar": [
+          "recommended-topics",
+          "recommended-stores"
+        ]
+      },
+      "mobile": [
+        "claim",
+        "recommended-coupons",
+        "primary-recommended-stores",
+        "recommended-topics",
+        "unique-sidebar-stores"
+      ],
+      "primaryStoresMinimum": 16,
+      "topicsMinimum": 8,
+      "primaryRecommendationsSpanSidebar": false
+    },
+    "storeDetail": {
+      "primaryStoresMinimum": 16,
+      "topicsMinimum": 8,
+      "ordinaryCouponListOnly": true
+    },
+    "cardComposition": "free within purpose and mandatory rules",
+    "recommendedCoupons": {
+      "moduleArrangement": "Choose per site, module and breakpoint: one card per row or a capacity-appropriate multi-column layout; no universal orientation or column count",
+      "cardComposition": "Choose logo, text, metadata and action grouping independently of the module column count; horizontal and vertical cards are both valid",
+      "reviewBasis": "Actual hierarchy, density, cumulative spacing, readable capacity and action alignment; neither resemblance to reference orientation nor layout difference alone establishes a pass",
+      "preserve": "Module order, real quantities and destinations, offer-detail main coupon full text; merchant-page first item uses ordinary summary capacity, declared fixed summary capacity, logo and touch-area minimums"
+    },
+    "sidebarMerchants": {
+      "showCouponCount": false,
+      "preserveCountDataAndUpdateHooks": true,
+      "reserveCountTrack": false,
+      "quantityCoverage": "Enumerate original merchant nodes, native count classes and update hooks separately for each page family; a zero match on added markers is not evidence of no visible quantity"
+    },
+    "topicNavigation": "Semantic icon left of or above a left-aligned name, compact grouping; preserve site-specific reading paths and actual host-width capacity.",
+    "ownerConfirmed20261022": {
+      "main": "information and claim within one unified visual region",
+      "couponDate": "inside title group, below title",
+      "sidebarMaxPx": 300,
+      "topicRecommendationTag": false,
+      "headerSearch": "visible vertical inset with actual accessible targets",
+      "mobile": "single existing outer gutter; no nested horizontal gutters"
+    }
+  },
+  "moduleStyleFreedom": "Main claim frame may differ from recommended coupon frame; maintain brand and business hierarchy",
+  "quietVisualHierarchy": {
+    "defaultSurface": "white or near-white",
+    "defaultFrame": "thin pale neutral outline or restrained shadow; include SVG paths and pseudo-elements",
+    "brandBorder": "interaction state, restore pale frame on pointer exit without geometry shift",
+    "colorFocus": "primary action and a few meaningful accents; dark offer title, muted readable metadata",
+    "density": "Group actual fields and remove omitted-field tracks before assigning summary capacity; no oversized empty summary slots",
+    "compositionFreedom": "Preserve per-site and per-module grouping, outlines and phone composition; compactness is not a universal row template",
+    "review": "Observe default and interactive states for every project on PC, phone and 320px; first coupon full text remains an exception"
+  },
+  "recommendationFieldBoundaries": {
+    "fields": [
+      "Logo",
+      "offer title",
+      "expiry date",
+      "detail action"
+    ],
+    "logo": "Measure link, every inner wrapper and actual image separately; no padding/border/transform overflow",
+    "decoration": "SVG/pseudo background rails and splits follow actual field boundaries, never a stale hardcoded width",
+    "text": "Measure visible glyphs inside allocated slots and exclude Logo/rail/action collisions, including dates and post-redraw nodes",
+    "density": "Choose purposeful columns and field groups per site/device; neither a universally stretched horizontal row nor forced portrait tiles",
+    "counterexample": "RallyPerks/Castlery fixed 95px SVG rail beyond the actual title start, owner rejected on 2026-10-21"
+  },
+  "categoryMeasurement": {
+    "inspector": "inspectDetail",
+    "requiredWhen": "Category navigation is within the authorized change or affected regression scope",
+    "mapping": "requireTopicNavigation + topicNavigation",
+    "countAndIdentitySource": "Frozen catalogue and explicit editorial selection, never inferred from the tested DOM",
+    "supportedModes": [
+      "svg"
+    ],
+    "otherIconImplementations": "Require equivalent browser evidence; do not report unsupported inspection as passed",
+    "scope": "Coverage, final glyph size, colored SVG paint, own text slots, field collisions, declared alignment, markers, target size and actual host width; full natural-wrapping topic labels; vertical icon/text center alignment and horizontal left-aligned text through the shared topic inspector",
+    "limits": "Does not establish semantic icon meaning, visual quality, cross-site distinction, real navigation or complete release acceptance; referenced SVG paint is explicitly not-run, not a colorless-icon failure; slot and actual text alignment are distinct; icon family names or geometry fingerprints alone cannot prove semantic correctness or cross-site visual distinction",
+    "legacyTextMode": "Only for previously frozen packages; current categories require icons and global topic checks."
+  }
+}

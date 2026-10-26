@@ -1,0 +1,33 @@
+{
+  "name": "Designer-Automation",
+  "version": "2026-10-26.1",
+  "defaultWorkflow": "coupon-pages",
+  "defaultDesigner": "example",
+  "defaultAdapter": "generic",
+  "pages": [
+    "home",
+    "stores-index",
+    "store-detail",
+    "categories-index",
+    "category-detail",
+    "search",
+    "offers-index",
+    "offer-detail",
+    "occasions-index",
+    "occasion-detail",
+    "guides-index",
+    "guide-detail",
+    "about",
+    "contact",
+    "privacy",
+    "terms",
+    "disclaimer"
+  ],
+  "core": [
+    "core/workflow.md",
+    "core/knowledge.md",
+    "core/quality.md",
+    "core/validation.md",
+    "workflows/coupon-pages/playbook.md"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "id": "coupon-four-reference-craft",
+  "adoptedAt": "2026-10-13",
+  "dataSource": "feishu-coupon-public-api",
+  "colorRoles": ["background", "surface", "text", "secondaryText", "primaryAction", "promotion", "states"],
+  "spacingLayers": ["withinCard", "betweenCards", "headingToGroup", "betweenSections"],
+  "cardTypes": ["campaign", "offer-entry", "main-coupon", "store-entry", "store-identity", "category-entry", "occasion-entry", "guide-entry"],
+  "cardDecisions": ["spaceBudget", "hierarchy", "action", "phone", "purpose", "contentGrouping", "alignmentAxis", "shortContent", "naturalGrowth", "identityDifferences", "mobileFieldGroups", "peerCompositionCheck"],
+  "densitySurfaces": ["home", "store", "detail", "listing", "search", "occasions", "guides"],
+  "responsiveWidths": ["narrow", "phone", "desktop"],
+  "factChecks": ["destinations", "counts", "time", "entity", "optionalCapabilities"],
+  "referenceOnly": {
+    "storeCardGapPx": [10, 24],
+    "suggestedInitialStoreGapPx": [12, 20],
+    "storeCardPaddingPx": [10, 20],
+    "fixedSkin": false
+  },
+  "evidenceLimit": "Observed reference measurements are design examples, not formal Harness receipts or visual acceptance."
+}

@@ -1,0 +1,574 @@
+{
+  "version": 1,
+  "source": "site-harness-v2",
+  "strategy": "Existing rules stay canonical upstream; generated exports are immutable snapshots",
+  "resources": [
+    {
+      "upstreamPath": "skills/coupon-detail-generation/references/captures/owner-card-guidance.jpg",
+      "path": "knowledge/imported/skills/coupon-detail-generation/references/captures/owner-card-guidance.jpg",
+      "sourceHash": "9867be222505a1edf2d4e801a7d444cc94a7fee29fc7d168abf34fbb5c3ed544",
+      "sha256": "9867be222505a1edf2d4e801a7d444cc94a7fee29fc7d168abf34fbb5c3ed544",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/coupon-detail-generation/references/captures/owner-claim-guidance.jpg",
+      "path": "knowledge/imported/skills/coupon-detail-generation/references/captures/owner-claim-guidance.jpg",
+      "sourceHash": "3023906967a182fa9cd796e11e3e54308cda4cf0acdc3f9c6b42d18b97d2111e",
+      "sha256": "3023906967a182fa9cd796e11e3e54308cda4cf0acdc3f9c6b42d18b97d2111e",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/coupon-detail-generation/references/captures/reference-1440.png",
+      "path": "knowledge/imported/skills/coupon-detail-generation/references/captures/reference-1440.png",
+      "sourceHash": "9fe8b0c7950a91cd4b97c3dc47a51b9f3a77dbc6c226957f2de54b358775cd61",
+      "sha256": "9fe8b0c7950a91cd4b97c3dc47a51b9f3a77dbc6c226957f2de54b358775cd61",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/coupon-detail-generation/references/captures/reference-320.png",
+      "path": "knowledge/imported/skills/coupon-detail-generation/references/captures/reference-320.png",
+      "sourceHash": "63bbd16e536d9d9517ec4e5db62c269a51375aba5c87b3dd7bc12e4bcbb8ee4d",
+      "sha256": "63bbd16e536d9d9517ec4e5db62c269a51375aba5c87b3dd7bc12e4bcbb8ee4d",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/coupon-detail-generation/references/captures/reference-393.png",
+      "path": "knowledge/imported/skills/coupon-detail-generation/references/captures/reference-393.png",
+      "sourceHash": "795b46e78490987456c9dc57d6814914e7d00589d7c63afb88d1099c05477684",
+      "sha256": "795b46e78490987456c9dc57d6814914e7d00589d7c63afb88d1099c05477684",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/coupon-detail-generation/references/captures/reference-measurements.json",
+      "path": "knowledge/imported/skills/coupon-detail-generation/references/captures/reference-measurements.json",
+      "sourceHash": "c1181bbebf4a4aff82bf52b79589b3c7c004c228183078999bff39da40155e32",
+      "sha256": "c1181bbebf4a4aff82bf52b79589b3c7c004c228183078999bff39da40155e32",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/coupon-detail-generation/references/detail-contract.json",
+      "path": "knowledge/imported/skills/coupon-detail-generation/references/detail-contract.json",
+      "sourceHash": "5e5caca6819653a082c35ec231012551007328215b5267572bcc5ed2967ef87c",
+      "sha256": "5e5caca6819653a082c35ec231012551007328215b5267572bcc5ed2967ef87c",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/coupon-detail-generation/references/detail-layout-methods.md",
+      "path": "knowledge/imported/skills/coupon-detail-generation/references/detail-layout-methods.md",
+      "sourceHash": "5dfe484490997078751086549d8f7f6fb64e0effd5e469505444d766d78e248b",
+      "sha256": "5dfe484490997078751086549d8f7f6fb64e0effd5e469505444d766d78e248b",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/coupon-detail-generation/references/detail-standard.md",
+      "path": "knowledge/imported/skills/coupon-detail-generation/references/detail-standard.md",
+      "sourceHash": "4c3e07d514058bce0e1a84b8a4f6446449636de4a197bdcf8131cc8e05864085",
+      "sha256": "4c3e07d514058bce0e1a84b8a4f6446449636de4a197bdcf8131cc8e05864085",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/coupon-detail-generation/references/reference-measurements.md",
+      "path": "knowledge/imported/skills/coupon-detail-generation/references/reference-measurements.md",
+      "sourceHash": "35b6c89359b42ef176ec7d603639cd73b64aaa54d4ff691328fc3ae4a8d4189e",
+      "sha256": "35b6c89359b42ef176ec7d603639cd73b64aaa54d4ff691328fc3ae4a8d4189e",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/coupon-detail-generation/SKILL.md",
+      "path": "knowledge/imported/skills/coupon-detail-generation/SKILL.md",
+      "sourceHash": "4adfe50444b9d12b4ef95c992ec1276af7cc62319c69f88ffc4c0d8f5e36d494",
+      "sha256": "4adfe50444b9d12b4ef95c992ec1276af7cc62319c69f88ffc4c0d8f5e36d494",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/coupon-detail-review/scripts/inspect-detail.mjs",
+      "path": "knowledge/imported/skills/coupon-detail-review/scripts/inspect-detail.mjs",
+      "sourceHash": "78b0477003662765882b8b2cc470974283cd702253445d8d2e9fa0e87f83d449",
+      "sha256": "78b0477003662765882b8b2cc470974283cd702253445d8d2e9fa0e87f83d449",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/coupon-detail-review/SKILL.md",
+      "path": "knowledge/imported/skills/coupon-detail-review/SKILL.md",
+      "sourceHash": "a64d585772b8f0f45b89a1aa67be54f5dcca69b49853b7786d84ce127faf4adf",
+      "sha256": "a64d585772b8f0f45b89a1aa67be54f5dcca69b49853b7786d84ce127faf4adf",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/coupon-generation-standard/SKILL.md",
+      "path": "knowledge/imported/skills/coupon-generation-standard/SKILL.md",
+      "sourceHash": "f0a48533320d649ed040b1e16ec07fb78a3def771b5fdc6ec9643d221c472089",
+      "sha256": "1b6f85d33bf414d801b925603fe43bc24a144b7a8ab08cea026217e149efe2f9",
+      "transformed": true
+    },
+    {
+      "upstreamPath": "skills/site-data/agents/openai.yaml",
+      "path": "knowledge/imported/skills/site-data/agents/openai.yaml",
+      "sourceHash": "4829eca186d100f175593485f3b406f54858e555242c5038c53d6ccc35a7c88a",
+      "sha256": "4829eca186d100f175593485f3b406f54858e555242c5038c53d6ccc35a7c88a",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-data/references/coupon-api.md",
+      "path": "knowledge/imported/skills/site-data/references/coupon-api.md",
+      "sourceHash": "423143182c0b4d462d54e46fdf184cd47ced40fe73fea7945e376baefba90957",
+      "sha256": "423143182c0b4d462d54e46fdf184cd47ced40fe73fea7945e376baefba90957",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-data/references/harness-installation.md",
+      "path": "knowledge/imported/skills/site-data/references/harness-installation.md",
+      "sourceHash": "2c14930b80e7b9a3e6ec69d838f8c3fb1eca7e733a0b9da727992ed30e12da81",
+      "sha256": "2c14930b80e7b9a3e6ec69d838f8c3fb1eca7e733a0b9da727992ed30e12da81",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-data/references/live-verification.md",
+      "path": "knowledge/imported/skills/site-data/references/live-verification.md",
+      "sourceHash": "dbcf60284748583c3d06122b1b32d8cd591748a5e7794513495a99cc21b59536",
+      "sha256": "dbcf60284748583c3d06122b1b32d8cd591748a5e7794513495a99cc21b59536",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-data/SKILL.md",
+      "path": "knowledge/imported/skills/site-data/SKILL.md",
+      "sourceHash": "924f0c9bf807d3b4bd5b77b802487f2336e6bf4087ca79d3df12e2141b65dad4",
+      "sha256": "924f0c9bf807d3b4bd5b77b802487f2336e6bf4087ca79d3df12e2141b65dad4",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/assets/coupon-presentation.css",
+      "path": "knowledge/imported/skills/site-design/assets/coupon-presentation.css",
+      "sourceHash": "e03e4f2455a960b5e0648a092f600ffe3e9be5b897c254049c9eb84fdf70a958",
+      "sha256": "e03e4f2455a960b5e0648a092f600ffe3e9be5b897c254049c9eb84fdf70a958",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/assets/coupon-presentation.mjs",
+      "path": "knowledge/imported/skills/site-design/assets/coupon-presentation.mjs",
+      "sourceHash": "81331823efc528366d47e1110b875772f821452509a2aaf1d6cc783652ddb90f",
+      "sha256": "81331823efc528366d47e1110b875772f821452509a2aaf1d6cc783652ddb90f",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/assets/home-mobile-controls.css",
+      "path": "knowledge/imported/skills/site-design/assets/home-mobile-controls.css",
+      "sourceHash": "377f63f9fdc17808ef12c82f601a5b0996e6feaa09ed94833118217140f9e3c0",
+      "sha256": "377f63f9fdc17808ef12c82f601a5b0996e6feaa09ed94833118217140f9e3c0",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/assets/home-mobile-controls.mjs",
+      "path": "knowledge/imported/skills/site-design/assets/home-mobile-controls.mjs",
+      "sourceHash": "29dc53b58b0bfaa5330cfeb826dfe3148013abe8b8939ce8e57a879a28e97f36",
+      "sha256": "29dc53b58b0bfaa5330cfeb826dfe3148013abe8b8939ce8e57a879a28e97f36",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/assets/mobile-card-flow.css",
+      "path": "knowledge/imported/skills/site-design/assets/mobile-card-flow.css",
+      "sourceHash": "45fb5b0544d477e1d6dfcb532805775111f4ebdcc58bbc1891f43f975f6a9524",
+      "sha256": "45fb5b0544d477e1d6dfcb532805775111f4ebdcc58bbc1891f43f975f6a9524",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/assets/mobile-card-flow.mjs",
+      "path": "knowledge/imported/skills/site-design/assets/mobile-card-flow.mjs",
+      "sourceHash": "013b279e41c4c804404dfdaffd9a2a35918a1ed57f7e4bcc0a5cc62d4868fcfc",
+      "sha256": "013b279e41c4c804404dfdaffd9a2a35918a1ed57f7e4bcc0a5cc62d4868fcfc",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/assets/reading-callsite.css",
+      "path": "knowledge/imported/skills/site-design/assets/reading-callsite.css",
+      "sourceHash": "0622b59ae3daecd96dd8f20be76c0eeafc262a1a3f135a5c978b8ed6c751df8c",
+      "sha256": "0622b59ae3daecd96dd8f20be76c0eeafc262a1a3f135a5c978b8ed6c751df8c",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/assets/reading-static.mjs",
+      "path": "knowledge/imported/skills/site-design/assets/reading-static.mjs",
+      "sourceHash": "ce4639eba1b5a70a1f27f4c857bb15a3eb413f4a7bd7fe8cda4805501631c2fd",
+      "sha256": "ce4639eba1b5a70a1f27f4c857bb15a3eb413f4a7bd7fe8cda4805501631c2fd",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/banner-workflow.md",
+      "path": "knowledge/imported/skills/site-design/references/banner-workflow.md",
+      "sourceHash": "a20659dfe593400059789f593d5f805867ce0a4d53d6bc1ac7dd6378254f0659",
+      "sha256": "a20659dfe593400059789f593d5f805867ce0a4d53d6bc1ac7dd6378254f0659",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/batch-direction.md",
+      "path": "knowledge/imported/skills/site-design/references/batch-direction.md",
+      "sourceHash": "4ce7dcffe5782132e2ce684f82c48d1cb10f10dd25993b965dc0b96cedb846f4",
+      "sha256": "4ce7dcffe5782132e2ce684f82c48d1cb10f10dd25993b965dc0b96cedb846f4",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/card-density-and-diversity.md",
+      "path": "knowledge/imported/skills/site-design/references/card-density-and-diversity.md",
+      "sourceHash": "a19f806077a889902dd5867147d61834671785bcccd29c4dcdaa6cec9511930c",
+      "sha256": "a19f806077a889902dd5867147d61834671785bcccd29c4dcdaa6cec9511930c",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/card-layout.template.json",
+      "path": "knowledge/imported/skills/site-design/references/card-layout.template.json",
+      "sourceHash": "0d9642fa399d43ec5921cf78e0aa640230ebd22f838c1b069d21f046e2113b61",
+      "sha256": "0d9642fa399d43ec5921cf78e0aa640230ebd22f838c1b069d21f046e2113b61",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/cases/goodbasket-rejected-2026-10-13/case.md",
+      "path": "knowledge/imported/skills/site-design/references/cases/goodbasket-rejected-2026-10-13/case.md",
+      "sourceHash": "1c505f4506af3f8f65a0391efe9b8e70fb3db10f1a8d758d432614974f8673f5",
+      "sha256": "1c505f4506af3f8f65a0391efe9b8e70fb3db10f1a8d758d432614974f8673f5",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/cases/goodbasket-rejected-2026-10-13/desktop-second.png",
+      "path": "knowledge/imported/skills/site-design/references/cases/goodbasket-rejected-2026-10-13/desktop-second.png",
+      "sourceHash": "649d0683427e0e121f9701c088a304c1a96cd90d5379de9fc5a3ef89a5a2ba47",
+      "sha256": "649d0683427e0e121f9701c088a304c1a96cd90d5379de9fc5a3ef89a5a2ba47",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/cases/goodbasket-rejected-2026-10-13/frames.json",
+      "path": "knowledge/imported/skills/site-design/references/cases/goodbasket-rejected-2026-10-13/frames.json",
+      "sourceHash": "5803f4485ed9a259bdb58e93ecbf9e829ef20b9bc9fa2c9313182e86356b8e81",
+      "sha256": "5803f4485ed9a259bdb58e93ecbf9e829ef20b9bc9fa2c9313182e86356b8e81",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/cases/goodbasket-rejected-2026-10-13/narrow-first.png",
+      "path": "knowledge/imported/skills/site-design/references/cases/goodbasket-rejected-2026-10-13/narrow-first.png",
+      "sourceHash": "df05443de2feaf1048b9a2df72a21608abc07f7a535d7ef0120e3d130e31823b",
+      "sha256": "df05443de2feaf1048b9a2df72a21608abc07f7a535d7ef0120e3d130e31823b",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/cases/goodbasket-rejected-2026-10-13/phone-second.png",
+      "path": "knowledge/imported/skills/site-design/references/cases/goodbasket-rejected-2026-10-13/phone-second.png",
+      "sourceHash": "f2e68f34826ab5992ec96cb5d657e8d61b64bc19dbde83a1d959920bf5da015d",
+      "sha256": "f2e68f34826ab5992ec96cb5d657e8d61b64bc19dbde83a1d959920bf5da015d",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/cases/owner-home-visual-calibration-20261022.md",
+      "path": "knowledge/imported/skills/site-design/references/cases/owner-home-visual-calibration-20261022.md",
+      "sourceHash": "d1ce78fbc120eebc8eb6d18ac6ae915e53aaaed00e35c938dc06acb4b323fc9a",
+      "sha256": "d1ce78fbc120eebc8eb6d18ac6ae915e53aaaed00e35c938dc06acb4b323fc9a",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/content-and-seasonality.md",
+      "path": "knowledge/imported/skills/site-design/references/content-and-seasonality.md",
+      "sourceHash": "165a33ebb9475f499c2ef11d70e91681475ce3a3a0a71b934e71eb0220cdf8f6",
+      "sha256": "165a33ebb9475f499c2ef11d70e91681475ce3a3a0a71b934e71eb0220cdf8f6",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/coupon-common-craft.json",
+      "path": "knowledge/imported/skills/site-design/references/coupon-common-craft.json",
+      "sourceHash": "4cbf4420faf0e9da754a699e8ad4833456066714188a406c62b4b1ff0a25daa7",
+      "sha256": "4cbf4420faf0e9da754a699e8ad4833456066714188a406c62b4b1ff0a25daa7",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/coupon-common-craft.md",
+      "path": "knowledge/imported/skills/site-design/references/coupon-common-craft.md",
+      "sourceHash": "3c1a5548579d1434e976d271889a07df661c25453e64f79c8bf42d290e5c9b14",
+      "sha256": "3c1a5548579d1434e976d271889a07df661c25453e64f79c8bf42d290e5c9b14",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/creative-craft.md",
+      "path": "knowledge/imported/skills/site-design/references/creative-craft.md",
+      "sourceHash": "217789570d2482a4241fa8291fc5791e9d004281a0c14b9b1db0d8de1b68a64d",
+      "sha256": "217789570d2482a4241fa8291fc5791e9d004281a0c14b9b1db0d8de1b68a64d",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/design-plan.md",
+      "path": "knowledge/imported/skills/site-design/references/design-plan.md",
+      "sourceHash": "6ac42af46085ce9b0e11ecbf128f0fd446f2bbb0136ba82fd846913c329fe0da",
+      "sha256": "6ac42af46085ce9b0e11ecbf128f0fd446f2bbb0136ba82fd846913c329fe0da",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/github-taste.md",
+      "path": "knowledge/imported/skills/site-design/references/github-taste.md",
+      "sourceHash": "8ac21aeb8782ef15c5c9569752cf50f532f794ee6b5b655eb676417cdd5a24d8",
+      "sha256": "8ac21aeb8782ef15c5c9569752cf50f532f794ee6b5b655eb676417cdd5a24d8",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/global-layout-baseline.md",
+      "path": "knowledge/imported/skills/site-design/references/global-layout-baseline.md",
+      "sourceHash": "46b08972379a0644777add6ee5f28eaf13af9bf487e2b656b0e51b17848f61cb",
+      "sha256": "46b08972379a0644777add6ee5f28eaf13af9bf487e2b656b0e51b17848f61cb",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/home-card-reference-methods.md",
+      "path": "knowledge/imported/skills/site-design/references/home-card-reference-methods.md",
+      "sourceHash": "2bab4257f16facf9788343e565465963eeab99916a315ea12e193389a296308c",
+      "sha256": "2bab4257f16facf9788343e565465963eeab99916a315ea12e193389a296308c",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/homepage-visual-priority.md",
+      "path": "knowledge/imported/skills/site-design/references/homepage-visual-priority.md",
+      "sourceHash": "245dd3c741553f89139a1bd96474ef48a386b2a4542a8b4ff5ddd0a1411c8f76",
+      "sha256": "245dd3c741553f89139a1bd96474ef48a386b2a4542a8b4ff5ddd0a1411c8f76",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/human-correction-learning.md",
+      "path": "knowledge/imported/skills/site-design/references/human-correction-learning.md",
+      "sourceHash": "a7be99e6f2fd5d9ce7d4db4143c3f745788866575141ae6dc9ba0b8e139b89b6",
+      "sha256": "a7be99e6f2fd5d9ce7d4db4143c3f745788866575141ae6dc9ba0b8e139b89b6",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/owner-card-references.md",
+      "path": "knowledge/imported/skills/site-design/references/owner-card-references.md",
+      "sourceHash": "12a22985f1f38f9d3095aee13867a94371ef2091fc421bac81111a027aac9e6c",
+      "sha256": "12a22985f1f38f9d3095aee13867a94371ef2091fc421bac81111a027aac9e6c",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/production-lessons.md",
+      "path": "knowledge/imported/skills/site-design/references/production-lessons.md",
+      "sourceHash": "a586efcec778a866a66a56d7682e5bf590b99550f11f83940ad557e41dea1bcf",
+      "sha256": "a586efcec778a866a66a56d7682e5bf590b99550f11f83940ad557e41dea1bcf",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/sources.md",
+      "path": "knowledge/imported/skills/site-design/references/sources.md",
+      "sourceHash": "bfad3b6f19fafe030292c4bed29312074b356776c30f702523ac720b588eda18",
+      "sha256": "bfad3b6f19fafe030292c4bed29312074b356776c30f702523ac720b588eda18",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/references/visual-completion.md",
+      "path": "knowledge/imported/skills/site-design/references/visual-completion.md",
+      "sourceHash": "5d93f515ced324cbf6c25c68854f01f9e4f085476276c2f8a14c2db9e9bd2a2b",
+      "sha256": "5d93f515ced324cbf6c25c68854f01f9e4f085476276c2f8a14c2db9e9bd2a2b",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/SKILL.md",
+      "path": "knowledge/imported/skills/site-design/SKILL.md",
+      "sourceHash": "5444df661da5fad23b7da09ad7f811498294349b7d27a7d70289c69c9a4dad90",
+      "sha256": "5444df661da5fad23b7da09ad7f811498294349b7d27a7d70289c69c9a4dad90",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design/templates/human-correction-case.md",
+      "path": "knowledge/imported/skills/site-design/templates/human-correction-case.md",
+      "sourceHash": "68fe9366d4c61f31c89947467698b03f5b1b4e43032436cda4f7c2827a068214",
+      "sha256": "68fe9366d4c61f31c89947467698b03f5b1b4e43032436cda4f7c2827a068214",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design-review/references/commercial-review.md",
+      "path": "knowledge/imported/skills/site-design-review/references/commercial-review.md",
+      "sourceHash": "e6017876ec43de47b9eaaef5a2020269a7e1d6af1e0d7d9cc100ea3d6438f072",
+      "sha256": "e6017876ec43de47b9eaaef5a2020269a7e1d6af1e0d7d9cc100ea3d6438f072",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design-review/references/review-rounds.md",
+      "path": "knowledge/imported/skills/site-design-review/references/review-rounds.md",
+      "sourceHash": "89d0a87c0a9ca5646cb5cc6e869e62be4611a2dc3ef16d6859ede7c88bf1e287",
+      "sha256": "89d0a87c0a9ca5646cb5cc6e869e62be4611a2dc3ef16d6859ede7c88bf1e287",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design-review/scripts/automatic-layout.mjs",
+      "path": "knowledge/imported/skills/site-design-review/scripts/automatic-layout.mjs",
+      "sourceHash": "e2156ce0ee80f81a0a2bc880d45df2ff24f362bc5dc36ca40d332b0058d15823",
+      "sha256": "e2156ce0ee80f81a0a2bc880d45df2ff24f362bc5dc36ca40d332b0058d15823",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design-review/scripts/inspect-layout.mjs",
+      "path": "knowledge/imported/skills/site-design-review/scripts/inspect-layout.mjs",
+      "sourceHash": "21b5db0b1170b8a8a7bdce8c29e1945fbb46436352cd84d824ec71a7bdcfbffd",
+      "sha256": "21b5db0b1170b8a8a7bdce8c29e1945fbb46436352cd84d824ec71a7bdcfbffd",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-design-review/SKILL.md",
+      "path": "knowledge/imported/skills/site-design-review/SKILL.md",
+      "sourceHash": "5ea63b84a0316bd399776e4f2af5a08131c0f6415ccde162379acf7d77f35f63",
+      "sha256": "5ea63b84a0316bd399776e4f2af5a08131c0f6415ccde162379acf7d77f35f63",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-homepage-first/references/cases/six-site-20261015.json",
+      "path": "knowledge/imported/skills/site-homepage-first/references/cases/six-site-20261015.json",
+      "sourceHash": "fe89d0e9c57b200a5cd8810b05913dc4f5809c0071a2d6887106a402dd8939a8",
+      "sha256": "fe89d0e9c57b200a5cd8810b05913dc4f5809c0071a2d6887106a402dd8939a8",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-homepage-first/references/cases/six-site-card-refinement-20261015.json",
+      "path": "knowledge/imported/skills/site-homepage-first/references/cases/six-site-card-refinement-20261015.json",
+      "sourceHash": "b5a9aa0112af07737f44e7912cc2ce6b5f5c85fbfe5e062625de10e69462fc4d",
+      "sha256": "b5a9aa0112af07737f44e7912cc2ce6b5f5c85fbfe5e062625de10e69462fc4d",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-homepage-first/references/cases/stitch-duo-six-reaudit-20261016.json",
+      "path": "knowledge/imported/skills/site-homepage-first/references/cases/stitch-duo-six-reaudit-20261016.json",
+      "sourceHash": "088848a5f5e8f4dd798be620ed440999b533bd724c591b6c772e7b2ae2f8f59d",
+      "sha256": "1075654f465ad44a6f07ee04a363c285253e67b7948d4239ff1a1db0f641b2f2",
+      "transformed": true
+    },
+    {
+      "upstreamPath": "skills/site-homepage-first/references/full-site-coverage.md",
+      "path": "knowledge/imported/skills/site-homepage-first/references/full-site-coverage.md",
+      "sourceHash": "637f614b73d1248e0280bc7ebb19a410442056111a6542131b062433160254f8",
+      "sha256": "637f614b73d1248e0280bc7ebb19a410442056111a6542131b062433160254f8",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-homepage-first/references/repair-prevention.md",
+      "path": "knowledge/imported/skills/site-homepage-first/references/repair-prevention.md",
+      "sourceHash": "d191677b51addc9bfd12155498a4835468ee62d5f0c45dab3f54b66da71ea5bc",
+      "sha256": "d191677b51addc9bfd12155498a4835468ee62d5f0c45dab3f54b66da71ea5bc",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-homepage-first/SKILL.md",
+      "path": "knowledge/imported/skills/site-homepage-first/SKILL.md",
+      "sourceHash": "96d70abe77912644e23b3fcdf6bc2d0e2f3bd28ccf9b21d117346c44294079fc",
+      "sha256": "96d70abe77912644e23b3fcdf6bc2d0e2f3bd28ccf9b21d117346c44294079fc",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-reference-rebuild/SKILL.md",
+      "path": "knowledge/imported/skills/site-reference-rebuild/SKILL.md",
+      "sourceHash": "6f9e81dc09830b4ea2aeacef38194d7001fd8fd66820102fc22cba8cbe72439f",
+      "sha256": "6f9e81dc09830b4ea2aeacef38194d7001fd8fd66820102fc22cba8cbe72439f",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-reference-rebuild/templates/benchmark.json",
+      "path": "knowledge/imported/skills/site-reference-rebuild/templates/benchmark.json",
+      "sourceHash": "cad1e2912d92be7684b5c878caae2ba6b691fd246b4fae1944794d892cb60df2",
+      "sha256": "cad1e2912d92be7684b5c878caae2ba6b691fd246b4fae1944794d892cb60df2",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-reference-rebuild/templates/reference-rebuild.json",
+      "path": "knowledge/imported/skills/site-reference-rebuild/templates/reference-rebuild.json",
+      "sourceHash": "fa491e8fcfcea93226e5d28c1b57be00a6547e00a8920f5599a85ff0635e88d2",
+      "sha256": "fa491e8fcfcea93226e5d28c1b57be00a6547e00a8920f5599a85ff0635e88d2",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-v2/references/coupon-site-framework.json",
+      "path": "knowledge/imported/skills/site-v2/references/coupon-site-framework.json",
+      "sourceHash": "68bccff85ccda3091eb525cf8c64377f61bc56fe65ff3a39f4d2cd3feb19f24d",
+      "sha256": "68bccff85ccda3091eb525cf8c64377f61bc56fe65ff3a39f4d2cd3feb19f24d",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-v2/references/coupon-site-framework.md",
+      "path": "knowledge/imported/skills/site-v2/references/coupon-site-framework.md",
+      "sourceHash": "598d823c542ad811e6c97c2ea418b97cc3497bd7a46955f3ac1e41a5ac12be12",
+      "sha256": "598d823c542ad811e6c97c2ea418b97cc3497bd7a46955f3ac1e41a5ac12be12",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-v2/references/coupon-ui-measurement.md",
+      "path": "knowledge/imported/skills/site-v2/references/coupon-ui-measurement.md",
+      "sourceHash": "49676ad6d6195f8755bd495ea4e844b19513c72ecaf27cd079ad9f0c237fce63",
+      "sha256": "49676ad6d6195f8755bd495ea4e844b19513c72ecaf27cd079ad9f0c237fce63",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-v2/references/generation-workflow.md",
+      "path": "knowledge/imported/skills/site-v2/references/generation-workflow.md",
+      "sourceHash": "f18b89a10feef13ec558cd0215fca6a4010df4b5bd59e0f68c4a7704011112fa",
+      "sha256": "f18b89a10feef13ec558cd0215fca6a4010df4b5bd59e0f68c4a7704011112fa",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-v2/references/maintenance-workflow.md",
+      "path": "knowledge/imported/skills/site-v2/references/maintenance-workflow.md",
+      "sourceHash": "eee2e7e3fdf54733ad651c944d294724c2eacfd100be5d4de586b84ea4a02ea9",
+      "sha256": "eee2e7e3fdf54733ad651c944d294724c2eacfd100be5d4de586b84ea4a02ea9",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "skills/site-v2/SKILL.md",
+      "path": "knowledge/imported/skills/site-v2/SKILL.md",
+      "sourceHash": "f6aab7135c1fbf30beb0878af28f1cc958a43c1f1a448bd2a1d49722315fe07d",
+      "sha256": "f6aab7135c1fbf30beb0878af28f1cc958a43c1f1a448bd2a1d49722315fe07d",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "policy/quality.json",
+      "path": "knowledge/imported/policy/quality.json",
+      "sourceHash": "a65d966ff06e6fc3ab0e159508eafe5df5710f77da687ae20119f167fc94fc2f",
+      "sha256": "a65d966ff06e6fc3ab0e159508eafe5df5710f77da687ae20119f167fc94fc2f",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "policy/owner-design-rejections.json",
+      "path": "knowledge/imported/policy/owner-design-rejections.json",
+      "sourceHash": "f8ededdb757854da05186641983b9241a1bc75557a87fb9c1ef59678c3ac039b",
+      "sha256": "f8ededdb757854da05186641983b9241a1bc75557a87fb9c1ef59678c3ac039b",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "policy/site-data.json",
+      "path": "knowledge/imported/policy/site-data.json",
+      "sourceHash": "64474807c9c7d698a7bd0708698e1ea7f243879b387259959f14a351e140a89e",
+      "sha256": "64474807c9c7d698a7bd0708698e1ea7f243879b387259959f14a351e140a89e",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "docs/COUPON-FOUR-REFERENCE-COMMON-STANDARDS-2026-10-13.md",
+      "path": "knowledge/imported/docs/COUPON-FOUR-REFERENCE-COMMON-STANDARDS-2026-10-13.md",
+      "sourceHash": "34713348341c4b784435397ab8e7d0ced8ab40b77be448723033e6a34f26e017",
+      "sha256": "34713348341c4b784435397ab8e7d0ced8ab40b77be448723033e6a34f26e017",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "engineering/reference-studies/coupon-four-20261013.json",
+      "path": "knowledge/imported/engineering/reference-studies/coupon-four-20261013.json",
+      "sourceHash": "70e2d41efb9be23d80e49a8dd7a3333c1df05b6f294f656fa933c4e0b040040e",
+      "sha256": "70e2d41efb9be23d80e49a8dd7a3333c1df05b6f294f656fa933c4e0b040040e",
+      "transformed": false
+    },
+    {
+      "upstreamPath": "tests/coupon-topic-inspector.test.mjs",
+      "path": "tests/browser/coupon-topic-inspector.test.mjs",
+      "sourceHash": "ca3a6aa117852a5da60d97101947fd737f4eaf2790971dab9292a620a48ac2be",
+      "sha256": "02e1633c7289d2b0fa6cf2b2f920e091dd9cf4212c2547bb4f53e9cf02197b9f",
+      "transformed": true
+    },
+    {
+      "upstreamPath": "tests/coupon-detail-inspector.test.mjs",
+      "path": "tests/browser/coupon-detail-inspector.test.mjs",
+      "sourceHash": "1cc6407a56113152bebd877c19511e0ef4a4fe2b7cfdaac23562f055c2a0b601",
+      "sha256": "a2f5ff3e1c4b2fca95986b0ad1bbe1a5009b1e2ae81f0ea79258da3bda82c4f4",
+      "transformed": true
+    },
+    {
+      "upstreamPath": "tests/layout-audit.test.mjs",
+      "path": "tests/browser/layout-audit.test.mjs",
+      "sourceHash": "c0c1de6ca8b49dbadd7ebdb26327f4ecc5c25bde36f0340493e8c7f97e50ca99",
+      "sha256": "fc68e8840f73676905ea31d906e9267c2272fd11875cc558541a3bab8808f5ad",
+      "transformed": true
+    }
+  ]
+}

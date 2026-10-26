@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "groups": {
+    "inspection": [
+      "read-files",
+      "browser-read",
+      "screenshot",
+      "geometry"
+    ],
+    "authoring": [
+      "write-source",
+      "build",
+      "browser-interaction"
+    ],
+    "review": [
+      "read-frozen-artifact",
+      "browser-interaction",
+      "write-review-evidence"
+    ],
+    "optional": [
+      "image-generation",
+      "design-reference",
+      "business-data"
+    ]
+  },
+  "note": "Capability names, not registered MCP tool names. Resolve using systems adapters and actual host inventory. No credentials or implicit installation."
+}

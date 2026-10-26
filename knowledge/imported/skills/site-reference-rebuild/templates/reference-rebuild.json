@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "referenceUrl": "",
+  "captures": [],
+  "analysis": {
+    "layout": {"observed":"","decision":"","reason":""},
+    "typography": {"observed":"","decision":"","reason":""},
+    "palette": {"observed":"","decision":"","reason":""},
+    "imagery": {"observed":"","decision":"","reason":""},
+    "cards": {"observed":"","decision":"","reason":""},
+    "spacing": {"observed":"","decision":"","reason":""},
+    "mobile": {"observed":"","decision":"","reason":""},
+    "motion": {"observed":"","decision":"","reason":""}
+  },
+  "routes": {"home":"index.html","store":"","listing":"","detail":"","about":"about.html","disclaimer":"disclaimer.html","contact":"contact.html","privacy":"privacy.html"}
+}
