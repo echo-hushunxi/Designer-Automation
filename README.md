@@ -2,7 +2,7 @@
 
 独立Git工程，运行程序0.2.0，既有生成规则固定为2026-10-26.1。
 
-其他设计师从 [echo-hushunxi/Designer-Automation](https://github.com/echo-hushunxi/Designer-Automation) 拉取后，按[设计师快速连接](docs/designer-quickstart.md)运行npm ci及一次npm run connect即可。主机管理员使用npm run knowledge:service -- install管理共享MCP常驻服务。连接文件与令牌均被Git和分发manifest排除。
+其他设计师从 [echo-hushunxi/Designer-Automation](https://github.com/echo-hushunxi/Designer-Automation) 拉取后，按[设计师快速连接](docs/designer-quickstart.md)运行npm ci及npm run connect -- --url http://192.168.12.9:4381即可，内网免Token。主机管理员使用npm run knowledge:service -- install --auth none管理共享MCP常驻服务。连接文件与令牌均被Git和分发manifest排除。
 
 设计师提供站点Git地址后，由其Agent读取AGENTS.md与core/maintenance.md，使用bin/workbench.mjs执行：拉取一次 → 审核 → 精确修复 → 增量复验 → 稳定预览 → 设计师反馈/认可。JSON配置、覆盖和证据由Agent准备。详细调用、能力边界与经验服务配置见[独立维护工作流](docs/standalone-workbench.md)。
 

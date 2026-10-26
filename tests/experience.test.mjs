@@ -6,7 +6,7 @@ import os from 'node:os';
 import {Client} from '@modelcontextprotocol/sdk/client/index.js';
 import {StreamableHTTPClientTransport} from '@modelcontextprotocol/sdk/client/streamableHttp.js';
 import {ExperienceStore,ExperienceClient,syncOutbox} from '../lib/experience.mjs';
-import {startExperienceServer} from '../lib/experience-server.mjs';
+import {startExperienceServer,isInternalAddress} from '../lib/experience-server.mjs';
 import {digest,writeJSON} from '../lib/io.mjs';
 
 const writer = 'writer-test-token-abcdefghijklmnopqrstuvwxyz', maintainer = 'maintainer-test-token-abcdefghijklmnopqrstuvwxyz';
@@ -58,4 +58,25 @@ test('offline cache and outbox preserve cases and replay only pending records',a
   assert.equal((await syncOutbox(directory,client)).saved,0);
   assert.equal((await service.store.read()).cases.length,1);
   await assert.rejects(startExperienceServer({directory,host:'0.0.0.0'}),/token/);
+});
+
+test('anonymous mode recognizes actual private/loopback addresses and excludes public addresses',() => {
+  for (const address of ['127.0.0.1','10.1.2.3','172.16.0.1','172.31.255.255','192.168.12.9','169.254.1.1','::1','::ffff:192.168.11.228','fd12::1','fe80::1%en0']) assert(isInternalAddress(address),address);
+  for (const address of ['8.8.8.8','172.15.0.1','172.32.0.1','192.169.0.1','::ffff:8.8.8.8','2001:4860:4860::8888','192.168.999.1','localhost','']) assert.equal(isInternalAddress(address),false,address);
+});
+
+test('internal anonymous HTTP and MCP can capture/search without credentials while publishing remains restricted',async t => {
+  const directory = await fs.mkdtemp(path.join(os.tmpdir(),'da-anonymous-')); t.after(() => fs.rm(directory,{recursive:true,force:true}));
+  const service = await startExperienceServer({directory,allowAnonymous:true,maintainerToken:maintainer}); t.after(() => service.close());
+  assert.equal((await fetch(service.url+'/health')).status,200);
+  const client = new ExperienceClient({url:service.url,token:null});
+  const captured = await client.capture(sample()); assert.equal(captured.status,'candidate');
+  const denied = await fetch(service.url+'/v1/publish',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({id:captured.id,expectedRevision:1,actor:'test',reason:'fixture'})}); assert.equal(denied.status,403);
+  const mcp = new Client({name:'anonymous-designer-fixture',version:'1.0.0'});
+  await mcp.connect(new StreamableHTTPClientTransport(new URL(service.url+'/mcp'))); t.after(() => mcp.close());
+  assert.deepEqual((await mcp.listTools()).tools.map(tool=>tool.name),['experience_search','experience_capture']);
+  const result = await mcp.callTool({name:'experience_capture',arguments:{case:{...sample(),summary:'Anonymous MCP protocol fixture'}}}); assert(!result.isError);
+  const published = await fetch(service.url+'/v1/publish',{method:'POST',headers:{authorization:'Bearer '+maintainer,'content-type':'application/json'},body:JSON.stringify({id:captured.id,expectedRevision:1,actor:'synthetic-maintainer',reason:'Protocol fixture approval'})}); assert.equal(published.status,200);
+  const found = await mcp.callTool({name:'experience_search',arguments:{pages:['home']}}); assert.equal(JSON.parse(found.content[0].text).cases.length,1);
+  assert.equal((await client.search({pages:['home']})).cases.length,1);
 });

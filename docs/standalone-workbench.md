@@ -35,9 +35,9 @@ lesson包含actor、summary、cause、prevention、classification（general/site
 
 服务器运行`npm run knowledge`。默认127.0.0.1:4381，持久数据默认在.designer-data/shared-experience。设置DA_EXPERIENCE_DATA到持久卷可独立于工作目录保留；服务也可以和已有网站在同一台机器运行，无需重启原网站。
 
-网络访问设置DA_EXPERIENCE_HOST=0.0.0.0及至少24字符的DA_EXPERIENCE_TOKEN；维护者另设DA_EXPERIENCE_MAINTAINER_TOKEN。密钥在服务器环境或宿主密钥管理中设置，不写进仓库。客户端设置DA_EXPERIENCE_URL=http(s)://实际主机:端口及DA_EXPERIENCE_TOKEN。IP网站预览地址本身不是MCP端点。
+当前内网免授权部署使用npm run knowledge:service -- install --auth none；普通Agent只需npm run connect -- --url http(s)://实际主机:端口，无需Token。直接运行时可设置DA_EXPERIENCE_HOST=0.0.0.0、DA_EXPERIENCE_ALLOW_ANONYMOUS=true。免授权仅接受实际内网来源，不能伪造请求头绕过。
 
-普通Agent的MCP连接地址为http(s)://实际主机:端口/mcp，用Bearer认证；连接格式按所用Agent支持的远端MCP设置。使用官方SDK的Streamable HTTP，普通token只暴露experience_search与experience_capture。维护者token额外提供experience_publish。对不支持远端MCP的Agent，workbench使用同一服务的HTTP接口。
+普通Agent的MCP连接地址为http(s)://实际主机:端口/mcp，认证选无；使用官方SDK的Streamable HTTP，只暴露experience_search与experience_capture。维护者token额外提供experience_publish。对不支持远端MCP的Agent，workbench使用同一服务的HTTP接口。原Bearer模式保留：不启用allowAnonymous时，外部监听必须配置至少24字符的DA_EXPERIENCE_TOKEN；客户端通过--token-file配置。维护者仍使用单独DA_EXPERIENCE_MAINTAINER_TOKEN，密钥不进仓库。
 
 HTTP：GET /health、GET /v1/lessons?pages=home,store-detail&site=仓库标识、POST /v1/cases；维护者POST /v1/publish。发布字段为id、expectedRevision、actor、reason。服务不会执行经验文本中的命令。无跨站权限系统；团队隔离应部署独立存储/凭据或交给宿主网关。默认拒绝未允许的浏览器Origin。
 

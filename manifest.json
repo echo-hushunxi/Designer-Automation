@@ -39,7 +39,7 @@
     },
     {
       "path": "bin/experience-server.mjs",
-      "sha256": "38e8bdd46b3a0bfc94288906961de712a5a74181dd64cb7690be877082c273c5"
+      "sha256": "1f6f82f4030a91fb8988ed54a9813adf66931f607f8526c800ea26a376253666"
     },
     {
       "path": "bin/inventory.mjs",
@@ -91,7 +91,7 @@
     },
     {
       "path": "core/maintenance.md",
-      "sha256": "424089554e03887195debd93af2915ea2187f9bc9fb5351292c321ef02ef4781"
+      "sha256": "14fde92c336b8c23c952cf76d59d18ef7abd03b2e630afec5fc95610af9d01be"
     },
     {
       "path": "core/quality.md",
@@ -123,7 +123,7 @@
     },
     {
       "path": "docs/designer-quickstart.md",
-      "sha256": "9b909e39a756a8607b1f57046971ecf3d361c450457ae80a7edc00f0cda82af5"
+      "sha256": "55a83d72b7348e6e23c76d397b95d46405d08d86f4b6375e0626bb626d552efd"
     },
     {
       "path": "docs/page-coverage.md",
@@ -131,7 +131,7 @@
     },
     {
       "path": "docs/standalone-workbench.md",
-      "sha256": "3ccb7c8fcd0f405a2d0cbe8ae21dce51325ac47a5c2e02ca1385bf83bf0ddb2b"
+      "sha256": "2294137247037ae21fdfab9d01753beea3c066f18de86816119ffb9b76347635"
     },
     {
       "path": "knowledge/imported/docs/COUPON-FOUR-REFERENCE-COMMON-STANDARDS-2026-10-13.md",
@@ -475,7 +475,7 @@
     },
     {
       "path": "lib/experience-server.mjs",
-      "sha256": "a66775b3dde405e7c2f6c18fddda5782616fabfaef392f9d2376d38806173084"
+      "sha256": "4e0be78ade3aafcfa89336f14157aba29dca62409bb65f1685102cc72b0d5add"
     },
     {
       "path": "lib/experience.mjs",
@@ -503,15 +503,15 @@
     },
     {
       "path": "README.md",
-      "sha256": "275d518ae1c0cc4d34db2a7c4b3096704fe9e30b2603bd3118841f70b2f9211e"
+      "sha256": "e393146d03a20d4714a6223651915440a822cf6a87c710df21577eb821e9c042"
     },
     {
       "path": "scripts/connect-experience.mjs",
-      "sha256": "f0c0bac88de43b4d6327bd60f6b6c5d820654e4cc3ef12c7791b485ac9b251f3"
+      "sha256": "ad8b0b05e180359a3d47fa17af7af08c7818e1de8e1d08242261c8feef67d975"
     },
     {
       "path": "scripts/experience-service.mjs",
-      "sha256": "003e8ac47669291f708f283e923500d252eff4848f1aede3f5600daaf7926c9b"
+      "sha256": "4b5de5153014f7ae8e6258674dfc2ac9b7c32d5f7cb0af936e67ae80063f5d9e"
     },
     {
       "path": "scripts/manifest.mjs",
@@ -599,7 +599,7 @@
     },
     {
       "path": "tests/experience.test.mjs",
-      "sha256": "9d036ba6a2cc879af92ab7e8e601dc5fa1b242bfd17358a85c69a75bb6cfa7de"
+      "sha256": "d7189c33744cd71550dccfe30793e65a4f38528ca4ac10db053a8edbeb18b5ee"
     },
     {
       "path": "tests/portable.test.mjs",
