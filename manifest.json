@@ -11,7 +11,7 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "01607d25168af7fc81d1de9ff78f4ff97a28cf4fc3918bacc844d45d9c3ee807"
+      "sha256": "ea2baa3630102e556b9f7b386f52be698dae01c56ad48dd3dc4c7a8f5970afcc"
     },
     {
       "path": "bin/automatic-layout.mjs",
@@ -35,15 +35,19 @@
     },
     {
       "path": "bin/experience-mcp.mjs",
-      "sha256": "a51ca525a196fe19d29d1cd0ca75f31366545423f1d8094f116878f9a9594f94"
+      "sha256": "fc27764caed75cdd80cbc34464d847c5ee482b8b83c904ed82be5927f9ec73a4"
     },
     {
       "path": "bin/experience-server.mjs",
       "sha256": "3d5a823daa20abcdebe6fff7490f52f1f8d2dcbac7c5d6944eb9397f809d8559"
     },
     {
+      "path": "bin/experience-worker-once.mjs",
+      "sha256": "42fd0367b69f235a46bb5d311dcd7d69a65705e0733dfe3c992f03186c4e25b2"
+    },
+    {
       "path": "bin/experience-worker.mjs",
-      "sha256": "22f447d3eaf5719386fb336293f0fb2a601a7d8bc1a6246e60f1590b05b395d9"
+      "sha256": "d503c8b4c18d0d455fcb17fb707ad3fda129f045f567bb375ee87473cfefad73"
     },
     {
       "path": "bin/inventory.mjs",
@@ -67,7 +71,7 @@
     },
     {
       "path": "bin/workbench.mjs",
-      "sha256": "b39ec89d830e69f3cfe73fafcde7ccfd3a8bff8f69b31ab3e6f53e02658aa989"
+      "sha256": "cfd56ed3f0532d17214e212b42bee73c4e9c8ee4e497ce7857a6ef5d3a4189ad"
     },
     {
       "path": "compatibility/generation-baseline.json",
@@ -94,12 +98,16 @@
       "sha256": "f4a3ea96c8621015a90ff314a756f4c2a27d0a80805e56f1681e484e271b3f24"
     },
     {
+      "path": "core/experience.md",
+      "sha256": "10f1621a5f92265b89fbded595a3a69104c712445dc5f9b05828d8345ac3b09c"
+    },
+    {
       "path": "core/knowledge.md",
       "sha256": "bc9d16cbecee16880b68f86f0f6f7c59653ac5f34ec3a4eed3dfa315d4f789ce"
     },
     {
       "path": "core/maintenance.md",
-      "sha256": "f02a12bd5ca000c1a10db93ae7373168d7ce8d9b849ca4c6b819fd10db1bf56b"
+      "sha256": "902ce16c33710b262c78b4d270dad708495fa3030d5bb571a919fca4d6f7bc38"
     },
     {
       "path": "core/quality.md",
@@ -139,11 +147,11 @@
     },
     {
       "path": "docs/designer-quickstart.md",
-      "sha256": "e74bbbb9b65dd7c4e9730be6e1efa9358201c0de98ea313b48193defa5d5af29"
+      "sha256": "e7dae7b59cb9822a81be72f5505e1ba11df157b17500b959d20c4e2f0db31d8c"
     },
     {
       "path": "docs/experience-operations.md",
-      "sha256": "f565bc58504402b7fedf80efe1430e899b7a5f3688b9aba19cfdcfbf3df59c30"
+      "sha256": "435a45aee37112a5cc824c6392a8d350636603a25e31020e78dd6e5d5299d1d2"
     },
     {
       "path": "docs/page-coverage.md",
@@ -151,7 +159,7 @@
     },
     {
       "path": "docs/standalone-workbench.md",
-      "sha256": "32ed31b63f5337fdfc83a6ad55cb6d2b696a121061f6c8551c2238ace602cc0b"
+      "sha256": "bfd83aa482de816d3fd3e88d4b92fd6cd2da11786793f4f6bd871308981b3fdb"
     },
     {
       "path": "knowledge/imported/docs/COUPON-FOUR-REFERENCE-COMMON-STANDARDS-2026-10-13.md",
@@ -494,40 +502,56 @@
       "sha256": "e420f87d3bb0d53662ed94e707018200b47977d28b88fa0e851cda61e9219a6f"
     },
     {
+      "path": "lib/durable-json.mjs",
+      "sha256": "8d0dd4a0547dfefd063bf02cc8a46bcea5bf79d0572c4901dab4e2a8dece5f54"
+    },
+    {
       "path": "lib/experience-backup.mjs",
-      "sha256": "b3d49c51162c546a48923c17490a3f0dbde8bb6ff7672ae79a91df27e5bd6d18"
+      "sha256": "5d97c0268fda10aa7610e334ff8628de3f09d22b8b838492658389ab9688b03b"
     },
     {
       "path": "lib/experience-bridge.mjs",
-      "sha256": "08c981c0aecb946cd82577c3614057b6a4d66f3c14b9114e1f78664e17b6c5af"
+      "sha256": "4966970d73b6bd8e3a4f2eabb3d26f48c729dae9b8cff913551971f0e635d7b1"
     },
     {
       "path": "lib/experience-case.mjs",
-      "sha256": "2501c21d87851e468010c3162564ecb654b5c174698d31d9d12d603dca43ef59"
+      "sha256": "032ce36a7aa09f81bcf17485f0497158ecc739bbd989f58eb41c1c1a2e21275d"
     },
     {
       "path": "lib/experience-client.mjs",
-      "sha256": "4b4bab59c66725ee12f6e1efa4225dc09b2686db8de8cd5197b12810547d8010"
+      "sha256": "a7173c9c337ee45ed72537424dea99b60aa6a35429a5e103a2f71ed4a4b6d8f6"
     },
     {
       "path": "lib/experience-delivery.mjs",
-      "sha256": "d6a4842106d80da46c166458c19776aa88b3f0e9f3bc6267974397ad7b8b1586"
+      "sha256": "9e2d8c5b994107e8d8cab5ff968da23e26e83829d7c2c261d6a927e6022f9400"
+    },
+    {
+      "path": "lib/experience-memory.mjs",
+      "sha256": "1f36b60c11424b9553bd14eb1f446ac8e0bdd530ce7db30e5ef377302e0dc00e"
     },
     {
       "path": "lib/experience-mongo.mjs",
-      "sha256": "3b26d277834e4cf046067bc1df45b6f4839752208ac407f27a750bf670e8103f"
+      "sha256": "cd97549ee7fa729dff96e6f732111562d4fbb430719e274aa2dddf39d7214d33"
+    },
+    {
+      "path": "lib/experience-policy.mjs",
+      "sha256": "aa69d1ad28e07372863a010b61928b1a5ecc5aa8d13d820ce03c3fe3595c7785"
     },
     {
       "path": "lib/experience-schema.mjs",
-      "sha256": "a0ee41d1e8730d1d70d595957b239d8ad7dd1363254c7a557481e4a5c5ca02c7"
+      "sha256": "b5fd6260f4f4550934d8a143904ecc88bccfb081d270d14cf7fd22972061739f"
     },
     {
       "path": "lib/experience-server.mjs",
-      "sha256": "1f98959af67684902d291c4b740bf360cebe29c76b98ac584eea14d57e3e6561"
+      "sha256": "9906513a9b63b5909ae49752ceebf9977eabd5fda47c48d3b9ae0413aeb428fb"
+    },
+    {
+      "path": "lib/experience-task.mjs",
+      "sha256": "223ea27a3ba54bd10ac18e7a8de095e862935e80ae1327a8c870c2b96edd7fd1"
     },
     {
       "path": "lib/experience.mjs",
-      "sha256": "90acabadb7f08e47f68115692ed9e28637fe90a64e6206e01aa23801dff32f58"
+      "sha256": "474338de1c57f573e2d0af95ed52235e61fc0e07f447f7e20702b35c3b3a3879"
     },
     {
       "path": "lib/io.mjs",
@@ -539,27 +563,27 @@
     },
     {
       "path": "lib/workbench.mjs",
-      "sha256": "ecac550cebe4c0b11c4bd227c7f1384f7c19efc596a15a68c01e56a9d659cecd"
+      "sha256": "67531ccc35b2fc6e4e228c6bc09636c2659629d39fdfd9363f64a93b19fe4581"
     },
     {
       "path": "package-lock.json",
-      "sha256": "5a96c2a1e8d324bf06ddf72e58a8954d1679da16444731f649a5217edf68ab23"
+      "sha256": "b3a147879266673803f5934efec6afcec50e4049acde018ce0e551f007767534"
     },
     {
       "path": "package.json",
-      "sha256": "0a087d163599ab672dab307b5388c4d6fda6eb331cbbb238cdeaa7fa584e209e"
+      "sha256": "11edb6456ee54d10ca45424a84a0d404c578ca6213e5a8abace47fecfa3f9511"
     },
     {
       "path": "README.md",
-      "sha256": "d5b574d4d3a3914134bcf5dc66777cda1504b4cea0abbc0b8bc4da461d994ccc"
+      "sha256": "096c11b91ffeb0360cdb367cfbb9fa5eb3349b7d23416a2551ef68f0e6a38f06"
     },
     {
       "path": "scripts/connect-experience.mjs",
-      "sha256": "4e492086238bc8434d914232a02fdc40f9a5b745ebec6fc7de3b87bcd1f8cf93"
+      "sha256": "88916d6f910c5936edb7645c76a939e04a0646c6c2b6a8c1bba6bf93b5d0d7a7"
     },
     {
       "path": "scripts/experience-admin.mjs",
-      "sha256": "6f8e5341049dff4549af3125709981b54d892ed7c47383ba68fda61f6da23d73"
+      "sha256": "ad75ebee20f1fd54c4b831f7ed96e4f3005050d790cbec693adafd62690d1684"
     },
     {
       "path": "scripts/experience-service.mjs",
@@ -655,19 +679,27 @@
     },
     {
       "path": "tests/experience-backup.test.mjs",
-      "sha256": "d7c3eb63b2b4bb1b27c0703e6ca3efd32907dd6b183978627f48fd58aaace03e"
+      "sha256": "081bf8e02eb8be5d39b8201ae6772280ebfde4e2ec34561c7e67a7fd9fca2e91"
     },
     {
       "path": "tests/experience-delivery.test.mjs",
-      "sha256": "26c940393468074e2a6d4dffd12e9f50e4212a811e6acef7546056803e4fafd0"
+      "sha256": "eb95a6c497fb1492a0ecacdcd95182e5fa7935d2229fa4557815abeb976d7691"
+    },
+    {
+      "path": "tests/experience-fixture.mjs",
+      "sha256": "a5b64eb1fd7bb47fa1d8d41bccc17339630c47d8f085c64800612a106eb782af"
     },
     {
       "path": "tests/experience-mongo.test.mjs",
-      "sha256": "9ad69667c9398b373d24d2248ea48c122fd4e7335b69435b06d0f503715a8fbf"
+      "sha256": "f11f24847a219cf0fc057911d3175d4a8ee968733e7a6d45abf183b39b9d1dcf"
+    },
+    {
+      "path": "tests/experience-policy.test.mjs",
+      "sha256": "d13ae33457dde1ca4c92de50b64a45c8e5c6ccb3d4abd0b01cad9efc2e9877fb"
     },
     {
       "path": "tests/experience.test.mjs",
-      "sha256": "52cb6ddbeba10b8f000757818677467ef28f0d5d0fc792a2531361a52d3ac06e"
+      "sha256": "3250f4c32f6c93d9ea82885cbcceae9b283669ec9fb95570941035f073d2c6dd"
     },
     {
       "path": "tests/portable.test.mjs",
@@ -675,7 +707,7 @@
     },
     {
       "path": "tests/workbench.test.mjs",
-      "sha256": "7c6db86e4b6777a9dde3ddb5871d9de74241123be62fcd57f9d492b35aa060a9"
+      "sha256": "f02894a1fc7e7f72732101cb7ff841a4058ac5806065e707855173616a4f58f9"
     },
     {
       "path": "workflows/coupon-pages/playbook.md",

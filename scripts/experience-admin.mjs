@@ -24,7 +24,7 @@ try {
     result = await writeBackup(config.backup.directory,document,{retentionDays:config.backup.retentionDays || 30});
   } else if (action === 'verify') {
     const archive = await readBackup(path.resolve(options.input));
-    result = {valid:true,count:archive.count,hash:archive.hash,createdAt:archive.createdAt,source:archive.source};
+    result = {valid:true,count:archive.count,lessonCount:archive.lessonCount || 0,hash:archive.hash,createdAt:archive.createdAt,source:archive.source};
   } else if (action === 'status') {
     const files = (await fs.readdir(config.backup.directory)).filter(f=>/^experience-.*\.json\.gz$/.test(f)).sort();
     if (!files.length) throw Error('No verified backup is available');
@@ -39,7 +39,7 @@ try {
     source.cases.forEach(validateStoredCase);
     const store = await MongoExperienceStore.connect(config.mongo);
     try {
-      if (action === 'restore') result = await store.restoreInto(options.target,source.cases);
+      if (action === 'restore') result = await store.restoreInto(options.target,source);
       else {
         // Preserve an independently recoverable copy of the exact legacy input.
         const archive = await writeBackup(config.backup.directory,backupDocument(source,{legacy:'store.json'}),{retentionDays:config.backup.retentionDays || 30});

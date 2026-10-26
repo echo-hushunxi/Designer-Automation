@@ -24,7 +24,7 @@ observations包含candidate、observations数组；每项为id、status、actor�
 
 coverage包含actor、notes、gaps。notes记录真实组件与条款对账；缺少状态/能力时填gaps，不可声明完成。feedback包含candidate、actor、text、decision（revise/approve）及可选checkIds；approve时由Agent附lessons（或先learn准备同一候选的草稿）；actor是记录的实际设计师身份，不由程序认证，Agent不得冒充。未给checkIds时全部检查失效。
 
-lesson包含actor、summary、cause、prevention、classification（general/site-preference/hard-failure）。程序从本任务实际反馈与检查记录绑定证据；未复测或未认可的案例保持候选；设计师确认后程序自动绑定approval并启用，不再经过维护者发布。共享服务保存的是证据声明，不可能仅凭这些字段认证审美或人的真实行为。
+lesson包含actor、summary、cause、prevention、classification（general/site-preference/hard-failure）。lesson还需component、pages或checkIds，以及learning（key、when、exceptions、transferable）。程序从实际选中检查推导作用域，不默认关联整个任务；未复测、未认可或缺少明确条件的案例不进入有效经验；设计师确认后自动处理，无可复用内容可记录learningDecision skip。共享服务保存的是证据声明，不可能仅凭这些字段认证审美或人的真实行为。
 
 每次start/cycle/repair返回lastAudit.executed/reused/visits。无变化且证据有效时无需重新浏览。preview命令复用一个本地进程与地址，并随任务切换到最新候选；stop-preview只停止该任务自己的服务。
 
@@ -32,7 +32,7 @@ lesson包含actor、summary、cause、prevention、classification（general/site
 
 ## 统一MCP与自动交付
 
-中央MCP为http://172.18.188.6:4381/mcp。设计师npm run connect后使用本地stdio入口，它自动连接中央MCP，提供experience_search、experience_capture和本地experience_status。workbench也通过stdio MCP调用，不再读写独立HTTP经验接口或本地JSON共享库。未确认反馈是草稿，绑定准确候选、真实确认原话及复验结果的经验一次提交即active。
+中央MCP为http://172.18.188.6:4381/mcp。设计师npm run connect后使用本地stdio入口，它自动连接中央MCP，提供experience_search、experience_capture、experience_manage和本地experience_status。workbench也通过stdio MCP调用，不再读写独立HTTP经验接口或本地JSON共享库。未确认反馈是草稿，绑定准确候选、真实确认及具体受影响复验项的经验在来源站点内生效；同类归并、冲突处理、撤回及跨站推广遵循[经验规则](../core/experience.md)。
 
 本地入口持久保留待传项，断网后台自动重试，成功确认后清理。关闭Agent后后台进程继续，关机后下次MCP启动恢复；旧outbox自动接管。queued表示尚未共享，明确错误保留原记录供Agent处理。无需sync命令。已读经验的查询缓存按中央服务地址隔离，断网返回离线标记。配置方法与完整行为见[快速连接](designer-quickstart.md)。
 

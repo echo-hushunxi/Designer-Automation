@@ -33,7 +33,7 @@ export async function workbench(args) {
     if (action === 'feedback') {
       await feedback({...payload,data,id});
       const experience = await captureDialogue({data,id,client}), records = experience.records || [experience];
-      return {...await status(data,id),experienceSync:experience.sync,experience:{shared:records.length > 0 && records.every(r=>r.status === 'active' && r.sync !== 'queued'),records:records.map(r=>({id:r.id,status:r.status,sync:r.sync}))}};
+      return {...await status(data,id),experienceSync:experience.sync,experience:{shared:records.length > 0 && records.every(r=>r.shared === true && r.sync !== 'queued'),records:records.map(r=>({id:r.id,status:r.status,sync:r.sync,shared:r.shared,lessons:r.lessons,review:r.review,conflicts:r.conflicts}))}};
     }
     if (action === 'handoff') { await handoff(data,id); return {task:await status(data,id),preview:await ensurePreview(data,id)}; }
     if (action === 'preview') return ensurePreview(data,id);

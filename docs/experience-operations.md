@@ -2,11 +2,11 @@
 
 ## 当前部署与边界
 
-MCP地址为 http://172.18.188.6:4381/mcp，固定Linux内网主机，复用现有PM2及其系统启动服务。设计师及workbench统一通过MCP使用MongoDB存储，复用现有带认证的rs0副本集，独立数据库designer_automation、集合cases，专用数据库账号只有该库readWrite权限。数据库连接保存在服务器私有配置中，不进入Git、日志或设计师配置。现有Mongo副本集成员使用既有网络地址；此次没有把数据库迁入新的纯内网副本集，也没有修改其网络拓扑或业务库。
+MCP地址为 http://172.18.188.6:4381/mcp，固定Linux内网主机，复用现有PM2及其系统启动服务。设计师及workbench统一通过MCP使用MongoDB存储，复用现有带认证的rs0副本集，独立数据库designer_automation、集合cases（_kind区分案例与可复用结论），专用数据库账号只有该库readWrite权限。数据库连接保存在服务器私有配置中，不进入Git、日志或设计师配置。现有Mongo副本集成员使用既有网络地址；此次没有把数据库迁入新的纯内网副本集，也没有修改其网络拓扑或业务库。
 
 本次仅存经验正文、作用域、候选/发布状态、版本、反馈及证据引用；不接入截图、附件、图片上传或对象存储。客户端MCP在.designer-data/experience-delivery按中央地址隔离保存缓存、待传项和服务器回执；有积压时自动启动独立重试进程，成功后退出。反馈原文仍在任务记录中。服务启动强制连接MongoDB，连接失败不会切回JSON。读取使用primary，写入要求majority和journal确认；MongoDB单文档原子操作与预期revision避免并发覆盖。正式规则和原Harness生成入口保持原合同，经验发布不会修改它们。
 
-普通内网Agent无需Token即可experience_search/experience_capture；设计师确认后的经验由experience_capture自动启用，无需发布者凭据；管理员快照仍需独立维护者凭据。IP限制依据TCP实际来源，不信任X-Forwarded-For。actor是反馈记录声明，不是认证身份。数据库认证与MCP内网免授权分别配置。
+普通内网Agent无需Token即可使用experience_search/experience_capture/experience_manage；设计师确认后的经验由experience_capture自动启用，无需发布者凭据；管理员快照仍需独立维护者凭据。IP限制依据TCP实际来源，不信任X-Forwarded-For。actor是反馈记录声明，不是认证身份。数据库认证与MCP内网免授权分别配置。
 
 ## 文件与进程
 
@@ -28,7 +28,7 @@ node scripts/install-experience-linux.mjs /home/liusili/.config/designer-automat
 
 ## 备份与检查
 
-crond按服务器时区每6小时执行一次。备份通过本机维护者快照接口读取MongoDB的snapshot事务，得到包含全部候选和已发布经验的同一时点数据，正常查询/记录无需停机。[MongoDB快照读说明](https://www.mongodb.com/docs/manual/reference/read-concern-snapshot/)是该实现依赖的副本集能力；服务拒绝使用不支持该恢复保证的单机MongoDB。归档为带schema版本、条数和SHA256的JSON gzip，是备份格式，在线读写始终使用数据库。
+crond按服务器时区每6小时执行一次。备份通过本机维护者快照接口读取MongoDB的snapshot事务，得到包含全部候选和已发布经验的同一时点数据，正常查询/记录无需停机。[MongoDB快照读说明](https://www.mongodb.com/docs/manual/reference/read-concern-snapshot/)是该实现依赖的副本集能力；服务拒绝使用不支持该恢复保证的单机MongoDB。归档v2同时保存案例、结论、撤回状态和历史，带分别条数及整体SHA256的JSON gzip，是备份格式，在线读写始终使用数据库。
 
 文件先写临时路径并fsync，再原子改名并核验；只有新备份核验成功才删除本工具30天前的归档，不处理其他文件。备份在服务服务器上，与现有Mongo副本集分开；它不是另一套自动异地容灾系统。默认最大损失窗口约6小时，实际取决于最后成功备份时间。
 
@@ -42,7 +42,7 @@ status核验最新归档并显示ageHours；超过8小时返回非零退出码�
 
 ## 恢复与回滚
 
-先verify，再恢复到新的restore_集合，禁止覆盖在线集合，也不允许复用已存在的恢复集合。恢复完成逐条身份/状态校验、对比条数和内容SHA256，保留原集合。
+先verify，再恢复到新的restore_集合，禁止覆盖在线集合，也不允许复用已存在的恢复集合。恢复完成逐条案例/结论/状态校验、对比条数和整体内容SHA256，保留原集合。
 
 ```sh
 node scripts/experience-admin.mjs restore --config /home/liusili/.config/designer-automation/service.json --input /实际备份路径.json.gz --target restore_20261026_01
@@ -54,7 +54,7 @@ node scripts/experience-admin.mjs restore --config /home/liusili/.config/designe
 
 ## 旧JSON迁移
 
-停止旧服务后保留原store.json副本。输入是旧版{version:1,revision,cases}完整状态；全量校验后备份，再按原id、生命周期、revision和发布时间写入MongoDB。已有相同记录跳过，有内容冲突则报错，不覆盖既有记录。迁移应在新共享服务开放写入前完成；重复执行安全。
+停止旧服务后保留原store.json副本。兼容v1备份及旧版{version:1,revision,cases}状态；旧记录保留作证据，缺乏作用域/学习条件时不自动发布。输入全量校验后备份，再按原id、生命周期、revision和发布时间写入MongoDB。已有相同记录跳过，有内容冲突则报错，不覆盖既有记录。迁移应在新共享服务开放写入前完成；重复执行安全。
 
 ```sh
 node scripts/experience-admin.mjs import-json --config /home/liusili/.config/designer-automation/service.json --input /旧store.json副本

@@ -21,13 +21,15 @@
 5. 所有适用项执行通过后handoff，给设计师稳定预览链接、变更摘要和真实未解决项。preview服务复用，打开后续新候选时用响应中的candidate确认版本。反馈用feedback保存原话和受影响检查ID；未能定位影响范围时默认全部失效。调整后只复验受影响范围与相关回归。
 6. 只有设计师确实查看并明确认可，才以原话、实际身份和准确候选记录approve。需要调整就继续；说OK本轮结束，不额外启动同范围审核。没有实测的项目记not-run。用户要求暂停测试时停止测试，不代填通过，也不handoff成已验证。
 
-## 设计师确认后自动共享
+## 设计师确认后合理学习与自动共享
+
+先读core/experience.md。每条经验显式绑定受影响checkIds或pages、component和learning字段；只学习验证过的作用域。同一问题检索复用已有key，有冲突先处理；可通过experience_manage纠正和撤回。
 
 经验查询和写入统一走designer_experience MCP；workbench也调用同一个本地MCP入口。普通内网免Token。修复过程中feedback保存真实原话为未分类草稿，Agent根据实际修正归纳summary、cause、prevention、classification，不推测未知根因。单站偏好限定site，通用经验限定页面。
 
-设计师明确确认当前候选后，Agent将已归纳的lessons随approve反馈一次提交，或复用它为同一候选准备的learn草稿。程序绑定真实确认原话、actor、时间、准确候选与对应复验结果，自动通过MCP保存为active；不再有维护者发布步骤，也不需要设计师再次确认经验。没有新增修正就不编造经验。直接使用experience_capture时，带approval（decision、actor、text、candidate、at）以及verification（retested、designerApproved、candidate）；候选必须一致。缺少复验、实际认可或有效分类时不能自动启用。
+设计师明确确认当前候选后，Agent将已归纳的lessons随approve反馈一次提交，或复用它为同一候选准备的learn草稿。程序将确认和完整待传记录一起原子持久保存，再通过MCP形成来源站点内的有效结论；不再有维护者发布步骤，也不需要设计师再次确认经验。没有新增可复用结论、仅一次性内容调整或原因尚不明确时，用learningDecision skip记录理由，不勉强生成规则。直接使用experience_capture时，带approval（decision、actor、text、candidate、at）以及verification（retested、designerApproved、candidate）；候选必须一致。缺少复验、实际认可或有效分类时不能自动启用。
 
-本地MCP先持久保存待传记录，发送成功后才清理。断网时返回queued，后台自动重试并在恢复后补传；Agent退出后继续，电脑关机后在下次MCP启动恢复。明确错误留存原记录与原因，Agent通过experience_status处理；不让设计师手动sync。重复请求幂等。旧workbench outbox自动迁入该队列，不再并行维护另一套HTTP同步流程。
+本地MCP自动接管任务中未发送的记录，服务器回执及任务交付状态都保存后才清理。补传监督进程可自动拉起异常退出的子进程；坏记录隔离且不阻塞其他记录。断网时返回queued，后台自动重试并在恢复后补传；Agent退出后继续，电脑关机后在下次MCP启动恢复。明确错误留存原记录与原因，Agent通过experience_status处理；不让设计师手动sync。重复请求幂等。旧workbench outbox自动迁入该队列，不再并行维护另一套HTTP同步流程。
 
 active经验只作为适用方法输入，不改变版本化硬标准。其他Agent下一次查询即可读取；已开始的任务固定经验快照，不因新经验或补传自动重跑站点检查。正式规则及程序升级继续走Git，原Harness生成门禁不变。确认来源是Agent记录的人类原话，内网免授权不提供身份认证，禁止把布尔字段当作真实人类认可的替代品。
 
