@@ -543,7 +543,7 @@
     },
     {
       "path": "lib/experience-server.mjs",
-      "sha256": "9906513a9b63b5909ae49752ceebf9977eabd5fda47c48d3b9ae0413aeb428fb"
+      "sha256": "74d4ac144bba37c522d13aec411b8c91840aeb3f3a167a4b5704e7d049cac51e"
     },
     {
       "path": "lib/experience-task.mjs",
@@ -699,7 +699,7 @@
     },
     {
       "path": "tests/experience.test.mjs",
-      "sha256": "3250f4c32f6c93d9ea82885cbcceae9b283669ec9fb95570941035f073d2c6dd"
+      "sha256": "89e38ce44954f2435a9e2cd522b3dce62aeaa778dfc13c7cf540a654d2d3eb4d"
     },
     {
       "path": "tests/portable.test.mjs",
