@@ -21,10 +21,14 @@
 5. 所有适用项执行通过后handoff，给设计师稳定预览链接、变更摘要和真实未解决项。preview服务复用，打开后续新候选时用响应中的candidate确认版本。反馈用feedback保存原话和受影响检查ID；未能定位影响范围时默认全部失效。调整后只复验受影响范围与相关回归。
 6. 只有设计师确实查看并明确认可，才以原话、实际身份和准确候选记录approve。需要调整就继续；说OK本轮结束，不额外启动同范围审核。没有实测的项目记not-run。用户要求暂停测试时停止测试，不代填通过，也不handoff成已验证。
 
-## 经验立即记录、验证后使用
+## 设计师确认后自动共享
 
-feedback命令自动保存本地对话，并将原话作为unclassified案例保存/同步；这不激活规则。完成修复和复测后，用learn归纳已确认原因、可迁移预防方法、准确候选与实际人工认可。单站偏好限定site；通用经验带页面范围。远端不可达保留outbox，下次sync幂等重试，不重新上传已成功项。
+经验查询和写入统一走designer_experience MCP；workbench也调用同一个本地MCP入口。普通内网免Token。修复过程中feedback保存真实原话为未分类草稿，Agent根据实际修正归纳summary、cause、prevention、classification，不推测未知根因。单站偏好限定site，通用经验限定页面。
 
-共享服务默认部署为内网免Token查询和保存候选；保留的Bearer模式提供相同普通权限。维护者使用独立凭据，在复测和人工认可证据满足时发布active；未分类反馈不能发布。其他Agent通过MCP experience_search/capture或者HTTP读写同一存储，日常无需Git推送。active经验仅作为适用方法输入，不改变版本化硬标准。每个任务开始时固定经验快照，后续新任务读取服务的新发布；运行中不静默换规则。
+设计师明确确认当前候选后，Agent将已归纳的lessons随approve反馈一次提交，或复用它为同一候选准备的learn草稿。程序绑定真实确认原话、actor、时间、准确候选与对应复验结果，自动通过MCP保存为active；不再有维护者发布步骤，也不需要设计师再次确认经验。没有新增修正就不编造经验。直接使用experience_capture时，带approval（decision、actor、text、candidate、at）以及verification（retested、designerApproved、candidate）；候选必须一致。缺少复验、实际认可或有效分类时不能自动启用。
 
-正式规则或程序升级仍走Git版本管理。不要把全部聊天和私有运行目录提交到公共仓库。规则、测试和文档变更遵守工作区Penny提交规范，未经要求不提交/推送。
+本地MCP先持久保存待传记录，发送成功后才清理。断网时返回queued，后台自动重试并在恢复后补传；Agent退出后继续，电脑关机后在下次MCP启动恢复。明确错误留存原记录与原因，Agent通过experience_status处理；不让设计师手动sync。重复请求幂等。旧workbench outbox自动迁入该队列，不再并行维护另一套HTTP同步流程。
+
+active经验只作为适用方法输入，不改变版本化硬标准。其他Agent下一次查询即可读取；已开始的任务固定经验快照，不因新经验或补传自动重跑站点检查。正式规则及程序升级继续走Git，原Harness生成门禁不变。确认来源是Agent记录的人类原话，内网免授权不提供身份认证，禁止把布尔字段当作真实人类认可的替代品。
+
+规则、测试和文档变更遵守工作区Penny提交规范，未经要求不提交/推送。

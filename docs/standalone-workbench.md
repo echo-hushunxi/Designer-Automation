@@ -14,7 +14,6 @@ node bin/workbench.mjs coverage --id project-a --file .designer-data/coverage.js
 node bin/workbench.mjs handoff --id project-a
 node bin/workbench.mjs feedback --id project-a --file .designer-data/feedback.json
 node bin/workbench.mjs learn --id project-a --file .designer-data/lesson.json
-node bin/workbench.mjs sync
 ```
 
 checkout可先拉取供Agent检查源码，start复用同一checkout，不再clone。省略ref使用仓库默认分支。配置参考templates/maintenance-task.json；构建工程设置artifactRoot为实际输出目录，commands.install/build为argv数组。未绑定的额外HTML路由必须补入pages或给出excludedRoutesReason；不是自动跳过。
@@ -23,23 +22,21 @@ edits包含candidate与edits数组，每项为file、expectedHash（当前源码
 
 observations包含candidate、observations数组；每项为id、status、actor、observations对象。observations逐个填写对应check.criteria，实际阅读status给出的PNG。自动扫描不填写审美结论。
 
-coverage包含actor、notes、gaps。notes记录真实组件与条款对账；缺少状态/能力时填gaps，不可声明完成。feedback包含candidate、actor、text、decision（revise/approve）及可选checkIds；actor是记录的实际设计师身份，不由程序认证，Agent不得冒充。未给checkIds时全部检查失效。
+coverage包含actor、notes、gaps。notes记录真实组件与条款对账；缺少状态/能力时填gaps，不可声明完成。feedback包含candidate、actor、text、decision（revise/approve）及可选checkIds；approve时由Agent附lessons（或先learn准备同一候选的草稿）；actor是记录的实际设计师身份，不由程序认证，Agent不得冒充。未给checkIds时全部检查失效。
 
-lesson包含actor、summary、cause、prevention、classification（general/site-preference/hard-failure）。程序从本任务实际反馈与检查记录绑定证据；未复测或未认可的案例保持候选。共享服务保存的是证据声明，不可能仅凭这些字段认证审美或人的真实行为。
+lesson包含actor、summary、cause、prevention、classification（general/site-preference/hard-failure）。程序从本任务实际反馈与检查记录绑定证据；未复测或未认可的案例保持候选；设计师确认后程序自动绑定approval并启用，不再经过维护者发布。共享服务保存的是证据声明，不可能仅凭这些字段认证审美或人的真实行为。
 
 每次start/cycle/repair返回lastAudit.executed/reused/visits。无变化且证据有效时无需重新浏览。preview命令复用一个本地进程与地址，并随任务切换到最新候选；stop-preview只停止该任务自己的服务。
 
 默认命令返回摘要、待处理检查和对应证据，不重复输出整轮原始测量。需要原始记录时status --detail full。访问过外部网络的页面检查不能只凭本地文件指纹复用；无外部依赖的证据默认最多复用30分钟，超过后重新采集，避免时效状态长期失真。
 
-## 共享HTTP与MCP
+## 统一MCP与自动交付
 
-中央服务固定为http://172.18.188.6:4381/mcp。设计师npm run connect即可生成连接配置，内网查询/记录免Token。服务端只使用MongoDB副本集的独立designer_automation库，不再以JSON文件作为中央持久化；客户端的本地反馈、缓存和outbox继续保留。
+中央MCP为http://172.18.188.6:4381/mcp。设计师npm run connect后使用本地stdio入口，它自动连接中央MCP，提供experience_search、experience_capture和本地experience_status。workbench也通过stdio MCP调用，不再读写独立HTTP经验接口或本地JSON共享库。未确认反馈是草稿，绑定准确候选、真实确认原话及复验结果的经验一次提交即active。
 
-普通Agent可用experience_search和experience_capture；维护者凭据另提供experience_publish。HTTP接口为GET /health、GET /v1/lessons、POST /v1/cases、维护者POST /v1/publish及GET /v1/admin/snapshot。数据库不可用时/health返回503；启动失败不会回退到文件库。默认拒绝未允许的浏览器Origin，并按TCP来源限制匿名内网访问。
+本地入口持久保留待传项，断网后台自动重试，成功确认后清理。关闭Agent后后台进程继续，关机后下次MCP启动恢复；旧outbox自动接管。queued表示尚未共享，明确错误保留原记录供Agent处理。无需sync命令。已读经验的查询缓存按中央服务地址隔离，断网返回离线标记。配置方法与完整行为见[快速连接](designer-quickstart.md)。
 
-不支持远端HTTP MCP的Agent，可运行node bin/experience-mcp.mjs作为stdio代理；它读取connect生成的客户端配置，连接同一中央HTTP服务，不能另建本机共享库。跨团队隔离应使用独立数据库/凭据或由网关负责，actor字段不是身份认证。
-
-管理员部署、每6小时备份、30天保留、新集合恢复与回滚见[共享经验服务运维](experience-operations.md)。数据只含正文、状态与证据引用，不实现附件存储。直接运行npm run knowledge时必须显式配置DA_EXPERIENCE_MONGO_URI与DA_EXPERIENCE_DATABASE；外部绑定还需DA_EXPERIENCE_ALLOW_ANONYMOUS=true或原Bearer令牌。设计师不需要这些服务端变量。
+服务端仍为MongoDB独立库，备份恢复见[运维说明](experience-operations.md)。/health与维护者快照接口用于运维，旧HTTP经验接口仅保留兼容，不是设计师工作流入口。管理员快照认证不变，自动共享不需要维护者令牌。数据库不可用时health返回503，启动失败不回退到JSON。
 
 本版本固定当前任务的规则与经验；新发布的active经验在后续任务选择。修改正式规则时更新对应源、索引和版本，执行npm run manifest；维护者需确认并更新兼容基线，才可有意升级原规则合同。外部原Harness的生成升级另行进行，不由经验发布触发。
 

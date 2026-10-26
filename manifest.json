@@ -11,7 +11,7 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "b09747aec00ffad1411a16e68b6b360a914862afbd6ef87665f88ecbf213f387"
+      "sha256": "01607d25168af7fc81d1de9ff78f4ff97a28cf4fc3918bacc844d45d9c3ee807"
     },
     {
       "path": "bin/automatic-layout.mjs",
@@ -35,11 +35,15 @@
     },
     {
       "path": "bin/experience-mcp.mjs",
-      "sha256": "8169f85e07da1a4104c52aa5fce37365027566c79beec6d91cae1178849b2a62"
+      "sha256": "a51ca525a196fe19d29d1cd0ca75f31366545423f1d8094f116878f9a9594f94"
     },
     {
       "path": "bin/experience-server.mjs",
       "sha256": "3d5a823daa20abcdebe6fff7490f52f1f8d2dcbac7c5d6944eb9397f809d8559"
+    },
+    {
+      "path": "bin/experience-worker.mjs",
+      "sha256": "22f447d3eaf5719386fb336293f0fb2a601a7d8bc1a6246e60f1590b05b395d9"
     },
     {
       "path": "bin/inventory.mjs",
@@ -63,7 +67,7 @@
     },
     {
       "path": "bin/workbench.mjs",
-      "sha256": "f80a35bbab72bc7ca830f8d568ab36e0ed36d2e203222b26fd17f1e08647b232"
+      "sha256": "b39ec89d830e69f3cfe73fafcde7ccfd3a8bff8f69b31ab3e6f53e02658aa989"
     },
     {
       "path": "compatibility/generation-baseline.json",
@@ -95,7 +99,7 @@
     },
     {
       "path": "core/maintenance.md",
-      "sha256": "14fde92c336b8c23c952cf76d59d18ef7abd03b2e630afec5fc95610af9d01be"
+      "sha256": "f02a12bd5ca000c1a10db93ae7373168d7ce8d9b849ca4c6b819fd10db1bf56b"
     },
     {
       "path": "core/quality.md",
@@ -135,11 +139,11 @@
     },
     {
       "path": "docs/designer-quickstart.md",
-      "sha256": "40d018b0431e3a97ab0bcd49897357e73437dfd723fa1907d0c59c2012374952"
+      "sha256": "e74bbbb9b65dd7c4e9730be6e1efa9358201c0de98ea313b48193defa5d5af29"
     },
     {
       "path": "docs/experience-operations.md",
-      "sha256": "c8482d5a6ac2f6c509e821306aaa961a6d72fea0f5fe2134f3e01950318c6b58"
+      "sha256": "262761e7f52a5c3ff5d5304956b8216aed2723658305fa17ba51bd75a504af87"
     },
     {
       "path": "docs/page-coverage.md",
@@ -147,7 +151,7 @@
     },
     {
       "path": "docs/standalone-workbench.md",
-      "sha256": "bcf0ad1cbb2886ed5c05fc45bcd6b2e2a0572dfe2ce13c0797742357ea783c1d"
+      "sha256": "32ed31b63f5337fdfc83a6ad55cb6d2b696a121061f6c8551c2238ace602cc0b"
     },
     {
       "path": "knowledge/imported/docs/COUPON-FOUR-REFERENCE-COMMON-STANDARDS-2026-10-13.md",
@@ -494,20 +498,36 @@
       "sha256": "b3d49c51162c546a48923c17490a3f0dbde8bb6ff7672ae79a91df27e5bd6d18"
     },
     {
+      "path": "lib/experience-bridge.mjs",
+      "sha256": "08c981c0aecb946cd82577c3614057b6a4d66f3c14b9114e1f78664e17b6c5af"
+    },
+    {
       "path": "lib/experience-case.mjs",
-      "sha256": "a449cea225ff04dbf383159916858e6c3eb57c3451c61d457eb32da26e5a2c7c"
+      "sha256": "2501c21d87851e468010c3162564ecb654b5c174698d31d9d12d603dca43ef59"
+    },
+    {
+      "path": "lib/experience-client.mjs",
+      "sha256": "4b4bab59c66725ee12f6e1efa4225dc09b2686db8de8cd5197b12810547d8010"
+    },
+    {
+      "path": "lib/experience-delivery.mjs",
+      "sha256": "d6a4842106d80da46c166458c19776aa88b3f0e9f3bc6267974397ad7b8b1586"
     },
     {
       "path": "lib/experience-mongo.mjs",
-      "sha256": "570d750a786f7bae4a445a7ec00f967c02089d9110ded8ce2fc680233da79293"
+      "sha256": "3b26d277834e4cf046067bc1df45b6f4839752208ac407f27a750bf670e8103f"
+    },
+    {
+      "path": "lib/experience-schema.mjs",
+      "sha256": "a0ee41d1e8730d1d70d595957b239d8ad7dd1363254c7a557481e4a5c5ca02c7"
     },
     {
       "path": "lib/experience-server.mjs",
-      "sha256": "8e0d274cb82d164d2a5a9778004aece582e54a0c6849a5ee5b3f68af4f2fe9b2"
+      "sha256": "1e6cd93dc8fcadde87108e4314651ed23dd85d7eae56f6451ac9492cf5d851c3"
     },
     {
       "path": "lib/experience.mjs",
-      "sha256": "dd7bbfc7bf4f5d9cc2c1b7413b3d440b43cb0206e2fef3d04cbb4b5f153ca7a9"
+      "sha256": "90acabadb7f08e47f68115692ed9e28637fe90a64e6206e01aa23801dff32f58"
     },
     {
       "path": "lib/io.mjs",
@@ -519,23 +539,23 @@
     },
     {
       "path": "lib/workbench.mjs",
-      "sha256": "4f7c91af266ae511bd3a50170a92f749549a0347369f1ade2c58d9d44cc224c7"
+      "sha256": "ecac550cebe4c0b11c4bd227c7f1384f7c19efc596a15a68c01e56a9d659cecd"
     },
     {
       "path": "package-lock.json",
-      "sha256": "6d88245a6db92aedb897ebc43421c849c7132a1c0389bb9fc36e112820911120"
+      "sha256": "5a96c2a1e8d324bf06ddf72e58a8954d1679da16444731f649a5217edf68ab23"
     },
     {
       "path": "package.json",
-      "sha256": "60dd95d55d1bd8eb04e0adb3aabb08184f94d3c97cd292ea2ae3283682c99922"
+      "sha256": "0a087d163599ab672dab307b5388c4d6fda6eb331cbbb238cdeaa7fa584e209e"
     },
     {
       "path": "README.md",
-      "sha256": "ef962293480f45da57e8388943eecfc8d8042a9976dee79163abf797c3c1342e"
+      "sha256": "d5b574d4d3a3914134bcf5dc66777cda1504b4cea0abbc0b8bc4da461d994ccc"
     },
     {
       "path": "scripts/connect-experience.mjs",
-      "sha256": "241aea4a6835bea48bc8fb1ce45eb18fa54f026d1421f62aaf0efff97c1da3e7"
+      "sha256": "4e492086238bc8434d914232a02fdc40f9a5b745ebec6fc7de3b87bcd1f8cf93"
     },
     {
       "path": "scripts/experience-admin.mjs",
@@ -638,12 +658,16 @@
       "sha256": "d7c3eb63b2b4bb1b27c0703e6ca3efd32907dd6b183978627f48fd58aaace03e"
     },
     {
+      "path": "tests/experience-delivery.test.mjs",
+      "sha256": "26c940393468074e2a6d4dffd12e9f50e4212a811e6acef7546056803e4fafd0"
+    },
+    {
       "path": "tests/experience-mongo.test.mjs",
-      "sha256": "513084d09c951a0bdaa87797a44a95da91227147a7266160161ad291d2c4f669"
+      "sha256": "9ad69667c9398b373d24d2248ea48c122fd4e7335b69435b06d0f503715a8fbf"
     },
     {
       "path": "tests/experience.test.mjs",
-      "sha256": "ebb52f2c6c3eceef05d7c244da0c8c537813f708fe0ad6d5cbd57c0b08c2d9a3"
+      "sha256": "52cb6ddbeba10b8f000757818677467ef28f0d5d0fc792a2531361a52d3ac06e"
     },
     {
       "path": "tests/portable.test.mjs",
@@ -651,7 +675,7 @@
     },
     {
       "path": "tests/workbench.test.mjs",
-      "sha256": "c8b2d8de851f847af791e6506e51651b4483403010ac59d41f23d937cd73c67c"
+      "sha256": "7c6db86e4b6777a9dde3ddb5871d9de74241123be62fcd57f9d492b35aa060a9"
     },
     {
       "path": "workflows/coupon-pages/playbook.md",

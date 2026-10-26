@@ -1,12 +1,12 @@
 # Designer-Automation
 
-独立Git工程，运行程序0.2.0，既有生成规则固定为2026-10-26.1。
+独立Git工程，运行程序0.3.0，既有生成规则固定为2026-10-26.1。
 
 其他设计师从 [echo-hushunxi/Designer-Automation](https://github.com/echo-hushunxi/Designer-Automation) 拉取后，按[设计师快速连接](docs/designer-quickstart.md)运行npm ci及npm run connect即可，内网免Token。共享MCP固定在http://172.18.188.6:4381/mcp，复用MongoDB副本集的独立经验库；备份与恢复见[运维说明](docs/experience-operations.md)。连接文件与令牌均被Git和分发manifest排除。
 
 设计师提供站点Git地址后，由其Agent读取AGENTS.md与core/maintenance.md，使用bin/workbench.mjs执行：拉取一次 → 审核 → 精确修复 → 增量复验 → 稳定预览 → 设计师反馈/认可。JSON配置、覆盖和证据由Agent准备。详细调用、能力边界与经验服务配置见[独立维护工作流](docs/standalone-workbench.md)。
 
-共享经验无需日常Git推送：固定内网服务提供HTTP与远端MCP，其他Agent连接同一个/mcp，服务端不再使用本机JSON持久化。设计师对话自动入库为待验证案例，复测并认可后由维护者发布适用经验；运行中的任务不热更新。支持本地记录、远端读取缓存和离线待同步队列。网络监听与认证通过环境变量配置，不包含密钥。
+共享经验统一走MCP：connect为Agent配置本地stdio入口，该入口和workbench共用中央MCP及MongoDB。设计师确认准确的已复验候选后，Agent自动归纳经验并共享生效，无需维护者发布。断网记录持久保留，后台自动补传，无需手动sync；有积压才运行补传进程，完成即退出。详见[设计师快速连接](docs/designer-quickstart.md)。
 
 首次使用需Node >=22.19并npm ci；实际浏览器由SITE_BROWSER_EXECUTABLE指定。现有生成仍使用bin/da.mjs，其流程和原Harness源码不因维护入口改变。项目使用独立私有Git仓库；共享经验服务的连接检查与真实站点验收分别记录。
 

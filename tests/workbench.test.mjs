@@ -75,7 +75,7 @@ test('real browser cycle detects overflow, fixes it, reuses unchanged checks, wi
   assert.equal((await fetch(preview.url+'/index.html')).headers.get('x-designer-candidate'),task.candidates.at(-1).hash);
   assert.match(await (await fetch(preview.url+'/index.html')).text(),/Browse current offers/);
   await observeVisuals(data,'trial'); await handoff(data,'trial');
-  task = await feedback({data,id:'trial',candidate:task.candidates.at(-1).hash,actor:'synthetic-designer',text:'Synthetic workflow approval only',decision:'approve'});
+  task = await feedback({data,id:'trial',candidate:task.candidates.at(-1).hash,actor:'synthetic-designer',text:'Synthetic workflow approval only',decision:'approve',lessons:[{summary:'Synthetic heading correction',cause:'Synthetic feedback requested a different heading',prevention:'Preserve the confirmed heading for this fixture',classification:'site-preference'}]});
   assert.equal(task.status,'approved');
   const style = await fs.readFile(path.join(task.source,'style.css'),'utf8');
   await repair({data,id:'trial',candidate:task.candidates.at(-1).hash,edits:[{file:'style.css',expectedHash:digest(style),find:'margin:0',replace:'margin:0;padding:0'}]});

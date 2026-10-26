@@ -1,8 +1,6 @@
 # 设计师快速连接
 
-需要Node22.19+、Git及私有仓库访问权限。共享经验服务固定在内网服务器，其他设计师无需部署数据库或启动服务。
-
-## 只配置一次
+需要Node22.19+、Git及私有仓库访问权限。首次克隆后安装依赖、连接一次：
 
 ```sh
 git clone git@github.com:echo-hushunxi/Designer-Automation.git
@@ -11,27 +9,34 @@ npm ci
 npm run connect
 ```
 
-npm run connect默认读取config/experience-service.json，连接 http://172.18.188.6:4381/mcp。已经拉过项目的设计师执行git pull、npm ci、npm run connect即可更新。内网Agent查询、记录经验无需Token，不填写Authorization。需要能访问172.18.188.6所在内网。
+已拉取项目的设计师执行git pull、npm ci、npm run connect，再重启Agent的designer_experience连接。此次会把旧远程URL配置自动换成本地stdio MCP入口；普通内网使用不需要Token。Codex须在受信任项目中加载项目配置，参见[OpenAI Docs的MCP配置说明](https://learn.chatgpt.com/docs/extend/mcp?surface=cli)；首次打开项目时按Agent正常流程启用项目信任。
 
-命令生成被Git忽略的.codex/config.toml和.designer-data/client.json，并清理本命令旧配置中的认证头。之后在Agent中重新打开项目或重启该MCP连接。Codex项目配置需信任项目；其他Agent可运行npm run connect -- --client generic，再将下表填入MCP设置。管理员改址时可用npm run connect -- --url http://实际主机:4381覆盖默认值。
+## Agent怎样连接
 
-| 字段 | 值 |
-| --- | --- |
-| 名称 | designer_experience |
-| 类型 | Streamable HTTP |
-| 地址 | http://172.18.188.6:4381/mcp |
-| 认证 | 无／None |
+connect自动生成Codex项目配置；其他Agent运行npm run connect -- --client generic，将生成的.designer-data/mcp.json中的designer_experience配置放入Agent MCP设置。类型选择本地命令／stdio，命令和参数由connect根据当前机器生成，无需手填路径。该入口自动连接中央 http://172.18.188.6:4381/mcp，需要能访问这个内网地址。
 
-## 日常只需对话
+```text
+设计师的Agent → 项目本地MCP入口 → 中央MCP → MongoDB
+                      ↓ 断网保留
+                  本地待传记录 → 恢复后自动补传
+```
 
-告诉Agent：
+本地入口只处理连接、缓存和可靠补传，不部署数据库。workbench也调用同一个MCP入口。直接填写中央HTTP URL会绕过本机断网保护，因此设计师统一使用connect生成的配置。
 
-> 先读AGENTS.md和core/maintenance.md，连接designer_experience。先确认能列工具和读取经验，暂时不要测试站点。后续我给站点Git地址后，按审核→调整→给我查看的流程处理，读取适用经验，并保存我的反馈和验证过的修复经验。
+## 日常只需审核、调整、确认
 
-Agent应能看到experience_search、experience_capture。新任务查询适用经验并固定快照；反馈随时保存为待验证案例，修复后记录实际验证与设计师认可，再由维护者发布。设计师日常沉淀无需Git提交或推送。服务端经验保存在统一MongoDB独立库中；JSON仅用于客户端缓存和离线待同步记录。
+可以告诉Agent：
 
-workbench自动复用连接。服务短暂不可达时保留本地反馈，恢复后让Agent运行npm run workbench -- sync。确认连接只需列工具、查询经验，不向正式库写测试案例。旧本机192.168.12.9/192.168.11.228服务已迁移，不再作为共享入口。
+> 先读AGENTS.md和core/maintenance.md，使用designer_experience。接到站点Git地址后，拉取、审核、调整，给我查看；我提问题就继续调整，我明确说没问题后，把已验证的修改归纳为适用经验，绑定我的确认原话和当前版本，自动沉淀并共享生效。断网由MCP自动保留和补传，不让我操作sync或找维护者。
 
-## 管理员
+Agent可见experience_search、experience_capture、experience_status。尚未确认的反馈保存为草稿；复验完成、设计师明确确认准确候选后，Agent自动提交带approval的结构化经验，服务一次写入即为active，其他Agent下一次查询即可使用。无需维护者发布，也不需要日常Git推送。
 
-固定主机部署、数据库账号边界、每6小时备份、30天保留及新集合恢复步骤见[共享经验服务运维](experience-operations.md)。设计师无需数据库凭据，也无需维护备份。正式发布和备份管理保留维护者凭据；普通查询/记录继续内网免授权。
+Agent负责从真实反馈与修改中归纳原因、预防方法和范围，不能伪造设计师认可或推测根因。单站偏好只对该站生效；没有新增修正就不编造经验。workbench的approve反馈由Agent附带lessons，或复用它此前为同一候选准备的learn草稿；设计师只需一次真实确认。
+
+## 断网时会怎样
+
+提交先保存在本机，再尝试发送；未成功则返回queued，不能称作“已共享”。后台小进程自动重试，重试间隔从2秒逐步放宽到最多60秒；有积压才运行，传完退出。关闭Agent后它仍可继续补传；电脑关机时记录留在磁盘，下次启动MCP自动接着传。原有workbench outbox也会自动接管。
+
+服务器确认成功后才移除待传项；相同记录重复发送只保存一份。明确的数据错误保留原文及原因，不无限重试，Agent可通过experience_status查看pending/rejected。断网查询可使用以前读过的缓存，并显示离线来源；缓存按中央服务地址隔离。
+
+已开始的审核任务保留选定经验快照，不因后台补传而自动重跑检查或更换规则。MongoDB备份恢复和主机管理见[运维说明](experience-operations.md)；附件存储不在本项目实现范围。

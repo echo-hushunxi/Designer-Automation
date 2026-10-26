@@ -36,7 +36,8 @@ test('MongoDB keeps concurrent captures idempotent, publication atomic, and reco
 });
 test('MongoDB snapshot backup restores every lifecycle field into a new collection and preserves live data',options,async t=>{
   const {store,restored}=await fixture(t), root=await fs.mkdtemp(path.join(os.tmpdir(),'da-mongo-restore-'));t.after(()=>fs.rm(root,{recursive:true,force:true}));
-  const entry=await store.capture(sample());await store.publish({id:entry.id,expectedRevision:1,actor:'synthetic-maintainer',reason:'Protocol fixture'});await store.capture({...sample('Synthetic pending feedback'),verification:{retested:false,designerApproved:false}});
+  const approved={...sample(),verification:{retested:true,designerApproved:true,candidate:digest('mongo-fixture')},approval:{decision:'approve',actor:'synthetic-designer',text:'Synthetic confirmation for backup protocol only',candidate:digest('mongo-fixture'),at:'2026-10-26T00:00:00.000Z'}};
+  const entry=await store.capture(approved);assert.equal(entry.status,'active');await store.capture({...sample('Synthetic pending feedback'),verification:{retested:false,designerApproved:false}});
   const state=await store.read(), archive=await writeBackup(root,backupDocument(state,{database:store.database,collection:store.collectionName})), source=await readBackup(archive.file);
   const result=await store.restoreInto(restored,source.cases);assert.equal(result.count,2);assert.equal(result.hash,source.hash);assert.equal(result.liveCollectionUnchanged,store.collectionName);
   await assert.rejects(store.restoreInto(restored,[]));await assert.rejects(store.restoreInto(store.collectionName,[]),/live collection/);
@@ -54,4 +55,7 @@ test('anonymous HTTP/MCP use MongoDB; snapshot requires maintainer; restart keep
   const snapshot=await fetch(service.url+'/v1/admin/snapshot',{headers:{authorization:'Bearer '+maintainer}}).then(r=>r.json());assert.equal(snapshot.count,1);
   const restarted=await startExperienceServer({mongo:config,allowAnonymous:true});t.after(()=>restarted.close());
   const replay=await new ExperienceClient({url:restarted.url}).capture(sample());assert.equal(replay.id,JSON.parse(result.content[0].text).id);assert.equal((await store.read()).cases.length,1);
+  const approved={...sample('Synthetic automatic sharing'),verification:{retested:true,designerApproved:true,candidate:digest('mongo-fixture')},approval:{decision:'approve',actor:'synthetic-designer',text:'Synthetic confirmation for automatic activation only',candidate:digest('mongo-fixture'),at:'2026-10-26T00:00:00.000Z'}};
+  const saved=await client.callTool({name:'experience_capture',arguments:{case:approved}});assert.equal(JSON.parse(saved.content[0].text).status,'active');
+  const peer=new ExperienceClient({url:restarted.url});t.after(()=>peer.close());assert.equal((await peer.search({pages:['home']})).cases.length,1);
 });

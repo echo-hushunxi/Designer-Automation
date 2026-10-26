@@ -2,11 +2,11 @@
 
 ## 当前部署与边界
 
-MCP地址为 http://172.18.188.6:4381/mcp，固定Linux内网主机，复用现有PM2及其系统启动服务。HTTP与MCP共用MongoDB存储，复用现有带认证的rs0副本集，独立数据库designer_automation、集合cases，专用数据库账号只有该库readWrite权限。数据库连接保存在服务器私有配置中，不进入Git、日志或设计师配置。现有Mongo副本集成员使用既有网络地址；此次没有把数据库迁入新的纯内网副本集，也没有修改其网络拓扑或业务库。
+MCP地址为 http://172.18.188.6:4381/mcp，固定Linux内网主机，复用现有PM2及其系统启动服务。设计师及workbench统一通过MCP使用MongoDB存储，复用现有带认证的rs0副本集，独立数据库designer_automation、集合cases，专用数据库账号只有该库readWrite权限。数据库连接保存在服务器私有配置中，不进入Git、日志或设计师配置。现有Mongo副本集成员使用既有网络地址；此次没有把数据库迁入新的纯内网副本集，也没有修改其网络拓扑或业务库。
 
-本次仅存经验正文、作用域、候选/发布状态、版本、反馈及证据引用；不接入截图、附件、图片上传或对象存储。客户端JSON仅用于本地记录、缓存和待同步队列。服务启动强制连接MongoDB，连接失败不会切回JSON。读取使用primary，写入要求majority和journal确认；MongoDB单文档原子操作与预期revision避免并发覆盖。正式规则和原Harness生成入口保持原合同，经验发布不会修改它们。
+本次仅存经验正文、作用域、候选/发布状态、版本、反馈及证据引用；不接入截图、附件、图片上传或对象存储。客户端MCP在.designer-data/experience-delivery按中央地址隔离保存缓存、待传项和服务器回执；有积压时自动启动独立重试进程，成功后退出。反馈原文仍在任务记录中。服务启动强制连接MongoDB，连接失败不会切回JSON。读取使用primary，写入要求majority和journal确认；MongoDB单文档原子操作与预期revision避免并发覆盖。正式规则和原Harness生成入口保持原合同，经验发布不会修改它们。
 
-普通内网Agent无需Token即可experience_search/experience_capture；正式发布和管理员快照需要独立维护者凭据。IP限制依据TCP实际来源，不信任X-Forwarded-For。actor是反馈记录声明，不是认证身份。数据库认证与MCP内网免授权分别配置。
+普通内网Agent无需Token即可experience_search/experience_capture；设计师确认后的经验由experience_capture自动启用，无需发布者凭据；管理员快照仍需独立维护者凭据。IP限制依据TCP实际来源，不信任X-Forwarded-For。actor是反馈记录声明，不是认证身份。数据库认证与MCP内网免授权分别配置。
 
 ## 文件与进程
 
@@ -48,7 +48,7 @@ status核验最新归档并显示ageHours；超过8小时返回非零退出码�
 node scripts/experience-admin.mjs restore --config /home/liusili/.config/designer-automation/service.json --input /实际备份路径.json.gz --target restore_20261026_01
 ```
 
-需要正式切换时，先暂停本服务写入：pm2 stop designer-automation-experience。在私有service.json中将mongo.collection改为已核验的restore_20261026_01，按需更新发布者配置，然后pm2 restart designer-automation-experience。检查/health和真实MCP查询后恢复使用。回滚只需停止本服务、将mongo.collection改回cases并重启；原集合不删除。不要同时运行指向不同集合的写服务。恢复到备份会丢失该快照之后的写入；切换前可另做当前快照，保留新增记录供人工合并。
+需要正式切换时，先暂停本服务写入：pm2 stop designer-automation-experience。在私有service.json中将mongo.collection改为已核验的restore_20261026_01，然后pm2 restart designer-automation-experience。检查/health和真实MCP查询后恢复使用。回滚只需停止本服务、将mongo.collection改回cases并重启；原集合不删除。不要同时运行指向不同集合的写服务。恢复到备份会丢失该快照之后的写入；切换前可另做当前快照，保留新增记录供人工合并。
 
 合成恢复演练使用独立test_/restore_test_集合，完成后只删除本次创建的演练集合。它不是站点测试，也不作为设计师认可的经验。
 
@@ -64,4 +64,4 @@ node scripts/experience-admin.mjs import-json --config /home/liusili/.config/des
 
 ## 验证范围
 
-npm run test:experience只运行经验服务测试。设置DA_EXPERIENCE_TEST_CONFIG为私有服务器配置路径时，另运行MongoDB隔离集合的并发、持久化、MCP及备份恢复集成测试；未设置则明确skip这部分。不要使用npm test代替本轮验证，它还包含站点浏览器用例。本轮不执行站点测试。
+npm run test:experience只运行经验服务测试。设置DA_EXPERIENCE_TEST_CONFIG为私有服务器配置路径时，另运行MongoDB隔离集合的并发、持久化、确认后自动启用、MCP及备份恢复集成测试；未设置则明确skip这部分。不要使用npm test代替本轮验证，它还包含站点浏览器用例。本轮不执行站点测试。

@@ -6,7 +6,7 @@ import os from 'node:os';
 import {Client} from '@modelcontextprotocol/sdk/client/index.js';
 import {StdioClientTransport} from '@modelcontextprotocol/sdk/client/stdio.js';
 import {StreamableHTTPClientTransport} from '@modelcontextprotocol/sdk/client/streamableHttp.js';
-import {ExperienceStore,ExperienceClient,syncOutbox} from '../lib/experience.mjs';
+import {ExperienceStore,ExperienceClient} from '../lib/experience.mjs';
 import {startExperienceServer,isInternalAddress} from '../lib/experience-server.mjs';
 import {digest,writeJSON} from '../lib/io.mjs';
 
@@ -47,20 +47,6 @@ test('real MCP clients capture and query the same HTTP store; writers cannot pub
   const found = await client.callTool({name:'experience_search',arguments:{pages:['home']}}); assert.equal(JSON.parse(found.content[0].text).cases.length,1);
   assert.equal((await service.store.read()).cases.length,1);
 });
-test('offline cache and outbox preserve cases and replay only pending records',async t => {
-  const {directory,service} = await fixture(t), client = new ExperienceClient({url:service.url,token:writer,cache:path.join(directory,'cache')});
-  const entry = await service.store.capture(sample()); await service.store.publish({id:entry.id,expectedRevision:1,actor:'test',reason:'fixture'});
-  await client.search({pages:['home']});
-  const offline = new ExperienceClient({url:'http://127.0.0.1:1',token:writer,cache:path.join(directory,'cache'),timeout:100});
-  assert.equal((await offline.search({pages:['home']})).source,'offline-cache');
-  await writeJSON(path.join(directory,'outbox',entry.id+'.json'),{entry});
-  assert.equal((await syncOutbox(directory,offline)).pending,1);
-  assert.equal((await syncOutbox(directory,client)).saved,1);
-  assert.equal((await syncOutbox(directory,client)).saved,0);
-  assert.equal((await service.store.read()).cases.length,1);
-  await assert.rejects(startExperienceServer({directory,host:'0.0.0.0'}),/token/);
-});
-
 test('anonymous mode recognizes actual private/loopback addresses and excludes public addresses',() => {
   for (const address of ['127.0.0.1','10.1.2.3','172.16.0.1','172.31.255.255','192.168.12.9','169.254.1.1','::1','::ffff:192.168.11.228','fd12::1','fe80::1%en0']) assert(isInternalAddress(address),address);
   for (const address of ['8.8.8.8','172.15.0.1','172.32.0.1','192.169.0.1','::ffff:8.8.8.8','2001:4860:4860::8888','192.168.999.1','localhost','']) assert.equal(isInternalAddress(address),false,address);
@@ -83,11 +69,11 @@ test('internal anonymous HTTP and MCP can capture/search without credentials whi
 });
 
 test('stdio proxy connects to the central HTTP service and creates no independent shared store',async t => {
-  const {service} = await fixture(t);
+  const {service,directory} = await fixture(t);
   const client = new Client({name:'stdio-proxy-fixture',version:'1'});
-  const transport = new StdioClientTransport({command:process.execPath,args:[path.resolve('bin/experience-mcp.mjs')],env:{...process.env,DA_EXPERIENCE_URL:service.url,DA_EXPERIENCE_TOKEN:writer}});
+  const transport = new StdioClientTransport({command:process.execPath,args:[path.resolve('bin/experience-mcp.mjs')],env:{...process.env,DA_EXPERIENCE_URL:service.url,DA_EXPERIENCE_TOKEN:writer,DA_EXPERIENCE_CLIENT_DATA:path.join(directory,'stdio-client')}});
   await client.connect(transport); t.after(()=>client.close());
   const captured = await client.callTool({name:'experience_capture',arguments:{case:sample()}}); assert(!captured.isError);
   assert.equal((await service.store.read()).cases.length,1);
-  assert.deepEqual((await client.listTools()).tools.map(tool=>tool.name),['experience_search','experience_capture']);
+  assert.deepEqual((await client.listTools()).tools.map(tool=>tool.name),['experience_search','experience_capture','experience_status']);
 });

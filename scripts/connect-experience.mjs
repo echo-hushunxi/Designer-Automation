@@ -24,10 +24,11 @@ if (type === 'codex') {
   if ((start < 0) !== (finish < 0) || (start >= 0 && (finish < start || text.indexOf(begin,start+begin.length) >= 0))) throw Error('Managed MCP configuration markers are inconsistent; existing configuration preserved');
   const preserved = start < 0 ? text : text.slice(0,start)+text.slice(finish+end.length).replace(/^\r?\n/,'');
   if (/^\s*\[mcp_servers\.designer_experience\]/m.test(preserved)) throw Error('Existing unmanaged designer_experience configuration preserved; rename it before connecting');
-  const header = token ? `http_headers = { Authorization = ${JSON.stringify('Bearer '+token)} }\n` : '';
-  const block = `${begin}\n[mcp_servers.designer_experience]\nurl = ${JSON.stringify(client.url+'/mcp')}\n${header}startup_timeout_sec = 15\ntool_timeout_sec = 30\nenabled_tools = ["experience_search", "experience_capture"]\n${end}\n`;
+  const block = `${begin}\n[mcp_servers.designer_experience]\ncommand = ${JSON.stringify(process.execPath)}\nargs = [${JSON.stringify(path.join(root,'bin/experience-mcp.mjs'))}]\nstartup_timeout_sec = 15\ntool_timeout_sec = 30\nenabled_tools = ["experience_search", "experience_capture", "experience_status"]\n${end}\n`;
   await fs.mkdir(path.dirname(config),{recursive:true});
   await fs.writeFile(config,preserved.trimEnd()+'\n\n'+block,{mode:0o600}); await fs.chmod(config,0o600);
 }
 await writeJSON(profile,{url:client.url,token}); await fs.chmod(profile,0o600);
-console.log(JSON.stringify({connectedProfile:client.url+'/mcp',client:type,authentication:token?'bearer':'none',profile,notice:type==='codex'?'Reopen/restart the project MCP connection so Codex reads its project configuration.':token?'Add the endpoint and Bearer token in your agent MCP settings.':'Add the endpoint in your agent MCP settings; authentication is not required.',secrets:'Stored only in ignored local files; no token is printed.'},null,2));
+const mcp = {command:process.execPath,args:[path.join(root,'bin/experience-mcp.mjs')]};
+await writeJSON(path.join(root,'.designer-data/mcp.json'),{mcpServers:{designer_experience:mcp}});
+console.log(JSON.stringify({centralService:client.url+'/mcp',mcp,client:type,authentication:token?'bearer':'none',profile,automaticRetry:true,notice:type==='codex'?'Restart the project MCP connection to load its local durable MCP entry.':'Copy .designer-data/mcp.json into your Agent MCP settings.',secrets:'Connection credentials remain in ignored private files.'},null,2));
