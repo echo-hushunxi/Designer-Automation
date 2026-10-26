@@ -11,7 +11,7 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "3cf0c3e700ce5dbe2a97c94d7b2144841a3789edf7af444416eb7af58dd4b431"
+      "sha256": "b09747aec00ffad1411a16e68b6b360a914862afbd6ef87665f88ecbf213f387"
     },
     {
       "path": "bin/automatic-layout.mjs",
@@ -35,11 +35,11 @@
     },
     {
       "path": "bin/experience-mcp.mjs",
-      "sha256": "fb46ab2ebeb2c2d807ce730cbe062a496fec620468962f15a03728b836903cc4"
+      "sha256": "8169f85e07da1a4104c52aa5fce37365027566c79beec6d91cae1178849b2a62"
     },
     {
       "path": "bin/experience-server.mjs",
-      "sha256": "1f6f82f4030a91fb8988ed54a9813adf66931f607f8526c800ea26a376253666"
+      "sha256": "3d5a823daa20abcdebe6fff7490f52f1f8d2dcbac7c5d6944eb9397f809d8559"
     },
     {
       "path": "bin/inventory.mjs",
@@ -68,6 +68,10 @@
     {
       "path": "compatibility/generation-baseline.json",
       "sha256": "a90e424401b2f1e3d98bb81c50d5582a587da46c6b7f36606c5f772e00beb7d9"
+    },
+    {
+      "path": "config/experience-service.json",
+      "sha256": "fe8a02ad496b741126b4be2eb099fc33126d866ffb5435c4dda013f3a15410a0"
     },
     {
       "path": "config/mcp.json",
@@ -110,6 +114,14 @@
       "sha256": "cf5b69161e643f9ba326c7c887e6645a16497a54dec01a011cd32c6db7699e72"
     },
     {
+      "path": "deploy/ecosystem.config.cjs",
+      "sha256": "26f048be1540e339aa45e198849a376ae47540bbe354dc0fe18a371073a64211"
+    },
+    {
+      "path": "deploy/experience.config.example.json",
+      "sha256": "5715abe3f4dcb0ba7639272a46307db834486f04468c6fe7ae0e3ce8a5d55717"
+    },
+    {
       "path": "designers/example/method.md",
       "sha256": "8f4dc7e691c8ecf184aff7b8c93be9dfe2d426a0e59703d027187e1177c9729a"
     },
@@ -123,7 +135,11 @@
     },
     {
       "path": "docs/designer-quickstart.md",
-      "sha256": "55a83d72b7348e6e23c76d397b95d46405d08d86f4b6375e0626bb626d552efd"
+      "sha256": "40d018b0431e3a97ab0bcd49897357e73437dfd723fa1907d0c59c2012374952"
+    },
+    {
+      "path": "docs/experience-operations.md",
+      "sha256": "c8482d5a6ac2f6c509e821306aaa961a6d72fea0f5fe2134f3e01950318c6b58"
     },
     {
       "path": "docs/page-coverage.md",
@@ -131,7 +147,7 @@
     },
     {
       "path": "docs/standalone-workbench.md",
-      "sha256": "2294137247037ae21fdfab9d01753beea3c066f18de86816119ffb9b76347635"
+      "sha256": "bcf0ad1cbb2886ed5c05fc45bcd6b2e2a0572dfe2ce13c0797742357ea783c1d"
     },
     {
       "path": "knowledge/imported/docs/COUPON-FOUR-REFERENCE-COMMON-STANDARDS-2026-10-13.md",
@@ -474,12 +490,24 @@
       "sha256": "e420f87d3bb0d53662ed94e707018200b47977d28b88fa0e851cda61e9219a6f"
     },
     {
+      "path": "lib/experience-backup.mjs",
+      "sha256": "b3d49c51162c546a48923c17490a3f0dbde8bb6ff7672ae79a91df27e5bd6d18"
+    },
+    {
+      "path": "lib/experience-case.mjs",
+      "sha256": "a449cea225ff04dbf383159916858e6c3eb57c3451c61d457eb32da26e5a2c7c"
+    },
+    {
+      "path": "lib/experience-mongo.mjs",
+      "sha256": "570d750a786f7bae4a445a7ec00f967c02089d9110ded8ce2fc680233da79293"
+    },
+    {
       "path": "lib/experience-server.mjs",
-      "sha256": "4e0be78ade3aafcfa89336f14157aba29dca62409bb65f1685102cc72b0d5add"
+      "sha256": "8e0d274cb82d164d2a5a9778004aece582e54a0c6849a5ee5b3f68af4f2fe9b2"
     },
     {
       "path": "lib/experience.mjs",
-      "sha256": "6156a892a0a2f890762a2dfcab96a4cab8378730723420620bb0cdfc158bb2d4"
+      "sha256": "dd7bbfc7bf4f5d9cc2c1b7413b3d440b43cb0206e2fef3d04cbb4b5f153ca7a9"
     },
     {
       "path": "lib/io.mjs",
@@ -495,23 +523,31 @@
     },
     {
       "path": "package-lock.json",
-      "sha256": "4f511f8abbfa34dec155cb021e2351e6383e2acdc06bc07163ef1632e0d36015"
+      "sha256": "6d88245a6db92aedb897ebc43421c849c7132a1c0389bb9fc36e112820911120"
     },
     {
       "path": "package.json",
-      "sha256": "90639364fd3a472d07ed639de88e88349d8a75c74e4f165cc3962dfa970dbc3c"
+      "sha256": "60dd95d55d1bd8eb04e0adb3aabb08184f94d3c97cd292ea2ae3283682c99922"
     },
     {
       "path": "README.md",
-      "sha256": "e393146d03a20d4714a6223651915440a822cf6a87c710df21577eb821e9c042"
+      "sha256": "ef962293480f45da57e8388943eecfc8d8042a9976dee79163abf797c3c1342e"
     },
     {
       "path": "scripts/connect-experience.mjs",
-      "sha256": "ad8b0b05e180359a3d47fa17af7af08c7818e1de8e1d08242261c8feef67d975"
+      "sha256": "241aea4a6835bea48bc8fb1ce45eb18fa54f026d1421f62aaf0efff97c1da3e7"
+    },
+    {
+      "path": "scripts/experience-admin.mjs",
+      "sha256": "6f8e5341049dff4549af3125709981b54d892ed7c47383ba68fda61f6da23d73"
     },
     {
       "path": "scripts/experience-service.mjs",
-      "sha256": "4b5de5153014f7ae8e6258674dfc2ac9b7c32d5f7cb0af936e67ae80063f5d9e"
+      "sha256": "034321a3a5d6e181d4e7bb08178ac1e09b0028d7489dd38a072dd30c5d4f4b4a"
+    },
+    {
+      "path": "scripts/install-experience-linux.mjs",
+      "sha256": "7c749727e8701c59c08293f1aa12d89e0a901f797321abfde80f88452e6423fd"
     },
     {
       "path": "scripts/manifest.mjs",
@@ -598,8 +634,16 @@
       "sha256": "fc68e8840f73676905ea31d906e9267c2272fd11875cc558541a3bab8808f5ad"
     },
     {
+      "path": "tests/experience-backup.test.mjs",
+      "sha256": "d7c3eb63b2b4bb1b27c0703e6ca3efd32907dd6b183978627f48fd58aaace03e"
+    },
+    {
+      "path": "tests/experience-mongo.test.mjs",
+      "sha256": "513084d09c951a0bdaa87797a44a95da91227147a7266160161ad291d2c4f669"
+    },
+    {
       "path": "tests/experience.test.mjs",
-      "sha256": "d7189c33744cd71550dccfe30793e65a4f38528ca4ac10db053a8edbeb18b5ee"
+      "sha256": "ebb52f2c6c3eceef05d7c244da0c8c537813f708fe0ad6d5cbd57c0b08c2d9a3"
     },
     {
       "path": "tests/portable.test.mjs",

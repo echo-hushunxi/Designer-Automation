@@ -4,6 +4,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
 import {Client} from '@modelcontextprotocol/sdk/client/index.js';
+import {StdioClientTransport} from '@modelcontextprotocol/sdk/client/stdio.js';
 import {StreamableHTTPClientTransport} from '@modelcontextprotocol/sdk/client/streamableHttp.js';
 import {ExperienceStore,ExperienceClient,syncOutbox} from '../lib/experience.mjs';
 import {startExperienceServer,isInternalAddress} from '../lib/experience-server.mjs';
@@ -13,7 +14,7 @@ const writer = 'writer-test-token-abcdefghijklmnopqrstuvwxyz', maintainer = 'mai
 const sample = () => ({summary:'Preserve long offer titles when fixing mobile capacity',cause:'Fixed width exceeded available space',prevention:'Check actual short and long content at breakpoint neighbors',actor:'synthetic-test-author',classification:'general',scope:{pages:['home']},evidence:[{candidate:digest('fixture-candidate')}],verification:{retested:true,designerApproved:true}});
 async function fixture(t) {
   const directory = await fs.mkdtemp(path.join(os.tmpdir(),'da-experience-')); t.after(() => fs.rm(directory,{recursive:true,force:true}));
-  const service = await startExperienceServer({directory:path.join(directory,'shared'),token:writer,maintainerToken:maintainer}); t.after(() => service.close());
+  const service = await startExperienceServer({store:new ExperienceStore(path.join(directory,'shared')),token:writer,maintainerToken:maintainer}); t.after(() => service.close());
   return {directory,service};
 }
 test('shared experience is idempotent, scoped, durable, and maintainer activation is separated from capture',async t => {
@@ -67,7 +68,7 @@ test('anonymous mode recognizes actual private/loopback addresses and excludes p
 
 test('internal anonymous HTTP and MCP can capture/search without credentials while publishing remains restricted',async t => {
   const directory = await fs.mkdtemp(path.join(os.tmpdir(),'da-anonymous-')); t.after(() => fs.rm(directory,{recursive:true,force:true}));
-  const service = await startExperienceServer({directory,allowAnonymous:true,maintainerToken:maintainer}); t.after(() => service.close());
+  const service = await startExperienceServer({store:new ExperienceStore(directory),allowAnonymous:true,maintainerToken:maintainer}); t.after(() => service.close());
   assert.equal((await fetch(service.url+'/health')).status,200);
   const client = new ExperienceClient({url:service.url,token:null});
   const captured = await client.capture(sample()); assert.equal(captured.status,'candidate');
@@ -79,4 +80,14 @@ test('internal anonymous HTTP and MCP can capture/search without credentials whi
   const published = await fetch(service.url+'/v1/publish',{method:'POST',headers:{authorization:'Bearer '+maintainer,'content-type':'application/json'},body:JSON.stringify({id:captured.id,expectedRevision:1,actor:'synthetic-maintainer',reason:'Protocol fixture approval'})}); assert.equal(published.status,200);
   const found = await mcp.callTool({name:'experience_search',arguments:{pages:['home']}}); assert.equal(JSON.parse(found.content[0].text).cases.length,1);
   assert.equal((await client.search({pages:['home']})).cases.length,1);
+});
+
+test('stdio proxy connects to the central HTTP service and creates no independent shared store',async t => {
+  const {service} = await fixture(t);
+  const client = new Client({name:'stdio-proxy-fixture',version:'1'});
+  const transport = new StdioClientTransport({command:process.execPath,args:[path.resolve('bin/experience-mcp.mjs')],env:{...process.env,DA_EXPERIENCE_URL:service.url,DA_EXPERIENCE_TOKEN:writer}});
+  await client.connect(transport); t.after(()=>client.close());
+  const captured = await client.callTool({name:'experience_capture',arguments:{case:sample()}}); assert(!captured.isError);
+  assert.equal((await service.store.read()).cases.length,1);
+  assert.deepEqual((await client.listTools()).tools.map(tool=>tool.name),['experience_search','experience_capture']);
 });

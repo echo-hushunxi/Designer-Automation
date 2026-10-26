@@ -2,7 +2,7 @@
 
 独立工程0.2起，站点审核、修复与设计师反馈先读 core/maintenance.md，使用 bin/workbench.mjs；现有生成仍使用下面的 core/start.md、core/workflow.md 与 bin/da.mjs，禁止把维护流程的人工收尾方式替换到既有生成门禁。设计师给 Git 地址时，先 checkout 一次再检查源码、生成任务配置；Agent负责配置和证据，不要求设计师手填JSON。没有明确要求不提交、推送或部署。
 
-共享经验接入见docs/designer-quickstart.md。项目配置designer_experience后，任务开始使用experience_search读取适用经验，真实反馈使用experience_capture存为候选。workbench也读取connect生成的私有连接文件。连接文件和令牌不得提交或打进manifest；配置成功不等于已连接，真实连接只通过工具发现/读取确认，不自动触发站点测试。
+共享经验接入见docs/designer-quickstart.md，默认npm run connect连接固定内网服务；中央存储使用MongoDB，备份恢复见docs/experience-operations.md，不启动个人JSON共享服务。项目配置designer_experience后，任务开始使用experience_search读取适用经验，真实反馈使用experience_capture存为候选。workbench也读取connect生成的私有连接文件。连接文件和令牌不得提交或打进manifest；配置成功不等于已连接，真实连接只通过工具发现/读取确认，不自动触发站点测试。
 
 本独立仓库的 knowledge/imported 保留2026-10-26.1规则快照。现有生成工程不受本仓库修改影响。维护程序与新经验以本独立仓库及配置的共享服务为源；不要运行原Harness导出覆盖独立工程。现有规则的正式升级须另发明确版本，修改所属条款并更新索引、manifest和兼容基线，不在个人经验中静默覆盖。经验服务不可达时保留本地记录及待同步队列，不能因此丢弃设计师反馈。
 
@@ -17,7 +17,7 @@
 
 维护共享规则：knowledge/imported 是由上游导出的只读快照，编辑原规范后重新导出。新增页面规则写 knowledge/pages 并注册 knowledge/index.json；状态、适用范围、来源、版本与证据必填。具体方法见 core/knowledge.md。
 
-程序使用 Node 22+、内置模块，无安装依赖；Python 仅确有需要时使用 uv。未经要求不提交/推送或复制凭据。工具能力要实测，配置存在不等于已连接。
+程序使用 Node 22.19+，先npm ci安装锁定依赖；Python 仅确有需要时使用 uv。未经要求不提交/推送或复制凭据。工具能力要实测，配置存在不等于已连接。
 
 
 首页生成与审核读取[四张参考处理方法](knowledge/imported/skills/site-design/references/home-card-reference-methods.md)。用户已确认学习分组、容量、重点与跨端重组，按本站用途原创设计；摘要可按固定文字区域省略，全文详情保留，商家Logo实际展示区至少70×70。该确认覆盖旧依赖中摘要必须全文自然撑高及较小Logo建议，不改写旧冻结包。

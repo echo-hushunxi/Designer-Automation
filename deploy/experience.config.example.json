@@ -1,0 +1,16 @@
+{
+  "host": "0.0.0.0",
+  "port": 4381,
+  "allowAnonymous": true,
+  "allowedOrigins": [],
+  "maintainerToken": "GENERATE_A_PRIVATE_RANDOM_TOKEN",
+  "mongo": {
+    "uri": "mongodb://DEDICATED_USER:PRIVATE_PASSWORD@EXISTING_REPLICA_HOSTS/designer_automation?replicaSet=rs0&authSource=designer_automation",
+    "database": "designer_automation",
+    "collection": "cases"
+  },
+  "backup": {
+    "directory": "/data/backups/designer-automation",
+    "retentionDays": 30
+  }
+}

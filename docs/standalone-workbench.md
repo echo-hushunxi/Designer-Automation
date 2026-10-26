@@ -33,15 +33,13 @@ lesson包含actor、summary、cause、prevention、classification（general/site
 
 ## 共享HTTP与MCP
 
-服务器运行`npm run knowledge`。默认127.0.0.1:4381，持久数据默认在.designer-data/shared-experience。设置DA_EXPERIENCE_DATA到持久卷可独立于工作目录保留；服务也可以和已有网站在同一台机器运行，无需重启原网站。
+中央服务固定为http://172.18.188.6:4381/mcp。设计师npm run connect即可生成连接配置，内网查询/记录免Token。服务端只使用MongoDB副本集的独立designer_automation库，不再以JSON文件作为中央持久化；客户端的本地反馈、缓存和outbox继续保留。
 
-当前内网免授权部署使用npm run knowledge:service -- install --auth none；普通Agent只需npm run connect -- --url http(s)://实际主机:端口，无需Token。直接运行时可设置DA_EXPERIENCE_HOST=0.0.0.0、DA_EXPERIENCE_ALLOW_ANONYMOUS=true。免授权仅接受实际内网来源，不能伪造请求头绕过。
+普通Agent可用experience_search和experience_capture；维护者凭据另提供experience_publish。HTTP接口为GET /health、GET /v1/lessons、POST /v1/cases、维护者POST /v1/publish及GET /v1/admin/snapshot。数据库不可用时/health返回503；启动失败不会回退到文件库。默认拒绝未允许的浏览器Origin，并按TCP来源限制匿名内网访问。
 
-普通Agent的MCP连接地址为http(s)://实际主机:端口/mcp，认证选无；使用官方SDK的Streamable HTTP，只暴露experience_search与experience_capture。维护者token额外提供experience_publish。对不支持远端MCP的Agent，workbench使用同一服务的HTTP接口。原Bearer模式保留：不启用allowAnonymous时，外部监听必须配置至少24字符的DA_EXPERIENCE_TOKEN；客户端通过--token-file配置。维护者仍使用单独DA_EXPERIENCE_MAINTAINER_TOKEN，密钥不进仓库。
+不支持远端HTTP MCP的Agent，可运行node bin/experience-mcp.mjs作为stdio代理；它读取connect生成的客户端配置，连接同一中央HTTP服务，不能另建本机共享库。跨团队隔离应使用独立数据库/凭据或由网关负责，actor字段不是身份认证。
 
-HTTP：GET /health、GET /v1/lessons?pages=home,store-detail&site=仓库标识、POST /v1/cases；维护者POST /v1/publish。发布字段为id、expectedRevision、actor、reason。服务不会执行经验文本中的命令。无跨站权限系统；团队隔离应部署独立存储/凭据或交给宿主网关。默认拒绝未允许的浏览器Origin。
-
-本地进程型MCP可启动`node bin/experience-mcp.mjs`，将DA_EXPERIENCE_DATA指向同一台机器的共享存储。跨机器应连接HTTP服务，不能各自使用本地路径后声称已共享。
+管理员部署、每6小时备份、30天保留、新集合恢复与回滚见[共享经验服务运维](experience-operations.md)。数据只含正文、状态与证据引用，不实现附件存储。直接运行npm run knowledge时必须显式配置DA_EXPERIENCE_MONGO_URI与DA_EXPERIENCE_DATABASE；外部绑定还需DA_EXPERIENCE_ALLOW_ANONYMOUS=true或原Bearer令牌。设计师不需要这些服务端变量。
 
 本版本固定当前任务的规则与经验；新发布的active经验在后续任务选择。修改正式规则时更新对应源、索引和版本，执行npm run manifest；维护者需确认并更新兼容基线，才可有意升级原规则合同。外部原Harness的生成升级另行进行，不由经验发布触发。
 
@@ -49,4 +47,4 @@ HTTP：GET /health、GET /v1/lessons?pages=home,store-detail&site=仓库标识�
 
 新增测试覆盖Git隔离、陈旧候选/越界修改、浏览器发现及修复布局错误、同次访问支持多项检查、增量复用与共享样式扩验、稳定预览切换、设计师反馈、HTTP/MCP及离线队列。测试中的视觉观察/人工认可为明确标注的合成协议夹具，不能作为真实站点验收或用户认可。默认npm test中的浏览器用例在缺浏览器路径时skip；正式验证必须明确确认没有跳过。
 
-截至本轮用户要求“先不测试”：之前执行的新增6项测试通过；此后新增checkout复用、对话自动入库及文档等变更未继续测试。尚未接真实业务站点，也未部署到用户IP。后续验证按用户授权恢复。
+本轮仅验证经验服务、MongoDB并发/持久化及备份恢复。合成案例全部放在隔离测试集合，未执行站点或浏览器测试，也不代表站点验收。

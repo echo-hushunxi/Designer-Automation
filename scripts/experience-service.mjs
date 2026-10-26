@@ -19,6 +19,8 @@ const addresses = () => Object.values(os.networkInterfaces()).flat().filter(i=>i
 if (action === 'install') {
   await fs.mkdir(directory,{recursive:true,mode:0o700}); await fs.chmod(directory,0o700);
   const config = await exists(configFile) ? await readJSON(configFile) : {directory:path.join(directory,'store'),host:'0.0.0.0',port:4381,token:randomBytes(32).toString('hex'),maintainerToken:randomBytes(32).toString('hex'),allowedOrigins:[]};
+  if (!config.mongo) config.mongo = {uri:process.env.DA_EXPERIENCE_MONGO_URI,database:process.env.DA_EXPERIENCE_DATABASE,collection:process.env.DA_EXPERIENCE_COLLECTION || 'cases'};
+  if (!config.mongo.uri || !config.mongo.database) throw Error('The shared server now requires MongoDB. Use the fixed LAN service; legacy JSON is not a server backend.');
   if (options.auth) config.allowAnonymous = options.auth === 'none';
   await writeJSON(configFile,config); await fs.chmod(configFile,0o600);
   const tokenFile = path.join(directory,'designer-token.txt'); await fs.writeFile(tokenFile,config.token+'\n',{mode:0o600}); await fs.chmod(tokenFile,0o600);
@@ -36,7 +38,7 @@ if (action === 'install') {
   if (registered) await command(['launchctl','bootout',serviceId],root);
   await command(['launchctl','enable',serviceId],root);
   await command(['launchctl','bootstrap',domain,plistFile],root);
-  console.log(JSON.stringify({installed:true,label,endpoints:addresses(),authentication:config.allowAnonymous?'internal-anonymous':'bearer',tokenFile:config.allowAnonymous?null:tokenFile,configFile,storage:config.directory,notice:config.allowAnonymous?'Internal clients can search and capture without tokens. Publishing remains a maintainer operation.':'Writer token is separate from the maintainer credential. No credentials are printed.'},null,2));
+  console.log(JSON.stringify({installed:true,label,endpoints:addresses(),authentication:config.allowAnonymous?'internal-anonymous':'bearer',tokenFile:config.allowAnonymous?null:tokenFile,configFile,storage:{backend:'mongodb',database:config.mongo.database},notice:config.allowAnonymous?'Internal clients can search and capture without tokens. Publishing remains a maintainer operation.':'Writer token is separate from the maintainer credential. No credentials are printed.'},null,2));
 } else if (action === 'status') {
   const result = await command(['launchctl','print',serviceId],root);
   const config = await readJSON(configFile);

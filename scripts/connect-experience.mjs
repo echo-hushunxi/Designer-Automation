@@ -8,7 +8,8 @@ for (let i=2;i<process.argv.length;i+=2) {
   if (!process.argv[i].startsWith('--') || !process.argv[i+1]) throw Error('Use --url URL [--token-file PATH] [--client codex|generic]');
   options[process.argv[i].slice(2)] = process.argv[i+1];
 }
-const url = (options.url || process.env.DA_EXPERIENCE_URL || '').replace(/\/mcp\/?$/,'').replace(/\/$/,'');
+const shared = await readJSON(path.join(root,'config/experience-service.json'));
+const url = (options.url || process.env.DA_EXPERIENCE_URL || shared.url).replace(/\/mcp\/?$/,'').replace(/\/$/,'');
 if (options.auth && !['none','token'].includes(options.auth)) throw Error('Auth must be none or token');
 const token = options['token-file'] ? (await fs.readFile(path.resolve(options['token-file']),'utf8')).trim() : options.auth === 'token' ? process.env.DA_EXPERIENCE_TOKEN : null;
 if ((options['token-file'] || options.auth === 'token') && (!token || token.length < 24)) throw Error('Supply the shared writer token through --token-file or DA_EXPERIENCE_TOKEN');
