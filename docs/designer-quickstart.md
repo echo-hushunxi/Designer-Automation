@@ -3,15 +3,26 @@
 需要Node22.19+、Git及仓库访问权限。首次克隆后安装依赖、连接一次：
 
 ```sh
-git clone git@github.com:echo-hushunxi/Designer-Automation.git
+git clone https://github.com/p2100/Designer-Automation-Workbench.git Designer-Automation
 cd Designer-Automation
 npm ci
 npm run connect
 ```
 
-项目维护组织为 p2100；GitHub 归属转移当前受平台后台操作阻挡，完成前使用以上地址，状态见 [README](../README.md)。
+正式交付仓库为 p2100/Designer-Automation-Workbench，保留完整 Git 历史。项目目录继续叫 Designer-Automation；仓库名带 Workbench 是为了避开 GitHub 同名地址与旧转移操作的阻挡。旧个人地址不再作为新设计师的交付入口。
 
-已拉取项目的设计师执行git pull、npm ci、npm run connect，再重启Agent的designer_experience连接。此次会把旧远程URL配置自动换成本地stdio MCP入口；普通内网使用不需要Token。Codex须在受信任项目中加载项目配置，参见[OpenAI Docs的MCP配置说明](https://learn.chatgpt.com/docs/extend/mcp?surface=cli)；首次打开项目时按Agent正常流程启用项目信任。
+已有克隆先执行 `git remote set-url origin https://github.com/p2100/Designer-Automation-Workbench.git`，再执行 `git pull --ff-only`、`npm ci`、`npm run connect`，最后重启Agent的designer_experience连接。此次会把旧远程URL配置自动换成本地stdio MCP入口；普通内网使用不需要Token。Codex须在受信任项目中加载项目配置，参见[OpenAI Docs的MCP配置说明](https://learn.chatgpt.com/docs/extend/mcp?surface=cli)；首次打开项目时按Agent正常流程启用项目信任。
+
+## 交给设计师的最短流程
+
+1. 把 [README 的整段接入指令](../README.md#直接交给设计师-agent-的指令) 发给 Agent，由它拉取、安装并生成本机 MCP 配置。
+2. Codex 加载项目配置；其他 Agent 导入生成的 `.designer-data/mcp.json` 中 `designer_experience` 一项。重启或重新加载 MCP 连接一次。
+3. Agent 实际列出 `experience_search`、`experience_capture`、`experience_manage`、`experience_status`，并做只读查询，报告连接状态；工具可见不等于中央服务可达。
+4. 提供要审核的站点 Git 地址和分支，之后只需“审核—调整—查看—继续调整／确认”。
+
+共享经验 MCP 的内网调用免 Token。Git 仓库读取权限、Agent 的项目信任和 MCP 启用属于宿主正常接入过程，不由该免 Token 设置替代。设计师无需 MongoDB 账号，也不需要部署共享服务。
+
+本仓库内置 Coupon 规则；App/Games 专项规则仍独立，不能把 Coupon 验收结果当作 App/Games 已通过。只有预览地址时可审核，自动修改还需要对应源码。
 
 ## Agent怎样连接
 

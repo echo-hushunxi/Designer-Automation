@@ -4,16 +4,16 @@
 
 **审核 → 调整 → 设计师查看 → 有问题继续调整，确认后沉淀可复用经验。**
 
-当前运行版本 **0.4.0**；原生成规则快照固定为 **2026-10-26.1**。当前可用仓库：[echo-hushunxi/Designer-Automation](https://github.com/echo-hushunxi/Designer-Automation)。
+当前运行版本 **0.4.0**；原生成规则快照固定为 **2026-10-26.1**。正式交付仓库：[p2100/Designer-Automation-Workbench](https://github.com/p2100/Designer-Automation-Workbench)。
 
-GitHub 归属计划转至 `p2100/Designer-Automation`。截至 2026-10-26，GitHub 转移接口提示“上一个仓库操作仍在进行”，实际归属尚未变化；以下克隆地址保持可用，转移完成后再统一更新。
+正式交付入口已迁入 p2100 组织。GitHub 阻止旧仓库直接转移，且 `p2100/Designer-Automation` 同名地址被占用但不可访问，因此采用 `Designer-Automation-Workbench` 仓库名，保留原项目名称与完整 Git 历史。旧个人仓库仅保留历史入口；后续更新以本组织仓库为准。
 
 ## 设计师开始使用
 
 需要 Node.js **22.19+**、Git，以及能访问共享服务所在的内网。实际审核还需要宿主 Agent 可用的浏览器；项目不附带浏览器二进制。
 
 ```sh
-git clone git@github.com:echo-hushunxi/Designer-Automation.git
+git clone https://github.com/p2100/Designer-Automation-Workbench.git Designer-Automation
 cd Designer-Automation
 npm ci
 npm run connect
@@ -29,15 +29,24 @@ npm run connect
 
 ### 已有克隆更新
 
-已有克隆执行：
+已有克隆先将远端切到组织仓库，再更新：
 
 ```sh
+git remote set-url origin https://github.com/p2100/Designer-Automation-Workbench.git
 git pull --ff-only
 npm ci
 npm run connect
 ```
 
-再重启 MCP 连接。仓库实际转移完成后，再将 `origin` 更新为 `git@github.com:p2100/Designer-Automation.git`。日常反馈与经验同步不需要 Git 提交、手动 sync 或维护者发布。
+再重启 MCP 连接。日常反馈与经验同步不需要 Git 提交、手动 sync 或维护者发布。
+
+## 直接交给设计师 Agent 的指令
+
+设计师把下面这一段发给自己的 Agent 即可，首次接入由 Agent 执行安装和配置：
+
+> 请将 https://github.com/p2100/Designer-Automation-Workbench.git 克隆到 Designer-Automation 目录，按 README 和 docs/designer-quickstart.md 安装 Node 22.19+ 所需依赖，运行 npm run connect，为当前 Agent 配置 designer_experience MCP。先列出四个经验工具并做只读连接检查；需要重启连接时明确告诉我。接入完成后等待我提供站点 Git 地址。收到站点后先读 AGENTS.md、core/maintenance.md 和 core/experience.md，沿用同一工作区审核、调整、增量复验，并给我预览。我提出问题就继续调整；我明确确认当前候选没问题后，自动筛选、归并并共享已验证的可复用经验。不要替我编造认可，不要把临时文案或原因不明的问题强行变成规则，不让我手动 sync 或发布经验。
+
+当前内置的正式站点规则面向 **Coupon**。App-Automation、Game-Automation 继续独立维护，尚未并入本仓库；接入共享经验 MCP 不代表已加载 App/Games 专项规则。
 
 ## 三个模块的边界
 
