@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
+import {setTimeout as delay} from 'node:timers/promises';
 import {root,readJSON,command} from '../lib/io.mjs';
 
 if (process.platform !== 'linux') throw Error('This installer requires Linux with the existing PM2 service and user crontab');
@@ -12,7 +13,33 @@ if (((await fs.stat(file)).mode & 0o077) !== 0) throw Error('Private server conf
 await fs.mkdir(config.backup.directory,{recursive:true,mode:0o700});
 const log = path.join(path.dirname(config.backup.directory),'backup.log');
 const pm2 = path.join(path.dirname(process.execPath),'pm2');
-await command([process.execPath,pm2,'startOrReload',path.join(root,'deploy/ecosystem.config.cjs'),'--only','designer-automation-experience','--update-env'],root,{env:{DA_EXPERIENCE_CONFIG:file}});
+const processName = 'designer-automation-experience';
+const listed = JSON.parse((await command([process.execPath,pm2,'jlist'],root,{maxBytes:10000000})).output);
+const previous = listed.find(app=>app.name === processName);
+const replacing = previous && previous.pm2_env.pm_exec_path !== path.join(root,'bin/experience-managed.mjs');
+if (replacing) await command([process.execPath,pm2,'delete',processName],root);
+try {
+  await command([process.execPath,pm2,'startOrReload',path.join(root,'deploy/ecosystem.config.cjs'),'--only',processName,'--update-env'],root,{env:{DA_EXPERIENCE_CONFIG:file}});
+  const expected = (await readJSON(path.join(root,'package.json'))).version;
+  let healthy = false;
+  for (let attempt=0;attempt<20;attempt++) {
+    try {
+      const response = await fetch('http://127.0.0.1:'+config.port+'/health',{headers:{authorization:'Bearer '+config.maintainerToken},signal:AbortSignal.timeout(1000)});
+      const status = await response.json();
+      if (response.ok && status.status === 'ok' && status.version === expected) { healthy = true; break; }
+    } catch { /* The owned process may still be starting. */ }
+    await delay(250);
+  }
+  if (!healthy) throw Error('The running experience service did not match the expected healthy release');
+} catch (error) {
+  if (replacing) {
+    await command([process.execPath,pm2,'delete',processName],root).catch(()=>{});
+    const prior = previous.pm2_env;
+    await command([process.execPath,pm2,'start',prior.pm_exec_path,'--name',processName,'--cwd',prior.pm_cwd,'--interpreter',prior.exec_interpreter,'--',...(Array.isArray(prior.args) ? prior.args : [prior.args])],root);
+    await command([process.execPath,pm2,'save'],root);
+  }
+  throw error;
+}
 // PM2 startup is already installed on the chosen host. Preserve its other apps.
 await command([process.execPath,pm2,'save'],root);
 const old = spawnSync('crontab',['-l'],{encoding:'utf8'});

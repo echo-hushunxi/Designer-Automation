@@ -24,7 +24,7 @@ npm ci --omit=dev --ignore-scripts
 node scripts/install-experience-linux.mjs /home/liusili/.config/designer-automation/service.json
 ```
 
-固定主机已有PM2系统启动服务；安装程序仅追加本进程、保存PM2清单及安装用户备份定时项，不修改其他服务。运行install脚本的Node路径同时用于PM2解释器和定时备份，避免依赖交互shell的nvm。
+固定主机已有PM2系统启动服务；安装程序仅管理本进程：版本目录变化时替换该进程的旧启动路径，检查health的运行版本后保存PM2清单并安装用户备份定时项；新版本启动校验不通过时恢复旧启动路径。不重启其他服务。运行install脚本的Node路径同时用于PM2解释器和定时备份，避免依赖交互shell的nvm。
 
 ## 备份与检查
 

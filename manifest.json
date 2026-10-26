@@ -143,7 +143,7 @@
     },
     {
       "path": "docs/experience-operations.md",
-      "sha256": "262761e7f52a5c3ff5d5304956b8216aed2723658305fa17ba51bd75a504af87"
+      "sha256": "f565bc58504402b7fedf80efe1430e899b7a5f3688b9aba19cfdcfbf3df59c30"
     },
     {
       "path": "docs/page-coverage.md",
@@ -523,7 +523,7 @@
     },
     {
       "path": "lib/experience-server.mjs",
-      "sha256": "1e6cd93dc8fcadde87108e4314651ed23dd85d7eae56f6451ac9492cf5d851c3"
+      "sha256": "1f98959af67684902d291c4b740bf360cebe29c76b98ac584eea14d57e3e6561"
     },
     {
       "path": "lib/experience.mjs",
@@ -567,7 +567,7 @@
     },
     {
       "path": "scripts/install-experience-linux.mjs",
-      "sha256": "7c749727e8701c59c08293f1aa12d89e0a901f797321abfde80f88452e6423fd"
+      "sha256": "b1c32c5d37445d9636f75c65574b4bb915900459fca230ce7485cff746beeefb"
     },
     {
       "path": "scripts/manifest.mjs",
